@@ -14,12 +14,12 @@
   const list = document.getElementById('plList');
   if (video && list) {
     list.innerHTML = EDITS.map((e, i) => `<li><button type="button" data-i="${i}" aria-current="${i === 0}">
-      <span class="th"><img src="img/deluccky/${e.id}.jpg" alt="" loading="lazy" width="320" height="180"><time>${e.time}</time></span>
+      <span class="th"><img src="img/deluccky/${e.id}.webp" alt="" loading="lazy" width="320" height="180"><time>${e.time}</time></span>
       <span><b>${e.name}</b><small>${e.note}</small></span></button></li>`).join('');
     const btns = [...list.querySelectorAll('button')];
     const load = (i, play) => {
       const e = EDITS[i];
-      video.poster = `img/deluccky/${e.id}.jpg`;
+      video.poster = `img/deluccky/${e.id}.webp`;
       video.src = `img/deluccky/${e.id}.mp4`;
       video.setAttribute('aria-label', `Edit ${e.name}`);
       btns.forEach((b, j) => b.setAttribute('aria-current', i === j));
@@ -39,7 +39,7 @@
   /* ---------- slide decks ---------- */
   document.querySelectorAll('.dl-deck').forEach(deck => {
     const pre = deck.dataset.deck, n = +deck.dataset.count;
-    const src = i => `img/deluccky/${pre}-${pre === 'id' ? pad(i + 1) : i + 1}.jpg`;
+    const src = i => `img/deluccky/${pre}-${pre === 'id' ? pad(i + 1) : i + 1}.webp`;
     deck.innerHTML = `
       <div class="stage" tabindex="0" role="region" aria-roledescription="apresentação" aria-label="${deck.getAttribute('aria-label')}">
         <div class="track">${Array.from({ length: n }, (_, i) => `<img src="${src(i)}" alt="Página ${i + 1} de ${n}" ${i > 1 ? 'loading="lazy"' : ''} width="1600" height="900" draggable="false">`).join('')}</div>

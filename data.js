@@ -37,7 +37,7 @@ window.SITE = {
   },
 
   // apps e sistemas da Blocko: cada um abre app.html?a=<id>, com as telas em img/apps/<id>/
-  // m-*.jpg = telas do celular, d-*.jpg = telas do sistema web; carousel = posts de lançamento
+  // m-*.webp = telas do celular, d-*.webp = telas do sistema web; carousel = posts de lançamento
   apps: {
     petid: {
       name: 'Pet ID', eyebrow: 'Case · App e painel web',

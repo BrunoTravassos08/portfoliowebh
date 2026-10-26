@@ -130,7 +130,7 @@
   tabs.innerHTML = PAGES.map((p, i) => `<button type="button" role="tab"><span>${pad(i + 1)}</span>${p.name}</button>`).join('');
   const tabBtns = [...tabs.children];
   const screen = () => vStage.querySelector(dev === 'd' ? '.browser .screen' : '.phone .screen');
-  const src = (p, d) => `img/blocko/${p.id}-${d}.jpg`;
+  const src = (p, d) => `img/blocko/${p.id}-${d}.webp`;
 
   function show(i, d = dev) {
     page = (i + PAGES.length) % PAGES.length; dev = d;

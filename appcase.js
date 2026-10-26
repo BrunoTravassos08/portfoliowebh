@@ -14,7 +14,7 @@
   root.setProperty('--ap-bg', A.bg); root.setProperty('--ap-accent', A.accent); root.setProperty('--ap-status', A.status || '#fff');
   $('apEyebrow').textContent = A.eyebrow;
   $('apName').textContent = A.name;
-  $('apIcon').src = dir + 'icon.jpg';
+  $('apIcon').src = dir + 'icon.webp';
   $('apWho').textContent = A.who;
   $('apLede').innerHTML = A.lede;
   $('apFacts').innerHTML = A.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
@@ -25,7 +25,7 @@
     $('celular').hidden = false; parts.push(['celular', 'Celular']);
     const rail = $('apPhones');
     rail.innerHTML = A.phone.map(([f, t, d, kind], i) => {
-      const src = dir + (f.startsWith('s-') ? f : 'm-' + f) + '.jpg';
+      const src = dir + (f.startsWith('s-') ? f : 'm-' + f) + '.webp';
       return `<figure class="ap-ph${kind === 'story' ? ' story' : ''}">
         <div class="phone"><div class="screen" tabindex="0" aria-label="${esc(t)}, role para ver"><img src="${src}" alt="Tela ${esc(t)} do ${esc(A.name)}" ${i > 2 ? 'loading="lazy"' : ''} draggable="false"></div><span class="island"></span></div>
         <figcaption><b>${pad(i + 1)}</b> ${esc(t)}<span>${esc(d)}</span></figcaption></figure>`;
@@ -73,7 +73,7 @@
       img.classList.add('out');
       const next = new Image();
       next.onload = () => { img.src = next.src; img.alt = `Tela ${t} do ${A.name}`; screen.scrollTop = 0; img.classList.remove('out'); };
-      next.src = dir + 'd-' + f + '.jpg';
+      next.src = dir + 'd-' + f + '.webp';
     };
     tabs.addEventListener('click', e => { const b = e.target.closest('button'); if (b) show(+b.dataset.i); });
     tabs.addEventListener('keydown', e => {
@@ -90,7 +90,7 @@
   }
 
   /* ---------- brand ---------- */
-  if (A.brand) { $('marca').hidden = false; parts.push(['marca', 'Marca']); $('apBrand').src = dir + A.brand + '.jpg'; $('apBrand').alt = `Identidade visual ${A.name}`; }
+  if (A.brand) { $('marca').hidden = false; parts.push(['marca', 'Marca']); $('apBrand').src = dir + A.brand + '.webp'; $('apBrand').alt = `Identidade visual ${A.name}`; }
 
   /* ---------- launch carousel (rendered by app.js) ---------- */
   if (A.carousel && (S.carousels || {})[A.carousel]) { $('lancamento').hidden = false; parts.push(['lancamento', 'Lançamento']); $('apCarousel').dataset.carousel = A.carousel; }

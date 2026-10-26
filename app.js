@@ -4,10 +4,16 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const icon = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="${d}"/></svg>`;
   const ARROW_L = 'M15 5l-7 7 7 7', ARROW_R = 'M9 5l7 7-7 7', OUT = 'M5 19 19 5M9 5h10v10';
-  // a slide is an image name (img/<name>.jpg) or a video file (img/<name>.mp4, poster img/<name>.jpg)
+  // a slide is an image name (img/<name>.webp) or a video file (img/<name>.mp4, poster img/<name>.webp)
   const media = (s, alt, lazy) => s.endsWith('.mp4')
-    ? `<video src="img/${s}" poster="img/${s.replace(/\.mp4$/, '.jpg')}" muted loop playsinline autoplay preload="metadata" aria-label="${alt}" width="1080" height="1350"></video>`
-    : `<img src="img/${s}.jpg" alt="${alt}"${lazy ? ' loading="lazy"' : ''} width="1080" height="1350" draggable="false">`;
+    ? `<video src="img/${s}" poster="img/${s.replace(/\.mp4$/, '.webp')}" muted loop playsinline data-auto preload="none" aria-label="${alt}" width="1080" height="1350"></video>`
+    : `<img src="img/${s}.webp" alt="${alt}"${lazy ? ' loading="lazy"' : ''} decoding="async" width="1080" height="1350" draggable="false">`;
+  // looping videos only download and play while on screen
+  const vio = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause();
+  }), { rootMargin: '200px' }) : null;
+  const watch = root => root.querySelectorAll('video[data-auto]').forEach(v => vio ? vio.observe(v) : (v.autoplay = true));
 
   /* ---------- split headline letters ---------- */
   document.querySelectorAll('[data-split]').forEach(h => {
@@ -68,6 +74,7 @@
         </div>
       </div>`;
     const rail = host.querySelector('.rail');
+    watch(host);
     const dots = [...host.querySelectorAll('.dots i')];
     const step = () => rail.querySelector('.slide').getBoundingClientRect().width + 16;
     const sync = () => {
@@ -119,8 +126,8 @@
       grid.innerHTML = list.length ? list.map(p => `
         <${p.page ? `a href="${p.page}"` : 'button type="button"'} class="card" data-id="${p.id}" data-cursor aria-label="${p.page ? 'Abrir o case' : 'Ver'} ${esc(p.name)}">
           <span class="pic">
-            ${p.photo ? `<img class="face${p.photoLogo ? ' logo' : ''}" src="img/${p.photo}.jpg" alt="" loading="lazy">` : ''}
-            <img src="img/${p.slides[0]}.jpg" alt="" loading="lazy" width="1080" height="1350">
+            ${p.photo ? `<img class="face${p.photoLogo ? ' logo' : ''}" src="img/${p.photo}.webp" alt="" loading="lazy">` : ''}
+            <img src="img/${p.slides[0]}.webp" alt="" loading="lazy" width="1080" height="1350">
             <span class="n">${p.page ? 'case completo' : p.slides.length + ' slides'}</span>
             ${p.photo ? `<span class="peek">${p.page ? 'abrir case' : 'ver capa'}</span>` : ''}
           </span>
@@ -165,8 +172,9 @@
   function openLb(c, i) {
     lbN = c.slides.length;
     lbCap.innerHTML = `<b>${esc(c.name)}</b><span>${esc(c.role)} · ${esc(c.category)}</span>`;
-    lbRail.innerHTML = c.slides.map((s, k) => `<figure>${media(s, `${esc(c.name)}, slide ${k + 1}`)}</figure>`).join('');
+    lbRail.innerHTML = c.slides.map((s, k) => `<figure>${media(s, `${esc(c.name)}, slide ${k + 1}`, Math.abs(k - i) > 1)}</figure>`).join('');
     lb.showModal();
+    watch(lbRail);
     lbRail.scrollLeft = i * lbRail.clientWidth;
     lbSync();
   }
@@ -181,6 +189,9 @@
     lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') lbGo(1); if (e.key === 'ArrowLeft') lbGo(-1); });
     lb.addEventListener('click', e => { if (e.target.tagName === 'FIGURE') lb.close(); });
   }
+
+  watch(document);
+  lb && lb.addEventListener('close', () => { lbRail.querySelectorAll('video').forEach(v => { vio && vio.unobserve(v); v.pause(); }); lbRail.innerHTML = ''; });
 
   /* ---------- tone switching (light / graphite slides) ---------- */
   const toned = [...document.querySelectorAll('[data-tone]')];
@@ -226,7 +237,7 @@
   const canvas = document.getElementById('stage');
   let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (e) { return; }
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
@@ -257,10 +268,10 @@
     }
   }
   const spring = new THREE.Group();
-  spring.add(new THREE.Mesh(new THREE.TubeGeometry(new Helix(), 700, .3, 40, false), mat));
+  spring.add(new THREE.Mesh(new THREE.TubeGeometry(new Helix(), 480, .3, 28, false), mat));
   const cap = new THREE.SphereGeometry(.3, 32, 16), hx = new Helix();
   [0, 1].forEach(t => { const m = new THREE.Mesh(cap, mat); m.position.copy(hx.getPoint(t)); spring.add(m); });
-  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.35, .44, 360, 56, 2, 3), mat);
+  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.35, .44, 256, 40, 2, 3), mat);
   sc.add(spring, knot);
 
   // positions per section, in "desktop" units (half width ≈ 6.7): [x, y, scale]
