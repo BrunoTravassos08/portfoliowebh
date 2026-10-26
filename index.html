@@ -1,0 +1,105 @@
+<title>Bruno Travassos Portfólio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="cursor" aria-hidden="true"><span>arraste</span></div>
+<header class="top wrap">
+  <div class="bar">
+    <a href="index.html">Bruno <b>Travassos</b></a>
+    <nav aria-label="Páginas">
+      <a href="index.html" aria-current="page">Início</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="sobre.html#contato">Contato</a>
+    </nav>
+    <span class="mid-text">Designer gráfico</span>
+  </div>
+</header>
+<main>
+  <section class="hero wrap" id="topo" data-tone="light" data-scene="hero">
+    <div class="hero-inner">
+      <h1 data-split>Portfólio</h1>
+      <p class="who">Bruno Travassos</p>
+      <div class="row">
+        <span class="chip">Designer &amp; Webdesigner</span>
+        <a class="swipe" href="#projetos"><b>arraste</b> e confira</a>
+      </div>
+      <p class="lede">Feeds, identidades visuais e sites para marcas que querem ser <strong>lembradas pelo que mostram</strong>. Cada post pensado como peça de uma vitrine maior.</p>
+    </div>
+  </section>
+
+  <div class="marquee" data-tone="dark" aria-hidden="true">
+    <div class="track">
+      <span>Design para social media</span><span>Identidade visual</span><span>Webdesign</span><span>Direção de arte</span>
+      <span>Design para social media</span><span>Identidade visual</span><span>Webdesign</span><span>Direção de arte</span>
+    </div>
+  </div>
+
+  <section class="wrap" id="projetos" data-tone="dark" data-scene="work">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Projetos em destaque</p>
+        <h2>Portfólio <em>em movimento</em></h2>
+      </div>
+      <p class="hint">Arraste os carrosséis ou toque para ampliar</p>
+    </div>
+    <div id="featured"></div>
+    <div class="more">
+      <p><span class="count" id="total"></span> projetos no portfólio completo</p>
+      <a class="btn solid magnet" href="projetos.html">Ver todos os projetos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10"/></svg></a>
+    </div>
+  </section>
+
+  <section class="wrap" id="servicos" data-tone="light" data-scene="services">
+    <div class="head"><div><p class="eyebrow">Serviços</p><h2>O que eu <em>faço</em></h2></div></div>
+    <ul class="services">
+      <li class="svc"><h3>Design para social media</h3><p>Feeds com linha visual própria, do planejamento da grade ao último story.<span>Posts · Carrosséis · Capas de reels · Destaques</span></p></li>
+      <li class="svc"><h3>Identidade visual</h3><p>Marcas consistentes em qualquer tela ou papel, com regras claras de uso.<span>Logotipo · Paleta · Tipografia · Manual de marca</span></p></li>
+      <li class="svc"><h3>Webdesign</h3><p>Sites rápidos e bonitos que continuam a conversa que começou no Instagram.<span>Sites institucionais · Landing pages · Portfólios</span></p></li>
+      <li class="svc"><h3>Direção de arte</h3><p>Conceito, referências e curadoria de imagens antes de qualquer peça sair.<span>Moodboard · Ensaios · Curadoria de fotos</span></p></li>
+    </ul>
+  </section>
+
+  <section class="wrap" data-tone="light" data-scene="services" aria-labelledby="proc">
+    <div class="head"><div><p class="eyebrow">Como trabalhamos</p><h2 id="proc">Do briefing <em>ao feed</em></h2></div></div>
+    <div class="steps">
+      <div class="step"><b>01</b><h4>Briefing</h4><p>Conversa sobre o negócio, o público e onde a marca quer chegar.</p></div>
+      <div class="step"><b>02</b><h4>Direção visual</h4><p>Moodboard, paleta e tipografia apresentados para aprovação.</p></div>
+      <div class="step"><b>03</b><h4>Produção</h4><p>As peças ganham forma, com rodadas de ajuste junto com você.</p></div>
+      <div class="step"><b>04</b><h4>Entrega</h4><p>Arquivos finais organizados e um guia simples para manter o padrão.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap cta" id="contato" data-tone="light" data-scene="cta">
+    <h2>O próximo projeto pode ser o seu!</h2>
+    <p class="sub">Entre em contato pelo <b>canal que preferir</b>.</p>
+    <div class="btns">
+      <a class="btn solid magnet" href="sobre.html#contato">Falar comigo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10"/></svg></a>
+      <a class="btn magnet" href="sobre.html">Quem sou eu</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap" data-tone="light">
+  <div class="bar">
+    <span>Bruno <b>Travassos</b></span>
+    <span>Design para social media</span>
+    <span>Designer gráfico · © 2026</span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Visualizar slides">
+  <div class="lb-rail" id="lbRail"></div>
+  <div class="cap" id="lbCap"></div>
+  <button class="x" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="pv" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="nx" type="button" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="count" id="lbCount"></div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>

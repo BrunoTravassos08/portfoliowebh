@@ -1,0 +1,90 @@
+/* DeLuccky case page: brand accents from the identity guide (roxo noite, verde trevo, amarelo sorte),
+   an edits player with a playlist and two slide decks (identity guide, link in bio). */
+:root {
+  --dl-noite: #211347;
+  --dl-contorno: #12072c;
+  --dl-verde: #46c436;
+  --dl-amarelo: #c9ec52;
+  --dl-lavanda: #f4f1fa;
+  --dl-display: "Lilita One", var(--sans);
+}
+
+/* hero */
+.dl-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.dl-hero h1 { font-family: var(--dl-display); font-weight: 400; letter-spacing: -.01em; }
+.dl-clover {
+  width: clamp(88px, 14vw, 200px); height: auto; aspect-ratio: 1; object-fit: cover; object-position: 50% 42%;
+  border-radius: 28%; flex: none; box-shadow: 6px 6px 0 var(--dl-contorno);
+  animation: dl-spin 1.4s var(--ease) both;
+}
+.dl-clover:hover { transform: rotate(-12deg) scale(1.04); transition: transform .5s var(--ease); }
+@keyframes dl-spin { from { transform: rotate(-200deg) scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* edits player */
+.dl-player { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(240px, 1fr); gap: 20px; align-items: start; }
+.dl-screen {
+  position: relative; aspect-ratio: 16 / 9; background: #000; border-radius: 18px; overflow: hidden;
+  border: 3px solid var(--dl-contorno); box-shadow: 8px 8px 0 var(--dl-verde);
+}
+.dl-screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; display: block; }
+.dl-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: ed; }
+.dl-list button {
+  all: unset; box-sizing: border-box; cursor: pointer; width: 100%;
+  display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; align-items: center;
+  padding: 8px; border-radius: 14px; border: 1px solid var(--line); transition: background-color .3s, border-color .3s;
+}
+.dl-list button:hover { background: rgba(255,255,255,.05); }
+.dl-list button:focus-visible { outline: 2px solid var(--dl-amarelo); outline-offset: 2px; }
+.dl-list button[aria-current="true"] { border-color: var(--dl-verde); background: rgba(70,196,54,.1); }
+.dl-list .th { position: relative; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; background: #000; }
+.dl-list .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dl-list .th time { position: absolute; right: 4px; bottom: 4px; font-size: 11px; padding: 1px 6px; border-radius: 6px; background: rgba(0,0,0,.75); color: #fff; font-variant-numeric: tabular-nums; }
+.dl-list b { display: block; font-family: var(--dl-display); font-weight: 400; font-size: 20px; line-height: 1.1; letter-spacing: .01em; }
+.dl-list small { display: block; color: var(--mute); font-size: 13px; font-weight: 300; margin-top: 3px; }
+.dl-list button[aria-current="true"] b { color: var(--dl-verde); }
+
+/* decks */
+.dl-deck { position: relative; }
+.dl-deck .stage {
+  position: relative; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: var(--dl-noite);
+  border: 3px solid var(--dl-contorno); box-shadow: 8px 8px 0 var(--dl-contorno);
+  touch-action: pan-y; user-select: none; cursor: grab;
+}
+.dl-deck .stage.drag { cursor: grabbing; }
+.dl-deck .track { display: flex; height: 100%; transition: transform .6s var(--ease); }
+.dl-deck .stage.drag .track { transition: none; }
+.dl-deck .track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.dl-deck .ctrl { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 22px; }
+.dl-deck .count { font-variant-numeric: tabular-nums; font-size: 15px; color: var(--mute); }
+.dl-deck .count b { color: var(--fg); font-weight: 600; }
+.dl-deck .btns { display: flex; gap: 8px; }
+.dl-deck .btns button {
+  all: unset; box-sizing: border-box; cursor: pointer; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center; border: 1px solid var(--line); transition: background-color .3s, color .3s;
+}
+.dl-deck .btns button:hover { background: var(--fg); color: var(--bg); }
+.dl-deck .btns button:focus-visible { outline: 2px solid var(--dl-verde); outline-offset: 2px; }
+.dl-deck .btns svg { width: 20px; height: 20px; }
+.dl-deck .thumbs { display: flex; gap: 8px; overflow-x: auto; margin-top: 16px; padding: 4px 2px 8px; scrollbar-width: thin; }
+.dl-deck .thumbs button {
+  all: unset; cursor: pointer; flex: 0 0 auto; width: 104px; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden;
+  opacity: .45; outline: 2px solid transparent; outline-offset: 2px; transition: opacity .3s, outline-color .3s;
+}
+.dl-deck .thumbs button:hover { opacity: .8; }
+.dl-deck .thumbs button[aria-current="true"] { opacity: 1; outline-color: var(--dl-verde); }
+.dl-deck .thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dl-deck:fullscreen { background: var(--dl-contorno); display: grid; place-content: center; padding: 24px; color: var(--dl-lavanda); --fg: var(--dl-lavanda); --line: rgba(244,241,250,.2); }
+.dl-deck:fullscreen .stage { width: min(100vw - 48px, (100vh - 200px) * 16 / 9); box-shadow: none; }
+
+@media (max-width: 860px) {
+  .dl-player { grid-template-columns: 1fr; }
+  .dl-screen { box-shadow: 5px 5px 0 var(--dl-verde); }
+  .dl-list button { grid-template-columns: 96px minmax(0, 1fr); }
+  .dl-deck .stage { border-radius: 12px; box-shadow: 5px 5px 0 var(--dl-contorno); }
+  .dl-deck .thumbs button { width: 80px; }
+  .dl-deck .full { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dl-clover { animation: none; }
+  .dl-deck .track { transition: none; }
+}

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DeLuccky · Bruno Travassos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Lilita+One&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="blocko.css">
+<link rel="stylesheet" href="deluccky.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); } body { margin: 0; } [hidden] { display: none !important; }</style>
+</head>
+<body data-scene="work">
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="cursor" aria-hidden="true"><span>arraste</span></div>
+<header class="top wrap">
+  <div class="bar">
+    <a href="index.html">Bruno <b>Travassos</b></a>
+    <nav aria-label="Páginas">
+      <a href="index.html">Início</a>
+      <a href="projetos.html" aria-current="page">Projetos</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="sobre.html#contato">Contato</a>
+    </nav>
+    <span class="mid-text">Designer gráfico</span>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head bk-hero dl-hero" data-tone="dark" data-scene="work">
+    <a class="back" href="projetos.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg> Todos os projetos</a>
+    <p class="eyebrow">Case · Edits, identidade visual e link na bio</p>
+    <div class="dl-title">
+      <h1 data-split>DeLuccky</h1>
+      <img class="dl-clover" src="img/foto-deluccky.jpg" alt="" width="1080" height="1350">
+    </div>
+    <p class="who">Sorte é treino que ninguém viu.</p>
+    <div class="bk-intro">
+      <p class="lede">DeLuccky é streamer de CS2 (<strong>@deluccky_</strong>). O trevo de quatro folhas virou a marca inteira: <strong>sortudo, preciso e divertido</strong>, com roxo noite, verde trevo e tudo em estilo sticker. A mesma identidade veste as edits do YouTube, o overlay da live e a página do link na bio.</p>
+      <dl class="facts-list">
+        <div><dt>Cliente</dt><dd>DeLuccky · @deluccky_</dd></div>
+        <div><dt>Segmento</dt><dd>Streamer de Counter-Strike 2</dd></div>
+        <div><dt>Entregas</dt><dd>5 edits de gameplay, identidade visual com guia da marca, página de link na bio</dd></div>
+        <div><dt>Ano</dt><dd>2026</dd></div>
+      </dl>
+    </div>
+    <nav class="toc" aria-label="Partes do case">
+      <a href="#edits"><b>01</b> Edits</a>
+      <a href="#identidade"><b>02</b> Identidade visual</a>
+      <a href="#bio"><b>03</b> Link na bio</a>
+    </nav>
+  </section>
+
+  <!-- 01 · edits -->
+  <section class="wrap" id="edits" data-tone="dark" data-scene="grid">
+    <div class="head">
+      <div>
+        <p class="eyebrow">01 · Edits para o YouTube</p>
+        <h2>Jogadas que <em>viram vídeo.</em></h2>
+      </div>
+      <p class="hint">Cinco edits de CS2 com cortes no ritmo da música. Escolha uma na lista e ative o som.</p>
+    </div>
+
+    <div class="dl-player" id="player">
+      <div class="dl-screen">
+        <video id="plVideo" controls playsinline preload="metadata" width="1280" height="720"></video>
+      </div>
+      <ol class="dl-list" id="plList" aria-label="Edits"></ol>
+    </div>
+  </section>
+
+  <!-- 02 · identity -->
+  <section class="wrap" id="identidade" data-tone="light" data-scene="services">
+    <div class="head">
+      <div>
+        <p class="eyebrow">02 · Identidade visual</p>
+        <h2>Quatro camadas, <em>um trevo.</em></h2>
+      </div>
+      <p class="hint">O guia da marca em 16 páginas. Use as setas, arraste para o lado ou toque numa miniatura.</p>
+    </div>
+    <div class="dl-deck" data-deck="id" data-count="16" aria-label="Guia da identidade visual DeLuccky"></div>
+  </section>
+
+  <!-- 03 · link in bio -->
+  <section class="wrap" id="bio" data-tone="dark" data-scene="contact">
+    <div class="head">
+      <div>
+        <p class="eyebrow">03 · Link na bio</p>
+        <h2>Tudo num <em>link só.</em></h2>
+      </div>
+      <p class="hint">YouTube, Twitch, TikTok, Instagram e o setup do streamer numa página feita para abrir no celular.</p>
+    </div>
+    <div class="dl-deck" data-deck="bio" data-count="6" aria-label="Apresentação da página de link na bio"></div>
+  </section>
+
+  <section class="wrap cta" id="contato" data-tone="light" data-scene="cta">
+    <h2>O próximo projeto pode ser o seu!</h2>
+    <p class="sub">Entre em contato pelo <b>canal que preferir</b>.</p>
+    <div class="btns">
+      <a class="btn solid magnet" href="sobre.html#contato">Falar comigo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10"/></svg></a>
+      <a class="btn magnet" href="projetos.html">Ver outros projetos</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap" data-tone="light">
+  <div class="bar">
+    <span>Bruno <b>Travassos</b></span>
+    <span>Design para social media</span>
+    <span>Designer gráfico · © 2026</span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Visualizar slides">
+  <div class="lb-rail" id="lbRail"></div>
+  <div class="cap" id="lbCap"></div>
+  <button class="x" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="pv" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="nx" type="button" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="count" id="lbCount"></div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="deluccky.js"></script>
+</body>
+</html>

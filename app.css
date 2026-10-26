@@ -1,0 +1,50 @@
+/* Blocko apps case page (app.html): phone rail + web viewer. Device frames and viewer come from blocko.css;
+   --ap-* are set per app by appcase.js. */
+.ap-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.ap-icon {
+  width: clamp(88px, 14vw, 200px); height: auto; aspect-ratio: 1; object-fit: cover; object-position: 50% 50%;
+  border-radius: 26%; flex: none; animation: ap-pop 1.1s var(--ease) both;
+}
+@keyframes ap-pop { from { transform: translateY(30px) scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* phone rail */
+.ap-rail {
+  display: grid; grid-auto-flow: column; grid-auto-columns: clamp(240px, 26vw, 330px); column-gap: clamp(20px, 3vw, 40px);
+  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 8px 4px 24px; margin-inline: -4px;
+  outline: none; cursor: grab;
+}
+.ap-rail::-webkit-scrollbar { display: none; }
+.ap-rail.dragging { scroll-snap-type: none; cursor: grabbing; }
+.ap-rail.dragging * { user-select: none; }
+.ap-ph { margin: 0; scroll-snap-align: start; display: grid; gap: 18px; }
+.ap-ph .phone { width: 100%; box-shadow: inset 0 0 0 2px #3a3a3e, 0 30px 60px -30px rgba(0,0,0,.6); }
+.ap-ph .phone .screen { border-top-color: var(--ap-status); background: var(--ap-status); }
+.ap-ph.story .phone .screen { border-top: 0; overflow: hidden; }
+.ap-ph.story .screen img { height: 100%; object-fit: cover; }
+.ap-ph figcaption { font-size: 17px; font-weight: 500; letter-spacing: -.01em; }
+.ap-ph figcaption b { font-weight: 500; opacity: .45; margin-right: 6px; font-variant-numeric: tabular-nums; }
+.ap-ph figcaption span { display: block; margin-top: 4px; font-size: 15px; font-weight: 300; color: var(--mute); text-wrap: pretty; }
+.ap-ctrl { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+.ap-ctrl .count { font-size: 15px; color: var(--mute); font-variant-numeric: tabular-nums; }
+.ap-ctrl .count b { color: var(--fg); font-weight: 500; }
+.ap-ctrl .arrows { display: flex; gap: 8px; }
+.ap-ctrl button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; display: grid; place-items: center; transition: background-color .3s, color .3s; }
+.ap-ctrl button:hover { background: var(--fg); color: var(--bg); }
+.ap-ctrl svg { width: 20px; height: 20px; }
+
+/* web viewer: always graphite, so its tabs and captions use the dark palette whatever the section tone */
+.ap-viewer { --bg: #1f1f1f; --fg: var(--chalk); --mute: var(--mute-d); --line: var(--line-d); color: var(--fg); }
+.ap-viewer .screen { background: #fff; cursor: grab; }
+.ap-viewer .screen.grab { cursor: grabbing; user-select: none; }
+.ap-viewer .vw-pages button { white-space: nowrap; }
+
+/* brand board */
+.ap-brand { margin: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 80px -40px rgba(0,0,0,.45); }
+.ap-brand img { display: block; width: 100%; height: auto; }
+.ap-more { margin: 32px 0 0; font-weight: 300; color: var(--mute); }
+.ap-more a { color: var(--fg); }
+
+@media (max-width: 860px) {
+  .ap-rail { grid-auto-columns: min(72vw, 300px); }
+}
+@media (prefers-reduced-motion: reduce) { .ap-icon { animation: none; } }
