@@ -144,6 +144,32 @@ window.SITE = {
         ['planos', 'Planos', 'Planos de assinatura e quem assina cada um.']
       ],
       carousel: 'blocko-barberflow'
+    },
+    stockly: {
+      name: 'Stockly', eyebrow: 'Case · Sistema web e app',
+      who: 'Vendeu, baixou. Acabou, avisou.',
+      lede: 'Sistema de estoque e vendas para lojas: <strong>caixa com Pix, débito, crédito e dinheiro</strong> que dá baixa no estoque sozinho, alerta de estoque mínimo, pedido de reposição pronto para o fornecedor e a <strong>margem real</strong> de cada produto. No celular, o dono vende, confere o estoque e recebe os alertas de onde estiver.',
+      facts: [['Cliente', 'Blocko · produto próprio'], ['Plataformas', 'Sistema web e celular'], ['Entregas', 'Identidade visual, sistema web completo, app no celular, página do produto, posts de lançamento'], ['Ano', '2026']],
+      bg: '#1E1B4B', accent: '#4F46E5', status: '#F5F6FB', addr: 'app.stockly.com.br', brand: 'marca',
+      phone: [
+        ['inicio', 'Início', 'Vendas do dia, itens abaixo do mínimo e o que precisa repor.'],
+        ['vender', 'Vender', 'O caixa no celular: busca o produto, monta a venda e recebe.'],
+        ['produtos', 'Produtos', 'Saldo, mínimo e preço de cada produto na palma da mão.'],
+        ['alertas', 'Notificações', 'Cada produto que acabou ou passou do mínimo, avisado na hora.'],
+        ['ajustes', 'Ajustes', 'Loja, categorias, fornecedores, caixa e o que cada perfil pode fazer.']
+      ],
+      web: [
+        ['painel', 'Painel', 'O que repor, quanto está na prateleira e o que mexeu hoje.'],
+        ['caixa', 'Caixa', 'Venda rápida com Pix, débito, crédito ou dinheiro, com baixa automática.'],
+        ['fechamento', 'Fechamento de caixa', 'Vendas por forma de pagamento, sangria e o dinheiro conferido na gaveta.'],
+        ['vendas', 'Vendas', 'O histórico do dia com o detalhe de cada venda e a margem real.'],
+        ['produtos', 'Produtos', 'Catálogo com custo, preço, margem e estoque mínimo.'],
+        ['movimentacao', 'Movimentações', 'Toda entrada, saída e ajuste registrada com motivo.'],
+        ['fornecedores', 'Fornecedores', 'Prazo de entrega de cada fornecedor e o pedido sugerido pronto para copiar.'],
+        ['configuracoes', 'Configurações', 'Dados da loja, categorias, estoque e alertas, caixa e equipe.'],
+        ['vitrine', 'Página do produto', 'A landing que apresenta o Stockly para novas lojas.']
+      ],
+      carousel: 'blocko-stockly'
     }
   },
   projects: [
@@ -170,6 +196,12 @@ window.SITE = {
       name: 'BarberFlow', role: 'Sistema para barbearias · Blocko', category: 'Apps e sistemas', featured: false,
       summary: 'Painel completo para barbearias e o app do cliente para agendar, juntar selos e assinar planos.',
       tags: ['Sistema web', 'App mobile', 'UI design'], slides: ['apps/barberflow/cover']
+    },
+    {
+      id: 'stockly', photo: 'apps/stockly/icon', photoLogo: true, page: 'app.html?a=stockly',
+      name: 'Stockly', role: 'Estoque e vendas · Blocko', category: 'Apps e sistemas', featured: false,
+      summary: 'Sistema de estoque e vendas com caixa, alerta de estoque mínimo, fornecedores e margem real, no computador e no celular.',
+      tags: ['Sistema web', 'App mobile', 'Identidade visual'], slides: ['apps/stockly/cover']
     },
     {
       id: 'visio-fusion',
