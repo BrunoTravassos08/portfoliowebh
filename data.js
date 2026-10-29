@@ -1,7 +1,7 @@
 /* Conteúdo do site.
    Para adicionar um projeto: coloque as imagens em img/ e copie um bloco de "projects".
    photo é a foto do especialista no card da página Projetos (a capa aparece ao passar o mouse).
-   featured: true faz o projeto aparecer na página inicial.
+   featured: true faz o projeto aparecer na página inicial (homeOrder > 0 empurra para o fim da lista).
    Para contatos: preencha os campos vazios; os que ficarem vazios aparecem como "em breve". */
 window.SITE = {
   contact: {
@@ -199,9 +199,11 @@ window.SITE = {
     },
     {
       id: 'stockly', photo: 'apps/stockly/icon', photoLogo: true, page: 'app.html?a=stockly',
-      name: 'Stockly', role: 'Estoque e vendas · Blocko', category: 'Apps e sistemas', featured: false,
+      name: 'Stockly', role: 'Estoque e vendas · Blocko', category: 'Apps e sistemas', featured: true, homeOrder: 1,
       summary: 'Sistema de estoque e vendas com caixa, alerta de estoque mínimo, fornecedores e margem real, no computador e no celular.',
-      tags: ['Sistema web', 'App mobile', 'Identidade visual'], slides: ['apps/stockly/cover']
+      tags: ['Sistema web', 'App mobile', 'Identidade visual'],
+      // a capa abre o card em Projetos; na página inicial o carrossel segue com o lançamento
+      slides: ['apps/stockly/cover', 'blocko/stockly-1', 'blocko/stockly-2', 'blocko/stockly-3', 'blocko/stockly-4', 'blocko/stockly-5', 'blocko/stockly-6', 'blocko/stockly-7.mp4', 'blocko/stockly-8', 'blocko/stockly-9']
     },
     {
       id: 'visio-fusion',
@@ -327,7 +329,7 @@ window.SITE = {
       name: 'B&Tailor',
       role: 'Alfaiataria',
       category: 'Social media',
-      featured: true,
+      featured: false,
       summary: 'Vitrine digital para uma alfaiataria sob medida. Fotografia escura em tons de grafite, tecidos em close e textos serifados que traduzem o cuidado de cada detalhe, do primeiro botão à prova final.',
       tags: ['Social media', 'Feed', 'Moda masculina'],
       slides: ['39', '40', '41', '42']

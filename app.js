@@ -35,7 +35,7 @@
   /* ---------- featured cases with carousels (home) ---------- */
   const featured = document.getElementById('featured');
   if (featured) {
-    featured.innerHTML = S.projects.filter(p => p.featured).map(p => `
+    featured.innerHTML = S.projects.filter(p => p.featured).sort((a, b) => (a.homeOrder || 0) - (b.homeOrder || 0)).map(p => `
       <article class="case" data-id="${p.id}">
         <div class="case-top">
           <h3>${esc(p.name)}<small>${esc(p.role)}</small></h3>
