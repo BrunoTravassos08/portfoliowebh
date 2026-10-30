@@ -209,6 +209,25 @@
   };
   addEventListener('scroll', pick, { passive: true }); pick();
 
+  /* ---------- nav scrollspy (Sobre ↔ Contato on the same page) ---------- */
+  const navLinks = [...document.querySelectorAll('.bar nav a')];
+  const pageLink = navLinks.find(a => a.getAttribute('aria-current') === 'page');
+  const spies = navLinks.map(a => {
+    const [file, id] = a.getAttribute('href').split('#');
+    const el = id && pageLink && file === pageLink.getAttribute('href') && document.getElementById(id);
+    return el ? { a, el } : null;
+  }).filter(Boolean);
+  if (spies.length) {
+    const spy = () => {
+      const line = innerHeight * 0.4;
+      const atEnd = innerHeight + scrollY >= document.documentElement.scrollHeight - 2;
+      const hit = spies.filter(s => atEnd || s.el.getBoundingClientRect().top <= line).pop();
+      const cur = hit ? hit.a : pageLink;
+      navLinks.forEach(a => a === cur ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+    };
+    addEventListener('scroll', spy, { passive: true }); addEventListener('resize', spy); spy();
+  }
+
   /* ---------- cursor + magnetic buttons ---------- */
   const cur = document.querySelector('.cursor');
   let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
