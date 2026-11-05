@@ -145,6 +145,27 @@ window.SITE = {
       ],
       carousel: 'blocko-barberflow'
     },
+    precisa: {
+      name: 'Precisa', eyebrow: 'Case · Sistema web e app',
+      who: 'Preço certo, antes do orçamento.',
+      lede: 'Simulador de preço e margem para quem vende serviço: soma os <strong>custos do trabalho</strong>, os custos fixos rateados por hora, impostos, taxas e comissão, e mostra o preço sugerido com o lucro líquido e o markup. Três <strong>cenários lado a lado</strong> (enxuto, equilibrado e premium) viram orçamento com um clique. A marca é uma etiqueta de preço feita de faixas: custo embaixo, taxas no meio e o lucro em verde em cima.',
+      facts: [['Cliente', 'Projeto próprio'], ['Plataformas', 'Sistema web e celular'], ['Entregas', 'Marca, login, simulador com cenários, orçamentos, cenários salvos, custos fixos, taxas e impostos, app no celular'], ['Ano', '2026']],
+      bg: '#0e1a33', accent: '#77e112', status: '#f3f6fb', addr: 'app.precisa.com.br', brand: 'marca',
+      phone: [
+        ['entrar', 'Entrar', 'As três barras dos cenários já na tela de entrada.'],
+        ['simulador', 'Simulador', 'Preço sugerido, lucro, markup e para onde vai cada real.'],
+        ['orcamentos', 'Orçamentos', 'Cada orçamento com status, valor e margem.'],
+        ['cenarios', 'Cenários', 'Enxuto, equilibrado e premium para escolher no toque.']
+      ],
+      web: [
+        ['entrar', 'Entrar', 'Login com a comparação dos três cenários ao lado.'],
+        ['simulador', 'Simulador', 'Custos, taxas e margem viram o preço sugerido, comparado em três cenários.'],
+        ['orcamentos', 'Orçamentos', 'Do rascunho ao aprovado, com taxa de aprovação e margem média.'],
+        ['cenarios', 'Cenários salvos', 'Modelos de margem e taxas para reaproveitar.'],
+        ['custos-fixos', 'Custos fixos', 'O que se paga todo mês, dividido pelas horas de trabalho.'],
+        ['taxas', 'Taxas e impostos', 'Regime tributário, meios de pagamento e comissão padrão.']
+      ]
+    },
     meucorre: {
       name: 'Meu Corre', eyebrow: 'Case · App mobile',
       who: 'Seu corre, suas contas.',
@@ -244,6 +265,12 @@ window.SITE = {
     }
   },
   projects: [
+    {
+      id: 'precisa', photo: 'apps/precisa/icon', photoLogo: true, page: 'app.html?a=precisa',
+      name: 'Precisa', role: 'Simulador de preço e margem', category: 'Apps e sistemas', featured: false,
+      summary: 'Marca, sistema web e app para precificar serviços: custos, taxas e margem em cenários lado a lado, até virar orçamento.',
+      tags: ['Sistema web', 'App mobile', 'Identidade visual'], slides: ['apps/precisa/cover']
+    },
     {
       id: 'meucorre', photo: 'apps/meucorre/icon', photoLogo: true, page: 'app.html?a=meucorre',
       name: 'Meu Corre', role: 'App para motoristas e entregadores', category: 'Apps e sistemas', featured: false,
