@@ -8,7 +8,10 @@
     { id: 'ancora', name: 'Âncora', note: 'Bomb B · Cache', time: '0:37' },
     { id: 'acido', name: 'Ácido', note: 'Edit de CS2', time: '0:28' },
     { id: 'dancin', name: "Dancin'", note: 'Edit de CS2', time: '0:34' },
-    { id: 'cs2', name: 'CS2 Fragmovie', note: 'Fragmovie', time: '0:22' }
+    { id: 'cs2', name: 'CS2 Fragmovie', note: 'Fragmovie', time: '0:22' },
+    { id: 'tunel', name: 'Túnel superior', note: 'Edit de AWP · Mirage', time: '0:41' },
+    { id: 'sala', name: 'Sala', note: 'Edit de AWP · Mirage', time: '1:00' },
+    { id: 'vhs', name: 'Fita VHS', note: 'Edit de CS2 · efeito VHS', time: '0:49' }
   ];
   const video = document.getElementById('plVideo');
   const list = document.getElementById('plList');
