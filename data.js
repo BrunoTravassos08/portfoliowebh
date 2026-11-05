@@ -145,6 +145,31 @@ window.SITE = {
       ],
       carousel: 'blocko-barberflow'
     },
+    cofrim: {
+      name: 'Cofrim', eyebrow: 'Case · App mobile e marca',
+      who: 'Pergunta pro Cofrim antes de gastar.',
+      lede: 'App de finanças pessoais que olha <strong>antes</strong> do gasto, não depois: separa o salário entre as contas do mês e o cofrinho e mostra <strong>quanto ainda dá pra gastar</strong> por dia até o próximo pagamento. O "Posso gastar?" responde se a compra cabe, o fechamento do mês manda a sobra para o cofrinho e um score de 0 a 1000 premia quem se organiza. A marca nasceu entre quatro propostas de naming e virou um mascote: o próprio cofrinho, que muda de expressão quando dá ou quando vai faltar.',
+      facts: [['Cliente', 'Projeto próprio'], ['Plataformas', 'App mobile'], ['Entregas', 'Naming com 4 propostas, marca e mascote, app completo em 3 direções visuais (claro, noturno e editorial), onboarding, score'], ['Ano', '2026']],
+      bg: '#0A2540', accent: '#F5C451', status: '#F6F8FB', brand: 'marca',
+      phone: [
+        ['entrar', 'Entrar', 'Login com PIN de 4 números ou digital.'],
+        ['criar-conta', 'Criar conta', 'Nome, e-mail e PIN numa tela só.'],
+        ['renda', 'Renda', 'Quanto entra por mês, com opção para renda que varia.'],
+        ['contas-do-mes', 'Contas do mês', 'As contas fixas que o Cofrim já separa do salário.'],
+        ['inicio', 'Início', 'Quanto está livre até o pagamento e por dia, e o que já tem dono.'],
+        ['posso-gastar', 'Posso gastar?', 'Digite o valor e o Cofrim diz se cabe sem apertar as contas.'],
+        ['novo-gasto', 'Novo gasto', 'Registrar um gasto com teclado próprio e categoria.'],
+        ['historico', 'Gastos do mês', 'O histórico por dia, com busca e filtros.'],
+        ['importar', 'Importar extrato', 'O extrato do banco já categorizado; você só revisa o resto.'],
+        ['fechamento', 'Fechamento do mês', 'Quanto sobrou, para onde foi e o botão de guardar no cofrinho.'],
+        ['avisos', 'Avisos', 'O lembrete chega um dia antes de cada conta vencer.'],
+        ['score', 'Seu score', 'De 0 a 1000: sobe quando você consulta antes e paga em dia.'],
+        ['temas', 'Aparência', 'Claro, noturno ou acessibilidade com alto contraste.'],
+        ['inicio-noturno', 'Início · noturno', 'A mesma tela no tema noturno, marinho e dourado.'],
+        ['posso-gastar-noturno', 'Posso gastar? · noturno', 'A resposta do Cofrim no tema escuro.'],
+        ['inicio-editorial', 'Início · editorial', 'A direção editorial: caixa alta, bordas pretas e azul elétrico.']
+      ]
+    },
     hubia: {
       name: 'HUB de IA', eyebrow: 'Case · App desktop',
       who: 'Os agentes da equipe num escritório 8 bits.',
@@ -199,6 +224,12 @@ window.SITE = {
     }
   },
   projects: [
+    {
+      id: 'cofrim', photo: 'apps/cofrim/icon', photoLogo: true, page: 'app.html?a=cofrim',
+      name: 'Cofrim', role: 'App de finanças pessoais', category: 'Apps e sistemas', featured: false,
+      summary: 'Naming, marca com mascote e app de finanças que mostra quanto ainda dá pra gastar até o próximo pagamento, com "Posso gastar?", fechamento do mês e score.',
+      tags: ['App mobile', 'Identidade visual', 'UI design'], slides: ['apps/cofrim/cover']
+    },
     {
       id: 'hubia', photo: 'apps/hubia/icon', photoLogo: true, page: 'app.html?a=hubia',
       name: 'HUB de IA', role: 'Escritório de agentes de IA · Blocko', category: 'Apps e sistemas', featured: false,
