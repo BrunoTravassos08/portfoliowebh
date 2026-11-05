@@ -145,6 +145,26 @@ window.SITE = {
       ],
       carousel: 'blocko-barberflow'
     },
+    meucorre: {
+      name: 'Meu Corre', eyebrow: 'Case · App mobile',
+      who: 'Seu corre, suas contas.',
+      lede: 'App para motoristas e entregadores de aplicativo verem <strong>quanto sobra de verdade</strong> depois da gasolina e da taxa de cada app. O motoboy registra o turno, os ganhos por aplicativo (Uber, 99, InDrive e particular) e os gastos do dia, e o app calcula o <strong>lucro líquido</strong>, o ganho por km e por hora e a meta diária para cobrir as contas do mês. A marca é uma estrada com faixa tracejada que termina num pino amarelo.',
+      facts: [['Cliente', 'Projeto próprio'], ['Plataformas', 'App mobile'], ['Entregas', 'Marca, login animado, cadastro, dashboard, meta diária, ganhos, gastos, painel de desempenho, histórico, perfil e avisos'], ['Ano', '2026']],
+      bg: '#1A1E26', accent: '#FFC629', status: '#1A1E26',
+      phone: [
+        ['entrar', 'Entrar', 'A rota sobe, o pino acende e o login desliza para o lugar.'],
+        ['senha', 'Senha', 'Quem já tem conta confirma a senha e entra.'],
+        ['criar-conta', 'Criar conta', 'Cadastro em 5 passos, começando pelos dados de acesso.'],
+        ['inicio', 'Início', 'Lucro líquido do dia, meta, ganho por km e por hora.'],
+        ['meta-diaria', 'Meta diária', 'Quanto quer ganhar limpo no mês e as despesas fixas viram uma meta por dia.'],
+        ['ganhos-do-dia', 'Ganhos do dia', 'Corridas e taxas por aplicativo, turno e quilometragem.'],
+        ['gastos', 'Gastos', 'Combustível, manutenção e alimentação, com o lucro do dia na hora.'],
+        ['desempenho', 'Desempenho', 'Faturamento e lucro estimado por dia, semana e mês.'],
+        ['dias-anteriores', 'Dias anteriores', 'Cada dia de trabalho com o que entrou, saiu e se bateu a meta.'],
+        ['perfil', 'Perfil', 'Dados, cidade e o veículo do corre: moto ou carro.'],
+        ['notificacoes', 'Avisos', 'Falta pouco para a meta, conta que vence e turno aberto.']
+      ]
+    },
     cofrim: {
       name: 'Cofrim', eyebrow: 'Case · App mobile e marca',
       who: 'Pergunta pro Cofrim antes de gastar.',
@@ -224,6 +244,12 @@ window.SITE = {
     }
   },
   projects: [
+    {
+      id: 'meucorre', photo: 'apps/meucorre/icon', photoLogo: true, page: 'app.html?a=meucorre',
+      name: 'Meu Corre', role: 'App para motoristas e entregadores', category: 'Apps e sistemas', featured: false,
+      summary: 'Marca e app para quem roda por aplicativo ver o lucro de verdade: ganhos por app, gastos do dia, meta diária e desempenho da semana.',
+      tags: ['App mobile', 'Identidade visual', 'UI design'], slides: ['apps/meucorre/cover']
+    },
     {
       id: 'cofrim', photo: 'apps/cofrim/icon', photoLogo: true, page: 'app.html?a=cofrim',
       name: 'Cofrim', role: 'App de finanças pessoais', category: 'Apps e sistemas', featured: false,
