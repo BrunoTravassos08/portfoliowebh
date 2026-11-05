@@ -145,6 +145,32 @@ window.SITE = {
       ],
       carousel: 'blocko-barberflow'
     },
+    hubia: {
+      name: 'HUB de IA', eyebrow: 'Case · App desktop',
+      who: 'Os agentes da equipe num escritório 8 bits.',
+      lede: 'App desktop que reúne os agentes de IA de cada pessoa num <strong>escritório compartilhado</strong>: cada pessoa tem a sua sala por setor e dá para ver quem está trabalhando, pensando ou esperando aprovação. Os agentes rodam com <strong>modelos locais ou planos premium</strong> (Claude, GPT, Gemini), com limites de uso ao vivo, conversas sincronizadas na VPS, base de documentos e um modo que apaga as luzes no fim do expediente.',
+      facts: [['Cliente', 'Blocko · ferramenta interna'], ['Plataformas', 'App desktop (Windows)'], ['Entregas', 'Conceito 8 bits, login, configuração inicial, escritório por setor, chat com aprovação, agentes, documentos, motores e limites, widget da área de trabalho'], ['Ano', '2026']],
+      bg: '#0F1220', accent: '#5BE37D', status: '#171B2E', addr: 'HUB de IA · app desktop',
+      webLabel: 'App desktop', webTitle: 'O app <em>desktop.</em>',
+      web: [
+        ['entrar', 'Entrar', 'Login com o boneco 8 bits e o "Press start".'],
+        ['configuracao', 'Configuração inicial', 'O HUB detecta o computador e escolhe os modelos que rodam nele.'],
+        ['sincronizacao', 'Sincronização', 'As conversas do PC sobem para a VPS, com consentimento explícito.'],
+        ['escritorio', 'Escritório', 'Uma sala por pessoa, separada por setor, com o estado de cada agente.'],
+        ['sala', 'Sala', 'Dentro da sala: cada agente na sua mesa, com tarefa e motor.'],
+        ['escritorio-geral', 'Escritório geral', 'Todos os agentes da organização num lugar só.'],
+        ['chat', 'Chat', 'O agente pede aprovação antes de enviar uma mensagem pelo WhatsApp.'],
+        ['conversas', 'Conversas', 'Todas as conversas da organização, com filtro por pessoa.'],
+        ['conversa', 'Conversa', 'A conversa de um colega, só para leitura.'],
+        ['agentes', 'Agentes', 'Os seus agentes, com motor, ferramentas e atalhos.'],
+        ['copiar', 'Copiar agente', 'Copie o agente de um colega com instruções, motor e documentos.'],
+        ['editar', 'Editar agente', 'Persona, motor, permissões e a aparência do boneco 8 bits.'],
+        ['documentos', 'Documentos', 'A base da organização que os agentes consultam.'],
+        ['motores', 'Motores de IA', 'Limites de uso ao vivo, o computador e os modelos locais e premium.'],
+        ['area-de-trabalho', 'Área de trabalho', 'O widget que mostra os agentes num canto da tela.'],
+        ['expediente', 'Fim do expediente', 'As luzes da sala apagam e os agentes dormem, sem gastar tokens.']
+      ]
+    },
     stockly: {
       name: 'Stockly', eyebrow: 'Case · Sistema web e app',
       who: 'Vendeu, baixou. Acabou, avisou.',
@@ -173,6 +199,12 @@ window.SITE = {
     }
   },
   projects: [
+    {
+      id: 'hubia', photo: 'apps/hubia/icon', photoLogo: true, page: 'app.html?a=hubia',
+      name: 'HUB de IA', role: 'Escritório de agentes de IA · Blocko', category: 'Apps e sistemas', featured: false,
+      summary: 'App desktop com um escritório 8 bits onde a equipe acompanha os seus agentes de IA: salas por setor, chat com aprovação, modelos locais e premium, limites de uso ao vivo e base de documentos.',
+      tags: ['App desktop', 'UI design', 'IA'], slides: ['apps/hubia/cover']
+    },
     {
       id: 'petid', photo: 'apps/petid/icon', photoLogo: true, page: 'app.html?a=petid',
       name: 'Pet ID', role: 'App para tutores · Blocko', category: 'Apps e sistemas', featured: false,

@@ -60,7 +60,8 @@
 
   /* ---------- web screens ---------- */
   if (A.web && A.web.length) {
-    $('web').hidden = false; parts.push(['web', 'Sistema web']);
+    $('web').hidden = false; parts.push(['web', A.webLabel || 'Sistema web']);
+    if (A.webTitle) $('web').querySelector('h2').innerHTML = A.webTitle;
     $('apAddr').textContent = A.addr || '';
     const tabs = $('apTabs'), screen = $('apScreen'), img = screen.querySelector('img');
     tabs.innerHTML = A.web.map(([, t], i) => `<button type="button" role="tab" data-i="${i}" aria-selected="false"><span>${pad(i + 1)}</span>${esc(t)}</button>`).join('');
