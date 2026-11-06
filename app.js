@@ -35,21 +35,43 @@
   /* ---------- featured cases with carousels (home) ---------- */
   const featured = document.getElementById('featured');
   if (featured) {
-    featured.innerHTML = S.projects.filter(p => p.featured).sort((a, b) => (a.homeOrder || 0) - (b.homeOrder || 0)).map(p => `
+    // 3 projetos sorteados a cada visita, entre os que têm carrossel de verdade (3+ slides)
+    const pool = S.projects.filter(p => (p.slides || []).length >= 3);
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    featured.innerHTML = pool.slice(0, 3).map(p => `
       <article class="case" data-id="${p.id}">
         <div class="case-top">
-          <h3>${esc(p.name)}<small>${esc(p.role)}</small></h3>
+          <div class="case-title">
+            <h3>${esc(p.name)}<small>${esc(p.role)}</small></h3>
+            ${p.page
+              ? `<a class="btn case-link magnet" href="${p.page}">Ver case completo ${icon(OUT)}</a>`
+              : `<button class="btn case-link magnet" type="button" data-open>Ver projeto ${icon(OUT)}</button>`}
+          </div>
           <div>
             <p>${esc(p.summary)}</p>
             <div class="tags">${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div>
-            ${p.page ? `<a class="btn case-link magnet" href="${p.page}">Ver case completo ${icon(OUT)}</a>` : ''}
           </div>
         </div>
         <div class="carousel"></div>
       </article>`).join('');
+    featured.addEventListener('click', e => {
+      const b = e.target.closest('[data-open]');
+      if (b) openLb(S.projects.find(p => p.id === b.closest('.case').dataset.id), 0);
+    });
     featured.querySelectorAll('.case').forEach(el => carousel(el.querySelector('.carousel'), S.projects.find(p => p.id === el.dataset.id)));
     const total = document.getElementById('total');
     if (total) total.textContent = S.projects.length;
+  }
+
+  /* ---------- ferramentas: entrada em cascata ---------- */
+  const tools = document.querySelector('.tools');
+  if (tools && !reduce && 'IntersectionObserver' in window) {
+    const cols = () => parseInt(getComputedStyle(tools).getPropertyValue('--cols')) || 8;
+    [...tools.children].forEach((li, i) => li.style.setProperty('--i', i));
+    const setDelay = () => { const c = cols(); [...tools.children].forEach((li, i) => li.style.setProperty('--d', ((i % c) + Math.floor(i / c)) * 0.06 + 's')); };
+    setDelay(); addEventListener('resize', setDelay);
+    tools.classList.add('pre');
+    new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { tools.classList.add('on'); o.disconnect(); setTimeout(() => tools.classList.remove('pre', 'on'), 2800); } }), { threshold: .2 }).observe(tools);
   }
 
   // extra carousels placed by a page (case pages)

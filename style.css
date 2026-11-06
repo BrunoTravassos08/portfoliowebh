@@ -158,7 +158,17 @@ h2 em { font-style: normal; font-weight: 300; color: var(--mute); }
 .tools { --cols: 8; list-style: none; margin: 0; padding: 0 1px 1px 0; display: flex; flex-wrap: wrap; justify-content: center; }
 .tool { flex: 0 0 calc((100% + var(--cols) * 1px) / var(--cols)); margin: 0 -1px -1px 0; border: 1px solid var(--line); padding: 34px 12px 22px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
 .tool-ic { width: clamp(44px, 5vw, 64px); aspect-ratio: 1; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; transition: transform .6s var(--ease); }
-.tool:hover .tool-ic { transform: translateY(-6px) scale(1.06); }
+.tool { position: relative; overflow: hidden; isolation: isolate; }
+.tool::before { content: ""; position: absolute; inset: 0; background: var(--fg); transform: translateY(101%); transition: transform .5s var(--ease); z-index: -1; }
+.tool:hover { color: var(--bg); }
+.tool:hover::before { transform: none; }
+.tool:hover .tool-ic { transform: translateY(-6px) scale(1.08) rotate(-4deg); }
+.tool p { transition: color .3s; }
+.tools.pre .tool .tool-ic { opacity: 0; transform: translateY(26px) scale(.6) rotate(-12deg); }
+.tools.pre .tool p { opacity: 0; transform: translateY(12px); }
+.tools.on .tool .tool-ic { opacity: 1; transform: none; transition: opacity .5s var(--d, 0s), transform .9s cubic-bezier(.3,1.6,.4,1) var(--d, 0s); }
+.tools.on .tool p { opacity: 1; transform: none; transition: opacity .5s calc(var(--d, 0s) + .15s), transform .6s var(--ease) calc(var(--d, 0s) + .15s); }
+.tools.on .tool:hover .tool-ic { transform: translateY(-6px) scale(1.08) rotate(-4deg); transition: transform .6s var(--ease); }
 .tool p { margin: 0; font-size: 15px; font-weight: 400; letter-spacing: -.01em; }
 
 /* Process */
@@ -316,7 +326,8 @@ footer .bar span:nth-child(2) { text-align: center; }
   .contacts .v { grid-column: 1; grid-row: 2; text-align: left; }
   .contacts .ic, .contacts .copy { grid-column: 2; grid-row: 1 / span 2; }
 }
-.case .case-link { margin-top: 22px; white-space: nowrap; }
+.case .case-link { margin-top: 26px; white-space: nowrap; }
+.case-title { display: flex; flex-direction: column; align-items: flex-start; }
 .case .case-link svg { width: 16px; height: 16px; }
 a.card { text-decoration: none; }
 
