@@ -230,14 +230,25 @@
 
   /* ---------- cursor + magnetic buttons ---------- */
   const cur = document.querySelector('.cursor');
-  let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
+  // the custom cursor only exists on devices with a real mouse (hidden by CSS elsewhere)
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy, curRaf = 0;
+  const curLoop = () => {
+    cx += (tx - cx) * .2; cy += (ty - cy) * .2;
+    // close enough: snap to the target and stop until the mouse moves again
+    if (Math.abs(tx - cx) < .1 && Math.abs(ty - cy) < .1) { cx = tx; cy = ty; curRaf = 0; }
+    else curRaf = requestAnimationFrame(curLoop);
+    cur.style.transform = `translate(${cx}px, ${cy}px)`;
+  };
+  cur.style.transform = `translate(${cx}px, ${cy}px)`;
   addEventListener('pointermove', e => {
-    if (e.pointerType !== 'mouse') return;
+    if (e.pointerType !== 'mouse' || !fine.matches) return;
     tx = e.clientX; ty = e.clientY;
     const t = e.target.closest('[data-cursor]');
     cur.classList.toggle('big', !!t);
     cur.firstElementChild.textContent = t && t.classList.contains('card') ? 'ver' : 'arraste';
-  });
+    if (!curRaf) curRaf = requestAnimationFrame(curLoop);
+  }, { passive: true });
   document.querySelectorAll('.magnet').forEach(b => {
     b.addEventListener('pointermove', e => {
       const r = b.getBoundingClientRect();
@@ -245,18 +256,13 @@
     });
     b.addEventListener('pointerleave', () => { b.style.transform = ''; });
   });
-  (function loop() {
-    cx += (tx - cx) * .2; cy += (ty - cy) * .2;
-    cur.style.transform = `translate(${cx}px, ${cy}px)`;
-    requestAnimationFrame(loop);
-  })();
 
   /* ---------- chrome objects ---------- */
   if (!window.THREE) return;
   const canvas = document.getElementById('stage');
   let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (e) { return; }
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.25));
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
@@ -287,10 +293,10 @@
     }
   }
   const spring = new THREE.Group();
-  spring.add(new THREE.Mesh(new THREE.TubeGeometry(new Helix(), 480, .3, 28, false), mat));
-  const cap = new THREE.SphereGeometry(.3, 32, 16), hx = new Helix();
+  spring.add(new THREE.Mesh(new THREE.TubeGeometry(new Helix(), 280, .3, 18, false), mat));
+  const cap = new THREE.SphereGeometry(.3, 20, 10), hx = new Helix();
   [0, 1].forEach(t => { const m = new THREE.Mesh(cap, mat); m.position.copy(hx.getPoint(t)); spring.add(m); });
-  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.35, .44, 256, 40, 2, 3), mat);
+  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.35, .44, 160, 26, 2, 3), mat);
   sc.add(spring, knot);
 
   // positions per section, in "desktop" units (half width ≈ 6.7): [x, y, scale]
