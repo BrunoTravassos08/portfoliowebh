@@ -65,6 +65,17 @@
 
   /* ---------- ferramentas: entrada em cascata ---------- */
   const tools = document.querySelector('.tools');
+  // a última célula ocupa o que sobra da última linha, para a grade fechar sempre alinhada
+  if (tools) {
+    const more = tools.querySelector('.tool-more'), n = tools.querySelectorAll('.tool').length;
+    const cnt = tools.querySelector('[data-tools-count]'); if (cnt) cnt.textContent = n;
+    const fill = () => {
+      if (!more) return;
+      const c = parseInt(getComputedStyle(tools).getPropertyValue('--cols')) || 8, r = n % c;
+      more.hidden = r === 0; more.style.gridColumn = r ? `span ${c - r}` : '';
+    };
+    fill(); addEventListener('resize', fill);
+  }
   if (tools && !reduce && 'IntersectionObserver' in window) {
     const cols = () => parseInt(getComputedStyle(tools).getPropertyValue('--cols')) || 8;
     [...tools.children].forEach((li, i) => li.style.setProperty('--i', i));
