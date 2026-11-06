@@ -31,9 +31,18 @@
 </header>
 <main>
   <section class="wrap about" data-tone="light" data-scene="about">
-    <div class="photo">
-      <img src="img/bruno.webp" alt="Bruno Travassos" width="1086" height="1448">
-      <span class="tag">Designer &amp; Webdesigner</span>
+    <div class="about-side">
+      <div class="photo">
+        <img src="img/bruno.webp" alt="Bruno Travassos" width="1086" height="1448">
+        <span class="tag">Designer &amp; Webdesigner</span>
+      </div>
+      <div class="langs" id="idiomas">
+        <p class="eyebrow">Idiomas</p>
+        <ul>
+          <li class="lang" style="--v:.75"><div class="lang-top"><h3>Inglês</h3><span>Intermediário avançado</span></div><div class="lang-bar" role="meter" aria-label="Nível de inglês" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-valuetext="Intermediário avançado"><i></i></div></li>
+          <li class="lang" style="--v:.5"><div class="lang-top"><h3>Espanhol</h3><span>Intermediário</span></div><div class="lang-bar" role="meter" aria-label="Nível de espanhol" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Intermediário"><i></i></div></li>
+        </ul>
+      </div>
     </div>
     <div>
       <p class="eyebrow">Quem sou eu</p>
@@ -106,5 +115,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 <script src="data.js" defer></script>
 <script src="app.js" defer></script>
+<script>
+(() => {
+  const l = document.getElementById('idiomas');
+  if (!l || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  l.classList.add('pre');
+  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { requestAnimationFrame(() => l.classList.add('on')); o.disconnect(); } }), { threshold: .35 }).observe(l);
+})();
+</script>
 </body>
 </html>

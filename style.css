@@ -243,6 +243,24 @@ footer .bar span:nth-child(2) { text-align: center; }
   .cta { justify-items: start; text-align: left; }
   .btns { justify-content: flex-start; }
 }
+/* languages (sobre) */
+.about-side { display: grid; gap: clamp(36px, 4vw, 56px); min-width: 0; }
+.langs ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.lang { padding: 22px 0 20px; border-bottom: 1px solid var(--line); }
+.lang-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 18px; }
+.lang h3 { margin: 0; font-size: clamp(24px, 2.4vw, 32px); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+.lang-top span { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); text-align: right; }
+.lang-bar { position: relative; height: 9px; }
+.lang-bar::before { content: ""; position: absolute; left: 0; right: 0; top: 4px; height: 1px; background: var(--line); }
+.lang-bar::after { content: ""; position: absolute; right: 0; top: 0; width: 1px; height: 9px; background: var(--mute); }
+.lang-bar i { position: absolute; left: 0; top: 3px; height: 3px; width: calc(var(--v) * 100%); background: var(--fg); transition: width 1.6s var(--ease) .15s; }
+.lang-bar i::after { content: ""; position: absolute; right: -5px; top: -3.5px; width: 10px; height: 10px; border-radius: 50%; background: var(--fg); transition: transform .5s var(--ease) 1.3s; }
+.lang + .lang .lang-bar i { transition-delay: .35s; }
+.langs.pre .lang-bar i { width: 0; }
+.langs.pre .lang-bar i::after { transform: scale(0); }
+.langs.on .lang-bar i { width: calc(var(--v) * 100%); }
+.langs.on .lang-bar i::after { transform: scale(1); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   [data-split] .w span, .marquee .track { animation: none; }
@@ -326,6 +344,8 @@ footer .bar span:nth-child(2) { text-align: center; }
 @media (max-width: 860px) {
   .about { grid-template-columns: minmax(0, 1fr); padding-top: 110px; }
   .photo { max-width: 460px; }
+  .about-side { display: contents; }
+  .langs { max-width: 560px; order: 2; }
   .page-head { padding-top: 110px; }
   .contacts a, .contacts .off, .contacts .copyrow { grid-template-columns: minmax(0, 1fr) 48px; }
   .contacts .v { grid-column: 1; grid-row: 2; text-align: left; }
