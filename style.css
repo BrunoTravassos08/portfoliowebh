@@ -354,3 +354,21 @@ a.card { text-decoration: none; }
   .job { grid-template-columns: minmax(0, 1fr); }
   .cv .head .btn { justify-self: start; }
 }
+
+/* Sobre · Minhas inspirações: retratos P&B que ganham cor no hover */
+.idols { padding-block: clamp(80px, 10vw, 140px); }
+.idol-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+.idol figure { margin: 0; display: grid; gap: 18px; }
+.idol-pic { position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 6px; background: #1a1a1a; }
+.idol-pic img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; filter: grayscale(1) contrast(1.08); transition: filter .9s var(--ease), transform 1.2s var(--ease); }
+.idol:hover .idol-pic img { filter: grayscale(0) contrast(1); transform: scale(1.04); }
+.idol-pic .n { position: absolute; top: 12px; left: 12px; background: rgba(20,20,20,.72); color: #f3f3f3; font-size: 12px; padding: 3px 9px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.idol h3 { margin: 0; font-size: clamp(20px, 1.7vw, 26px); letter-spacing: -.03em; font-weight: 500; line-height: 1.1; }
+.idol .ref { margin: 4px 0 12px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); }
+.idol figcaption p:last-child { margin: 0; font-weight: 300; color: var(--mute); font-size: 15px; line-height: 1.5; text-wrap: pretty; }
+@media (max-width: 1100px) { .idol-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .idol-list { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); scrollbar-width: none; }
+  .idol-list::-webkit-scrollbar { display: none; }
+  .idol { scroll-snap-align: start; }
+}
