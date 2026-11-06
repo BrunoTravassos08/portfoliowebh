@@ -1,6 +1,23 @@
 (() => {
   const S = window.SITE;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---------- each page opens at the top; a link with #id (e.g. Contato) jumps straight to it ---------- */
+  const nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+  if (nav.type !== 'back_forward') {
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    let touched = false;
+    const mark = () => { touched = true; };
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(t => addEventListener(t, mark, { once: true, passive: true }));
+    const toStart = () => {
+      if (touched) return;
+      let el = null;
+      try { const id = decodeURIComponent(location.hash.slice(1)); el = id && document.getElementById(id); } catch (e) {}
+      if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+      else window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    };
+    toStart();
+    addEventListener('load', toStart, { once: true });
+  }
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const icon = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="${d}"/></svg>`;
   const ARROW_L = 'M15 5l-7 7 7 7', ARROW_R = 'M9 5l7 7-7 7', OUT = 'M5 19 19 5M9 5h10v10';
