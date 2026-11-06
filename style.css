@@ -155,8 +155,8 @@ h2 em { font-style: normal; font-weight: 300; color: var(--mute); }
 .svc p span { display: block; color: var(--mute); font-size: 14px; margin-top: 8px; }
 
 /* Tools */
-.tools { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-.tool { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 34px 12px 22px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+.tools { --cols: 8; list-style: none; margin: 0; padding: 0 1px 1px 0; display: flex; flex-wrap: wrap; justify-content: center; }
+.tool { flex: 0 0 calc((100% + var(--cols) * 1px) / var(--cols)); margin: 0 -1px -1px 0; border: 1px solid var(--line); padding: 34px 12px 22px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
 .tool-ic { width: clamp(44px, 5vw, 64px); aspect-ratio: 1; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; transition: transform .6s var(--ease); }
 .tool:hover .tool-ic { transform: translateY(-6px) scale(1.06); }
 .tool p { margin: 0; font-size: 15px; font-weight: 400; letter-spacing: -.01em; }
@@ -209,7 +209,7 @@ footer .bar span:nth-child(2) { text-align: center; }
   .bar .mid-text { display: none; }
   .case-top, .svc { grid-template-columns: minmax(0, 1fr); }
   .steps { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .tools { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tools { --cols: 4; }
   .step:nth-child(2) { border-right: 0; margin-right: 0; }
   .head { grid-template-columns: minmax(0, 1fr); }
   .rail { grid-auto-columns: 78%; }
@@ -219,7 +219,7 @@ footer .bar span:nth-child(2) { text-align: center; }
 }
 @media (max-width: 480px) {
   .steps { grid-template-columns: minmax(0, 1fr); }
-  .tools { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tools { --cols: 4; }
   .tool { padding: 20px 4px 14px; gap: 10px; }
   .tool-ic { width: 38px; }
   .tool p { font-size: 12px; }
