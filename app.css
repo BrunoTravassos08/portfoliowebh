@@ -48,3 +48,6 @@
   .ap-rail { grid-auto-columns: min(72vw, 300px); }
 }
 @media (prefers-reduced-motion: reduce) { .ap-icon { animation: none; } }
+
+.ap-actions { justify-content: flex-start; align-items: center; margin-top: 40px; }
+.ap-actions .ap-note { flex-basis: 100%; margin: 4px 0 0; font-size: 14px; opacity: .65; }

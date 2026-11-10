@@ -19,6 +19,17 @@
   $('apLede').innerHTML = A.lede;
   $('apFacts').innerHTML = A.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
 
+  /* optional buttons under the intro: actions: [[label, href, 'download'|'external']] */
+  const dl = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14"/></svg>';
+  const ext = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+  if (A.actions && A.actions.length) {
+    const box = $('apActions'); box.hidden = false;
+    box.innerHTML = A.actions.map(([t, href, kind], i) => kind === 'download'
+      ? `<a class="btn${i ? '' : ' solid'} magnet" href="${esc(href)}" download>${esc(t)} ${dl}</a>`
+      : `<a class="btn${i ? '' : ' solid'} magnet" href="${esc(href)}" target="_blank" rel="noopener">${esc(t)} ${ext}</a>`).join('');
+    if (A.actionsNote) box.insertAdjacentHTML('beforeend', `<p class="ap-note">${esc(A.actionsNote)}</p>`);
+  }
+
   const parts = [];
   /* ---------- phone screens ---------- */
   if (A.phone && A.phone.length) {
