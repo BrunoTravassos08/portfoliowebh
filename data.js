@@ -145,6 +145,24 @@ window.SITE = {
       ],
       carousel: 'blocko-barberflow'
     },
+    toca: {
+      name: 'Toca do Respiro', eyebrow: 'Case · App mobile',
+      who: 'Respire com o coelhinho.',
+      lede: 'App de respiração guiada para desacelerar no seu tempo: um <strong>coelhinho que respira junto</strong> com você. A barriga cresce na inspiração, o ar sai em nuvenzinhas na expiração e frases curtas acolhem a cada ciclo. Dá para trocar o dia pela <strong>noite</strong> (o coelhinho vai para a toca), ligar uma <strong>chuvinha com som</strong> e ajustar de 3 a 15 segundos por fase. Feito para o celular Android, também funciona com a tela deitada.',
+      facts: [['Cliente', 'Projeto próprio'], ['Plataformas', 'App mobile (Android) e web'], ['Entregas', 'Marca e mascote, cena animada de dia e de noite, exercício guiado com contagem, chuva com som gerado no app, configurações de ritmo e som, versão deitada'], ['Ano', '2026']],
+      bg: '#4c2e30', accent: '#984836', status: '#fff6ef', brand: 'marca',
+      phone: [
+        ['inicio', 'Boas-vindas', 'Na primeira visita o coelhinho cumprimenta e convida para respirar.'],
+        ['contagem', 'Contagem', 'Três segundos para se acomodar antes de começar.'],
+        ['respire', 'Respire', 'O coelhinho enche a barriga e o contador marca cada segundo.'],
+        ['expire', 'Expire', 'O ar sai pela boca em nuvenzinhas, com uma frase de apoio.'],
+        ['fim', 'Fim do exercício', 'Ao parar, uma mensagem gentil e o convite para respirar de novo.'],
+        ['chuva', 'Chuvinha', 'O céu fecha, a chuva cai na cena e o som de chuva começa devagar.'],
+        ['noite', 'Modo noite', 'A lua sobe e o coelhinho vai para a toca.'],
+        ['noite-respire', 'Respirar à noite', 'O mesmo exercício com as cores da noite.'],
+        ['configuracoes', 'Configurações', 'Som do ritmo, segundos por fase e volume da chuva.']
+      ]
+    },
     precisa: {
       name: 'Precisa', eyebrow: 'Case · Sistema web e app',
       who: 'Preço certo, antes do orçamento.',
@@ -265,6 +283,12 @@ window.SITE = {
     }
   },
   projects: [
+    {
+      id: 'toca', photo: 'apps/toca/icon', photoLogo: true, page: 'app.html?a=toca',
+      name: 'Toca do Respiro', role: 'App de respiração guiada', category: 'Apps e sistemas', featured: false,
+      summary: 'Marca, mascote e app de respiração em que um coelhinho inspira e expira junto com você, com modo noite, chuvinha com som e ritmo ajustável.',
+      tags: ['App mobile', 'UI design', 'Identidade visual'], slides: ['apps/toca/cover']
+    },
     {
       id: 'precisa', photo: 'apps/precisa/icon', photoLogo: true, page: 'app.html?a=precisa',
       name: 'Precisa', role: 'Simulador de preço e margem', category: 'Apps e sistemas', featured: false,
