@@ -148,8 +148,8 @@ window.SITE = {
     toca: {
       name: 'Toca do Respiro', eyebrow: 'Case · App mobile',
       who: 'Respire com o coelhinho.',
-      lede: 'App de respiração guiada para desacelerar no seu tempo: um <strong>coelhinho que respira junto</strong> com você. A barriga cresce na inspiração, o ar sai em nuvenzinhas na expiração e frases curtas acolhem a cada ciclo. Dá para trocar o dia pela <strong>noite</strong> (o coelhinho vai para a toca), ligar uma <strong>chuvinha com som</strong> e ajustar de 3 a 15 segundos por fase. Feito para o celular Android, também funciona com a tela deitada.',
-      facts: [['Cliente', 'Projeto próprio'], ['Plataformas', 'App mobile (Android) e web'], ['Entregas', 'Marca e mascote, cena animada de dia e de noite, exercício guiado com contagem, chuva com som gerado no app, configurações de ritmo e som, versão deitada'], ['Ano', '2026']],
+      lede: 'O Toca do Respiro nasceu dentro de casa. Criei o app para a minha namorada, que convive com o <strong>TAG (Transtorno de Ansiedade Generalizada)</strong>, para ter um lugar calmo nas horas em que a ansiedade aperta. No caminho percebi que ele podia ajudar muita gente que passa pelo mesmo, e transformei o projeto num <strong>app gratuito, sem anúncios e sem nenhuma monetização</strong>.<br><br>A ideia é simples: um <strong>coelhinho que respira junto</strong> com você. A barriga cresce na inspiração, o ar sai em nuvenzinhas na expiração e frases curtas acolhem a cada ciclo, lembrando que está tudo bem ir no seu tempo. Não tem cadastro, metas nem cobrança: só respirar.<br><br>Dá para trocar o dia pela <strong>noite</strong> (o coelhinho vai para a toca), ligar uma <strong>chuvinha com som</strong> e ajustar de 3 a 15 segundos por fase. Cores suaves, letras arredondadas e sons gerados no próprio app foram escolhidos para acalmar, não para prender a atenção. Feito para o celular Android, também funciona com a tela deitada.',
+      facts: [['Cliente', 'Projeto pessoal · app gratuito'], ['Para quem', 'Pessoas que convivem com ansiedade'], ['Plataformas', 'App mobile (Android) e web'], ['Entregas', 'Marca e mascote, cena animada de dia e de noite, exercício guiado com contagem, chuva com som gerado no app, configurações de ritmo e som, versão deitada'], ['Ano', '2026']],
       bg: '#4c2e30', accent: '#984836', status: '#fff6ef', brand: 'marca',
       phone: [
         ['inicio', 'Boas-vindas', 'Na primeira visita o coelhinho cumprimenta e convida para respirar.'],
@@ -286,7 +286,7 @@ window.SITE = {
     {
       id: 'toca', photo: 'apps/toca/icon', photoLogo: true, page: 'app.html?a=toca',
       name: 'Toca do Respiro', role: 'App de respiração guiada', category: 'Apps e sistemas', featured: false,
-      summary: 'Marca, mascote e app de respiração em que um coelhinho inspira e expira junto com você, com modo noite, chuvinha com som e ritmo ajustável.',
+      summary: 'App gratuito, feito para quem convive com ansiedade: marca, mascote e respiração guiada em que um coelhinho inspira e expira junto com você, com modo noite, chuvinha com som e ritmo ajustável.',
       tags: ['App mobile', 'UI design', 'Identidade visual'], slides: ['apps/toca/cover']
     },
     {
