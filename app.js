@@ -1,5 +1,8 @@
 (() => {
   const S = window.SITE;
+  // projeto mais novo = maior `added` (AAAA-MM-DD) no data.js; empate = o que vem antes na lista.
+  // Ele abre os destaques da home e ganha o selo "Novo projeto" (também no card em Projetos).
+  const newest = S.projects.reduce((n, p) => (p.added || '') > (n.added || '') ? p : n, S.projects[0]);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* ---------- each page opens at the top; a link with #id (e.g. Contato) jumps straight to it ---------- */
   const nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
@@ -22,9 +25,15 @@
   const icon = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="${d}"/></svg>`;
   const ARROW_L = 'M15 5l-7 7 7 7', ARROW_R = 'M9 5l7 7-7 7', OUT = 'M5 19 19 5M9 5h10v10';
   // a slide is an image name (img/<name>.webp) or a video file (img/<name>.mp4, poster img/<name>.webp)
-  const media = (s, alt, lazy) => s.endsWith('.mp4')
-    ? `<video src="img/${s}" poster="img/${s.replace(/\.mp4$/, '.webp')}" muted loop playsinline data-auto preload="none" aria-label="${alt}" width="1080" height="1350"></video>`
-    : `<img src="img/${s}.webp" alt="${alt}"${lazy ? ' loading="lazy"' : ''} decoding="async" width="1080" height="1350" draggable="false">`;
+  // telas de app (m-/s-) e imagens horizontais (d-, marca, guias 16:9) entram inteiras, sem corte, numa moldura
+  const fitOf = s => /apps\/[^/]+\/(m-|s-)/.test(s) ? 'phone' : /apps\/[^/]+\/(d-|marca)|deluccky\/(id|bio)-/.test(s) ? 'wide' : '';
+  const media = (s, alt, lazy) => {
+    const el = s.endsWith('.mp4')
+      ? `<video src="img/${s}" poster="img/${s.replace(/\.mp4$/, '.webp')}" muted loop playsinline data-auto preload="none" aria-label="${alt}" width="1080" height="1350"></video>`
+      : `<img src="img/${s}.webp" alt="${alt}"${lazy ? ' loading="lazy"' : ''} decoding="async" width="1080" height="1350" draggable="false">`;
+    const f = fitOf(s);
+    return f ? `<span class="fit ${f}">${el}</span>` : el;
+  };
   // looping videos only download and play while on screen
   const vio = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
     const v = e.target;
@@ -52,13 +61,24 @@
   /* ---------- featured cases with carousels (home) ---------- */
   const featured = document.getElementById('featured');
   if (featured) {
-    // 3 projetos sorteados a cada visita, entre os que têm carrossel de verdade (3+ slides)
-    const pool = S.projects.filter(p => (p.slides || []).length >= 3);
+    // carrossel da home: `home` no data.js, senão os slides (3+), senão capa + marca + telas do app
+    const homeSlides = p => {
+      if (p.home) return p.home;
+      if ((p.slides || []).length >= 3) return p.slides;
+      const a = (S.apps || {})[p.id], dir = `apps/${p.id}/`;
+      if (!a) return p.slides || [];
+      const ph = (a.phone || []).slice(0, 4).map(([f]) => dir + (f.startsWith('s-') ? f : 'm-' + f));
+      const web = (a.web || []).slice(0, ph.length ? 2 : 5).map(([f]) => dir + 'd-' + f);
+      return [p.slides[0], ...(a.brand ? [dir + a.brand] : []), ...ph, ...web];
+    };
+    const pool = S.projects.filter(p => p !== newest && homeSlides(p).length >= 3);
     for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    pool.unshift(newest);
     featured.innerHTML = pool.slice(0, 3).map(p => `
       <article class="case" data-id="${p.id}">
         <div class="case-top">
           <div class="case-title">
+            ${p === newest ? '<span class="new-badge"><i></i>Novo projeto</span>' : ''}
             <h3>${esc(p.name)}<small>${esc(p.role)}</small></h3>
             ${p.page
               ? `<a class="btn case-link magnet" href="${p.page}">Ver case completo ${icon(OUT)}</a>`
@@ -75,7 +95,7 @@
       const b = e.target.closest('[data-open]');
       if (b) openLb(S.projects.find(p => p.id === b.closest('.case').dataset.id), 0);
     });
-    featured.querySelectorAll('.case').forEach(el => carousel(el.querySelector('.carousel'), S.projects.find(p => p.id === el.dataset.id)));
+    featured.querySelectorAll('.case').forEach(el => { const p = S.projects.find(p => p.id === el.dataset.id); carousel(el.querySelector('.carousel'), { ...p, slides: homeSlides(p) }); });
     const total = document.getElementById('total');
     if (total) total.textContent = S.projects.length;
   }
@@ -179,6 +199,7 @@
             ${p.photo ? `<img class="face${p.photoLogo ? ' logo' : ''}" src="img/${p.photo}.webp" alt="" loading="lazy">` : ''}
             <img src="img/${p.slides[0]}.webp" alt="" loading="lazy" width="1080" height="1350">
             <span class="n">${p.page ? 'case completo' : p.slides.length + ' slides'}</span>
+            ${p === newest ? '<span class="new-badge"><i></i>Novo projeto</span>' : ''}
             ${p.photo ? `<span class="peek">${p.page ? 'abrir case' : 'ver capa'}</span>` : ''}
           </span>
           <span class="meta"><h3>${esc(p.name)}</h3><span class="cat">${esc(p.category)}</span><span>${esc(p.role)}</span></span>

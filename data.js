@@ -1,7 +1,9 @@
 /* Conteúdo do site.
    Para adicionar um projeto: coloque as imagens em img/ e copie um bloco de "projects".
    photo é a foto do especialista no card da página Projetos (a capa aparece ao passar o mouse).
-   featured: true faz o projeto aparecer na página inicial (homeOrder > 0 empurra para o fim da lista).
+   added: 'AAAA-MM-DD' é a data de publicação. O projeto com a data mais recente abre os destaques da
+   página inicial com o selo "Novo projeto"; os outros 2 destaques são sorteados entre todos os projetos.
+   home: [...] (opcional) define o carrossel da página inicial; sem ele, usa slides (3+) ou capa + telas do app.
    Para contatos: preencha os campos vazios; os que ficarem vazios aparecem como "em breve". */
 window.SITE = {
   contact: {
@@ -286,61 +288,61 @@ window.SITE = {
   },
   projects: [
     {
-      id: 'toca', photo: 'apps/toca/icon', photoLogo: true, page: 'app.html?a=toca',
+      id: 'toca', added: '2026-11-10', photo: 'apps/toca/icon', photoLogo: true, page: 'app.html?a=toca',
       name: 'Toca do Respiro', role: 'App de respiração guiada', category: 'Apps e sistemas', featured: false,
       summary: 'App gratuito, feito para quem convive com ansiedade: marca, mascote e respiração guiada em que um coelhinho inspira e expira junto com você, com modo noite, chuvinha com som e ritmo ajustável.',
       tags: ['App mobile', 'UI design', 'Identidade visual'], slides: ['apps/toca/cover']
     },
     {
-      id: 'precisa', photo: 'apps/precisa/icon', photoLogo: true, page: 'app.html?a=precisa',
+      id: 'precisa', added: '2026-11-05', photo: 'apps/precisa/icon', photoLogo: true, page: 'app.html?a=precisa',
       name: 'Precisa', role: 'Simulador de preço e margem', category: 'Apps e sistemas', featured: false,
       summary: 'Marca, sistema web e app para precificar serviços: custos, taxas e margem em cenários lado a lado, até virar orçamento.',
       tags: ['Sistema web', 'App mobile', 'Identidade visual'], slides: ['apps/precisa/cover']
     },
     {
-      id: 'meucorre', photo: 'apps/meucorre/icon', photoLogo: true, page: 'app.html?a=meucorre',
+      id: 'meucorre', added: '2026-11-05', photo: 'apps/meucorre/icon', photoLogo: true, page: 'app.html?a=meucorre',
       name: 'Meu Corre', role: 'App para motoristas e entregadores', category: 'Apps e sistemas', featured: false,
       summary: 'Marca e app para quem roda por aplicativo ver o lucro de verdade: ganhos por app, gastos do dia, meta diária e desempenho da semana.',
       tags: ['App mobile', 'Identidade visual', 'UI design'], slides: ['apps/meucorre/cover']
     },
     {
-      id: 'cofrim', photo: 'apps/cofrim/icon', photoLogo: true, page: 'app.html?a=cofrim',
+      id: 'cofrim', added: '2026-11-05', photo: 'apps/cofrim/icon', photoLogo: true, page: 'app.html?a=cofrim',
       name: 'Cofrim', role: 'App de finanças pessoais', category: 'Apps e sistemas', featured: false,
       summary: 'Naming, marca com mascote e app de finanças que mostra quanto ainda dá pra gastar até o próximo pagamento, com "Posso gastar?", fechamento do mês e score.',
       tags: ['App mobile', 'Identidade visual', 'UI design'], slides: ['apps/cofrim/cover']
     },
     {
-      id: 'hubia', photo: 'apps/hubia/icon', photoLogo: true, page: 'app.html?a=hubia',
+      id: 'hubia', added: '2026-11-05', photo: 'apps/hubia/icon', photoLogo: true, page: 'app.html?a=hubia',
       name: 'HUB de IA', role: 'Escritório de agentes de IA · Blocko', category: 'Apps e sistemas', featured: false,
       summary: 'App desktop com um escritório 8 bits onde a equipe acompanha os seus agentes de IA: salas por setor, chat com aprovação, modelos locais e premium, limites de uso ao vivo e base de documentos.',
       tags: ['App desktop', 'UI design', 'IA'], slides: ['apps/hubia/cover']
     },
     {
-      id: 'petid', photo: 'apps/petid/icon', photoLogo: true, page: 'app.html?a=petid',
+      id: 'petid', added: '2026-10-26', photo: 'apps/petid/icon', photoLogo: true, page: 'app.html?a=petid',
       name: 'Pet ID', role: 'App para tutores · Blocko', category: 'Apps e sistemas', featured: false,
       summary: 'App e painel web para tutores de pets: carteira de vacinação, passeios com GPS, lembretes, saúde e documentos do pet prontos para imprimir.',
       tags: ['App mobile', 'Sistema web', 'UI design'], slides: ['apps/petid/cover']
     },
     {
-      id: 'menugo', photo: 'apps/menugo/icon', photoLogo: true, page: 'app.html?a=menugo',
+      id: 'menugo', added: '2026-10-26', photo: 'apps/menugo/icon', photoLogo: true, page: 'app.html?a=menugo',
       name: 'MenuGo', role: 'Cardápio digital · Blocko', category: 'Apps e sistemas', featured: false,
       summary: 'Cardápio digital com pedido no WhatsApp, painel do restaurante e landing page de venda.',
       tags: ['App mobile', 'Sistema web', 'Identidade visual'], slides: ['apps/menugo/cover']
     },
     {
-      id: 'kanban', photo: 'apps/kanban/icon', photoLogo: true, page: 'app.html?a=kanban',
+      id: 'kanban', added: '2026-10-26', photo: 'apps/kanban/icon', photoLogo: true, page: 'app.html?a=kanban',
       name: 'Kanban Blocko', role: 'Quadro de projetos · Blocko', category: 'Apps e sistemas', featured: false,
       summary: 'Quadro de projetos multiempresa com cartões, comentários, configurações e modo escuro.',
       tags: ['Sistema web', 'UI design'], slides: ['apps/kanban/cover']
     },
     {
-      id: 'barberflow', photo: 'apps/barberflow/icon', photoLogo: true, page: 'app.html?a=barberflow',
+      id: 'barberflow', added: '2026-10-26', photo: 'apps/barberflow/icon', photoLogo: true, page: 'app.html?a=barberflow',
       name: 'BarberFlow', role: 'Sistema para barbearias · Blocko', category: 'Apps e sistemas', featured: false,
       summary: 'Painel completo para barbearias e o app do cliente para agendar, juntar selos e assinar planos.',
       tags: ['Sistema web', 'App mobile', 'UI design'], slides: ['apps/barberflow/cover']
     },
     {
-      id: 'stockly', photo: 'apps/stockly/icon', photoLogo: true, page: 'app.html?a=stockly',
+      id: 'stockly', added: '2026-10-28', photo: 'apps/stockly/icon', photoLogo: true, page: 'app.html?a=stockly',
       name: 'Stockly', role: 'Estoque e vendas · Blocko', category: 'Apps e sistemas', featured: true, homeOrder: 1,
       summary: 'Sistema de estoque e vendas com caixa, alerta de estoque mínimo, fornecedores e margem real, no computador e no celular.',
       tags: ['Sistema web', 'App mobile', 'Identidade visual'],
@@ -348,7 +350,7 @@ window.SITE = {
       slides: ['apps/stockly/cover', 'blocko/stockly-1', 'blocko/stockly-2', 'blocko/stockly-3', 'blocko/stockly-4', 'blocko/stockly-5', 'blocko/stockly-6', 'blocko/stockly-7.mp4', 'blocko/stockly-8', 'blocko/stockly-9']
     },
     {
-      id: 'visio-fusion',
+      id: 'visio-fusion', added: '2026-10-26',
       photo: 'foto-visio',           // monograma no card; a capa aparece ao passar o mouse
       photoLogo: true,
       name: 'Visio Fusion',
@@ -360,7 +362,7 @@ window.SITE = {
       slides: ['vf1', 'vf2', 'vf3', 'vf4', 'vf5']
     },
     {
-      id: 'deluccky',
+      id: 'deluccky', added: '2026-10-26',
       photo: 'foto-deluccky',
       photoLogo: true,
       page: 'deluccky.html',         // card abre a página do case em vez dos slides
@@ -370,10 +372,12 @@ window.SITE = {
       featured: false,
       summary: 'Identidade visual, edits e link na bio para um streamer de Counter-Strike 2. Um trevo de quatro folhas em estilo sticker, roxo noite e verde trevo, que veste as edits do YouTube, o overlay da live, as telas de pausa e a página com todos os canais e o setup.',
       tags: ['Identidade visual', 'Edição de vídeo', 'Link na bio'],
-      slides: ['deluccky/cover']
+      slides: ['deluccky/cover'],
+      // carrossel da página inicial (a capa sozinha abre o card em Projetos)
+      home: ['deluccky/cover', 'deluccky/id-01', 'deluccky/id-03', 'deluccky/id-11', 'deluccky/id-13', 'deluccky/id-15', 'deluccky/bio-1', 'deluccky/bio-2']
     },
     {
-      id: 'blocko',
+      id: 'blocko', added: '2026-10-24',
       photo: 'foto-blocko',
       photoLogo: true,
       page: 'blocko.html',           // card abre a página do case em vez dos slides
@@ -386,7 +390,7 @@ window.SITE = {
       slides: ['blocko/post-main', 'blocko/post-s2', 'blocko/post-s3', 'blocko/post-s4', 'blocko/post-s5', 'blocko/post-s6', 'blocko/post-s7', 'blocko/post-s8']
     },
     {
-      id: 'mariane-lima',
+      id: 'mariane-lima', added: '2026-10-26',
       photo: 'foto-mari',            // foto do card; a capa aparece ao passar o mouse
       photoLogo: true,                // monograma colorido no card, sem filtro preto e branco
       name: 'Dra. Mariane Lima',
@@ -398,7 +402,7 @@ window.SITE = {
       slides: ['mm1', 'mm2', 'mm3', 'mm4', 'mm5']
     },
     {
-      id: 'aline-foletto',
+      id: 'aline-foletto', added: '2026-10-26',
       photo: 'foto-aline',            // foto do card; a capa aparece ao passar o mouse
       photoLogo: true,                // monograma colorido no card, sem filtro preto e branco
       name: 'Aline Foletto',
@@ -410,7 +414,7 @@ window.SITE = {
       slides: ['af1', 'af2', 'af3', 'af4', 'af5']
     },
     {
-      id: 'bico-pitanga',
+      id: 'bico-pitanga', added: '2026-10-24',
       photo: 'foto-bico',            // foto do card; a capa aparece ao passar o mouse
       photoLogo: true,                // logo colorido no card, sem filtro preto e branco
       name: 'Bico Pitanga',
@@ -422,7 +426,7 @@ window.SITE = {
       slides: ['bp1', 'bp2', 'bp3', 'bp5', 'bp6', 'bp4']
     },
     {
-      id: 'gustavo-baptista',
+      id: 'gustavo-baptista', added: '2026-10-24',
       photo: 'foto-gustavo',            // foto do card; a capa aparece ao passar o mouse
       name: 'Dr. Gustavo Baptista',
       role: 'Médico Nutrólogo',
@@ -433,7 +437,7 @@ window.SITE = {
       slides: ['gb1', 'gb2', 'gb3', 'gb4']
     },
     {
-      id: 'thiago-guerra',
+      id: 'thiago-guerra', added: '2026-10-24',
       photo: 'foto-thiago',            // foto do card; a capa aparece ao passar o mouse
       name: 'Thiago Guerra',
       role: 'Advogado · Governança e Compliance',
@@ -444,7 +448,7 @@ window.SITE = {
       slides: ['tg1', 'tg2', 'tg3', 'tg4']
     },
     {
-      id: 'gabriel-ramalho',
+      id: 'gabriel-ramalho', added: '2026-10-24',
       photo: 'foto-gabriel',            // foto do card; a capa aparece ao passar o mouse
       name: 'Gabriel Ramalho',
       role: 'Especialista em Cibersegurança',
@@ -455,7 +459,7 @@ window.SITE = {
       slides: ['gr1', 'gr2', 'gr3', 'gr4', 'gr5', 'gr6']
     },
     {
-      id: 'natalia-pasin',
+      id: 'natalia-pasin', added: '2026-10-23',
       photo: 'foto-natalia',            // foto do card; a capa aparece ao passar o mouse
       name: 'Dra. Natália Pasin',
       role: 'Médica Dermatologista',
@@ -466,7 +470,7 @@ window.SITE = {
       slides: ['44', '46', '47', '48']
     },
     {
-      id: 'b-tailor',
+      id: 'b-tailor', added: '2026-10-23',
       photo: 'foto-btailor',            // foto do card; a capa aparece ao passar o mouse
       name: 'B&Tailor',
       role: 'Alfaiataria',
