@@ -86,6 +86,8 @@
       <li class="idol"><figure><div class="idol-pic"><img src="img/inspiracoes/larry-page.webp" alt="Larry Page" loading="lazy" width="900" height="1200"><span class="n">04</span></div><figcaption><h3>Larry Page</h3><p class="ref">Cofundador do Google</p><p>Transformou uma ideia de faculdade em uma ferramenta que organiza a informação do mundo. Pensa grande e aposta no futuro.</p></figcaption></figure></li>
       <li class="idol"><figure><div class="idol-pic"><img src="img/inspiracoes/harvey-specter.webp" alt="Harvey Specter" loading="lazy" width="900" height="1200"><span class="n">05</span></div><figcaption><h3>Harvey Specter</h3><p class="ref">Suits</p><p>Confiança absoluta e talento para negociar. Lê as pessoas, antecipa jogadas e nunca entra numa sala sem saber como vai sair.</p></figcaption></figure></li>
       <li class="idol"><figure><div class="idol-pic"><img src="img/inspiracoes/arnold-schwarzenegger.webp" alt="Arnold Schwarzenegger" loading="lazy" width="550" height="733"><span class="n">06</span></div><figcaption><h3>Arnold Schwarzenegger</h3><p class="ref">Fisiculturista, ator e governador</p><p>Disciplina acima de tudo. Construiu a si mesmo do zero e se reinventou várias vezes, do fisiculturismo a Hollywood e à política.</p></figcaption></figure></li>
+      <li class="idol"><figure><div class="idol-pic"><img src="img/inspiracoes/kaka.webp" alt="Kaká" loading="lazy" width="547" height="729"><span class="n">07</span></div><figcaption><h3>Kaká</h3><p class="ref">Bola de Ouro 2007 · Milan</p><p>Talento, elegância e humildade. Chegou ao topo do mundo como melhor jogador do planeta sem perder a essência.</p></figcaption></figure></li>
+      <li class="idol-more" aria-hidden="true"><b data-idols-count></b><span>pessoas que me inspiram, e contando</span></li>
     </ul>
   </section>
 
@@ -138,6 +140,19 @@
   if (!l || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   l.classList.add('pre');
   new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { requestAnimationFrame(() => l.classList.add('on')); o.disconnect(); } }), { threshold: .35 }).observe(l);
+})();
+</script>
+<script>
+(() => {
+  const l = document.querySelector('.idol-list'); if (!l) return;
+  const more = l.querySelector('.idol-more'), n = l.querySelectorAll('.idol').length;
+  l.querySelector('[data-idols-count]').textContent = n;
+  const fit = () => {
+    const cols = getComputedStyle(l).gridTemplateColumns.split(' ').filter(Boolean).length;
+    const left = cols > 1 ? (cols - n % cols) % cols : 0;
+    more.hidden = !left; if (left) more.style.gridColumn = 'span ' + left;
+  };
+  fit(); addEventListener('resize', fit);
 })();
 </script>
 </body>
