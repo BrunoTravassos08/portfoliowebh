@@ -444,11 +444,6 @@ a.card { text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .new-badge i::after { animation: none; } }
 .card .pic .new-badge { position: absolute; top: 12px; left: 12px; margin: 0; z-index: 3; background: #f3f3f3; color: #1d1d1d; font-size: 11px; padding: 5px 10px 5px 8px; }
 
-/* Aviso de vídeo novo no topo da página inicial */
-.hero-new { justify-self: start; margin: 0; text-decoration: none; transition: transform .4s var(--ease), opacity .3s; }
-.hero-new:hover { transform: translateY(2px); opacity: .85; }
-.hero-new svg { margin-left: 2px; }
-
 /* Vídeos novos colado nos projetos: sem o vão duplo entre duas seções escuras, só uma linha separando */
 .vids { padding-bottom: clamp(48px, 5vw, 72px); }
 .vids + section { padding-top: clamp(48px, 5vw, 72px); }
