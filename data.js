@@ -150,13 +150,13 @@ window.SITE = {
     toca: {
       name: 'Toca do Respiro', eyebrow: 'Case · App mobile',
       who: 'Respire com o coelhinho.',
-      lede: 'O Toca do Respiro nasceu dentro de casa. Criei o app para a minha namorada, que convive com o <strong>TAG (Transtorno de Ansiedade Generalizada)</strong>, para ter um lugar calmo nas horas em que a ansiedade aperta. No caminho percebi que ele podia ajudar muita gente que passa pelo mesmo, e transformei o projeto num <strong>app gratuito, sem anúncios e sem nenhuma monetização</strong>.<br><br>A ideia é simples: um <strong>coelhinho que respira junto</strong> com você. A barriga cresce na inspiração, o ar sai em nuvenzinhas na expiração e frases curtas acolhem a cada ciclo, lembrando que está tudo bem ir no seu tempo. Não tem cadastro, metas nem cobrança: só respirar.<br><br>Dá para trocar o dia pela <strong>noite</strong> (o coelhinho vai para a toca), ligar uma <strong>chuvinha com som</strong> e ajustar de 3 a 15 segundos por fase. Cores suaves, letras arredondadas e sons gerados no próprio app foram escolhidos para acalmar, não para prender a atenção. Feito para o celular Android, também funciona com a tela deitada.',
-      facts: [['Cliente', 'Projeto pessoal · app gratuito'], ['Para quem', 'Pessoas que convivem com ansiedade'], ['Plataformas', 'App mobile (Android) e web'], ['Entregas', 'Marca e mascote, cena animada de dia e de noite, exercício guiado com contagem, chuva com som gerado no app, configurações de ritmo e som, versão deitada'], ['Ano', '2026']],
+      lede: 'O Toca do Respiro nasceu dentro de casa. Criei o app para a minha namorada, que convive com o <strong>TAG (Transtorno de Ansiedade Generalizada)</strong>, para ter um lugar calmo nas horas em que a ansiedade aperta. No caminho percebi que ele podia ajudar muita gente que passa pelo mesmo, e transformei o projeto num <strong>app gratuito, sem anúncios e sem nenhuma monetização</strong>.<br><br>A ideia é simples: um <strong>coelhinho que respira junto</strong> com você. A barriga cresce na inspiração, o ar sai em nuvenzinhas na expiração e frases curtas acolhem a cada ciclo, lembrando que está tudo bem ir no seu tempo. Não tem cadastro, metas nem cobrança: só respirar.<br><br>Dá para trocar o dia pela <strong>noite</strong> (o coelhinho vai para a toca), ligar uma <strong>chuvinha com som</strong>, ajustar de 3 a 15 segundos por fase e escolher sessões de 1 ou 3 minutos. O <strong>modo tranquilo</strong> tira os textos da tela durante o exercício, e dois tons suaves (um que sobe para inspirar e outro que desce para expirar) permitem respirar <strong>de olhos fechados</strong>. Cores suaves, letras arredondadas e sons gerados no próprio app foram escolhidos para acalmar, não para prender a atenção. Feito para o celular Android, também funciona com a tela deitada.',
+      facts: [['Cliente', 'Projeto pessoal · app gratuito'], ['Para quem', 'Pessoas que convivem com ansiedade'], ['Plataformas', 'App mobile (Android) e web'], ['Entregas', 'Marca e mascote, cena animada de dia e de noite, exercício guiado com contagem, sessões de 1 ou 3 minutos, modo tranquilo, sons para respirar de olhos fechados, chuva com som gerado no app, versão deitada'], ['Ano', '2026']],
       bg: '#4c2e30', accent: '#984836', status: '#fff6ef', brand: 'marca',
       actions: [['Baixar o app', 'downloads/toca-do-respiro.html', 'download'], ['Usar online', 'downloads/toca-do-respiro.html', 'external']],
       actionsNote: 'Gratuito e sem anúncios. O arquivo abre em qualquer navegador, no celular ou no computador, e funciona sem internet.',
       phone: [
-        ['inicio', 'Boas-vindas', 'Na primeira visita o coelhinho cumprimenta e convida para respirar.'],
+        ['inicio', 'Boas-vindas', 'Na primeira visita o coelhinho cumprimenta e convida para respirar. Os botões ficam embaixo, ao alcance do polegar.'],
         ['contagem', 'Contagem', 'Três segundos para se acomodar antes de começar.'],
         ['respire', 'Respire', 'O coelhinho enche a barriga e o contador marca cada segundo.'],
         ['expire', 'Expire', 'O ar sai pela boca em nuvenzinhas, com uma frase de apoio.'],
@@ -164,7 +164,9 @@ window.SITE = {
         ['chuva', 'Chuvinha', 'O céu fecha, a chuva cai na cena e o som de chuva começa devagar.'],
         ['noite', 'Modo noite', 'A lua sobe e o coelhinho vai para a toca.'],
         ['noite-respire', 'Respirar à noite', 'O mesmo exercício com as cores da noite.'],
-        ['configuracoes', 'Configurações', 'Som do ritmo, segundos por fase e volume da chuva.']
+        ['tranquilo', 'Modo tranquilo', 'Durante o exercício fica só o coelhinho e uma palavra: inspire ou expire.'],
+        ['terminamos', 'Fim da sessão', 'Ao fim de 1 ou 3 minutos, um acorde suave avisa que a sessão terminou.'],
+        ['configuracoes', 'Configurações', 'Sons de inspirar e expirar, tic por segundo, tempo por fase, duração da sessão e volume da chuva.']
       ]
     },
     precisa: {
