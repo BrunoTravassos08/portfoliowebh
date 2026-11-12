@@ -1,0 +1,790 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Brovier Relógios</title>
+<meta name="description" content="Brovier, relógios premium em Recife/PE. Tempo é luxo. Viva o extraordinário.">
+</head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&display=swap">
+<style>
+/* Layout: loja de vitrine clara. Cabeçalho azul-marinho, banners escuros de borda a borda,
+   vitrine em blocos cinza-claros com nomes centralizados, rodapé cinza em quatro colunas.
+   Visual único e claro por escolha (sem modo escuro), como uma boutique. */
+:root {
+  --navy: #18243F;      /* cabeçalho e botões principais, cor da marca */
+  --night: #0D1424;     /* banners escuros */
+  --ink: #161B26;       /* texto */
+  --muted: #6E7380;     /* texto secundário */
+  --paper: #FFFFFF;     /* fundo */
+  --tile: #F0EFED;      /* fundo das fotos de produto */
+  --line: #E3E2DF;
+  --foot: #EFEEEC;      /* rodapé */
+  --gold: #C9A27A;      /* destaque caramelo: preço, botões de chamada */
+  --gold-ink: #FFFFFF;
+  --on-dark: #F4F2EE;
+  --on-dark-muted: #B7B3AA;
+  --font-display: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --font-body: "Lato", "Helvetica Neue", Arial, sans-serif;
+  --gl: max(16px, env(safe-area-inset-left, 0px));
+  --gr: max(16px, env(safe-area-inset-right, 0px));
+  --maxw: 1200px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 300 15px/1.7 var(--font-body); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 40; background: var(--navy); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gl); padding-right: var(--gr); }
+h1, h2, h3 { font-variant-numeric: lining-nums; font-family: var(--font-display); font-weight: 500; margin: 0; line-height: 1.05; text-wrap: balance; }
+.caps { text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 400; }
+.link-line { display: inline-block; text-decoration: none; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; padding-bottom: 4px; border-bottom: 1px solid currentColor; }
+
+/* Botões */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 0 26px; border: 1px solid transparent; border-radius: 0;
+  text-decoration: none; text-transform: uppercase; letter-spacing: .18em; font: 700 11px/1 var(--font-body); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.btn svg { width: 17px; height: 17px; flex: none; }
+.btn-gold { background: var(--gold); color: var(--gold-ink); }
+.btn-gold:hover { background: #B88F66; }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: #22315A; }
+.btn-soft { background: #CFCDC9; color: #fff; }
+.btn-soft:hover { background: #B9B7B2; }
+.btn-out { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-out:hover { background: var(--ink); color: #fff; }
+.btn-block { width: 100%; }
+
+/* Cabeçalho */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--navy); color: #fff; }
+.top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 76px; gap: 16px; }
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; justify-self: start; }
+.logo svg { width: 26px; height: 26px; }
+.logo b { font: 500 26px/1 var(--font-display); letter-spacing: .16em; }
+.menu { display: flex; gap: 40px; }
+.menu a { text-decoration: none; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 400; color: rgba(255,255,255,.82); padding: 6px 0; border-bottom: 1px solid transparent; }
+.menu a:hover, .menu a.on { color: #fff; border-bottom-color: #fff; }
+.icons { display: flex; gap: 6px; justify-self: end; align-items: center; }
+.icon-btn { position: relative; width: 40px; height: 40px; display: grid; place-items: center; background: none; border: 0; color: #fff; cursor: pointer; text-decoration: none; }
+.icon-btn svg { width: 20px; height: 20px; }
+.badge { position: absolute; top: 3px; right: 2px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; background: #fff; color: var(--navy); font: 700 10px/16px var(--font-body); text-align: center; }
+.burger { display: none; }
+@media (max-width: 860px) {
+  .top .wrap { grid-template-columns: auto 1fr auto; height: 64px; }
+  .burger { display: grid; }
+  .logo { justify-self: center; grid-column: 2; }
+  .logo b { font-size: 22px; }
+  .icons { grid-column: 3; }
+  .menu { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--navy); flex-direction: column; gap: 0;
+    padding: 8px var(--gr) 18px var(--gl); border-top: 1px solid rgba(255,255,255,.1); }
+  .menu.open { display: flex; }
+  .menu a { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .icons .hide-sm { display: none; }
+}
+
+/* Banner principal */
+.hero { position: relative; overflow: hidden; color: var(--on-dark); background:
+  radial-gradient(60% 55% at 50% 38%, #2A3756 0%, #141D33 45%, var(--night) 75%), var(--night); }
+.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.018) 0 1px, transparent 1px 120px); }
+.hero .wrap { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; padding-block: 40px 60px; gap: 10px; }
+.hero-watch { width: min(70vw, 400px); aspect-ratio: 4 / 5; position: relative; }
+.hero-watch img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 40px 50px rgba(0,0,0,.55)); transition: opacity .22s ease; }
+.hero .caps { color: var(--on-dark-muted); margin-top: 6px; }
+.hero h1 { font-size: clamp(50px, 11vw, 116px); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+.hero p { margin: 0 0 10px; font: italic 400 clamp(20px, 2.6vw, 26px)/1.3 var(--font-display); color: var(--on-dark-muted); }
+.hero-nav { display: flex; gap: 10px; margin-top: 14px; }
+.hero-dot { width: 34px; height: 12px; border: 0; padding: 5px 0; background: rgba(255,255,255,.28); background-clip: content-box; cursor: pointer; }
+.hero-dot[aria-pressed="true"] { background-color: var(--gold); }
+
+/* Vitrine */
+section.shelf { padding-block: 72px; }
+.sec-head { text-align: center; display: grid; gap: 10px; margin-bottom: 40px; }
+.sec-head .caps { color: var(--gold); font-weight: 700; }
+.sec-head h2 { font-size: clamp(32px, 4.4vw, 46px); text-transform: uppercase; letter-spacing: .06em; }
+.grid { display: grid; gap: 34px 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 760px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 22px; } }
+@media (min-width: 1060px) { .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 44px 26px; } }
+.grid.trio { max-width: 920px; margin: 0 auto; }
+@media (max-width: 759px) { .grid.trio > :nth-child(3) { display: none; } }
+.prod { display: grid; gap: 14px; text-align: center; min-width: 0; }
+.prod a { text-decoration: none; }
+.prod .ph { display: block; aspect-ratio: 4 / 5; background: var(--tile); overflow: hidden; max-width: 100%; }
+.prod .ph img { width: 100%; height: 100%; object-fit: contain; padding: 8%; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.prod:hover .ph img { transform: scale(1.05); }
+.prod .nm { font: 400 14.5px/1.3 var(--font-body); text-transform: uppercase; letter-spacing: .08em; }
+.prod .vr { font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+.prod .pr { font-size: 12.5px; color: var(--gold); font-weight: 700; letter-spacing: .04em; margin-top: 5px; }
+.center { display: flex; justify-content: center; margin-top: 44px; }
+
+/* Faixa escura dividida */
+.band { position: relative; background: radial-gradient(70% 90% at 75% 50%, #1F2B47, var(--night) 70%); color: var(--on-dark); overflow: hidden; }
+.band .wrap { display: grid; align-items: center; gap: 28px; padding-block: 56px; }
+@media (min-width: 860px) { .band .wrap { grid-template-columns: 1fr 1fr; min-height: 460px; padding-block: 40px; } }
+.band h2 { font-size: clamp(32px, 4vw, 46px); text-transform: uppercase; letter-spacing: .05em; line-height: 1.1; }
+.band p { color: var(--on-dark-muted); max-width: 44ch; margin: 16px 0 26px; }
+.band .art { position: relative; display: grid; place-items: center; }
+.band .art::before { content: ""; position: absolute; width: 74%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(201,162,122,.22), transparent 65%); }
+.band .art img { position: relative; width: min(64vw, 340px); filter: drop-shadow(0 30px 40px rgba(0,0,0,.6)); transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.band .art:hover img { transform: rotate(-3deg) scale(1.03); }
+.band.warm { background: radial-gradient(70% 90% at 25% 50%, #3A2C1E, #17110B 70%); }
+@media (min-width: 860px) { .band.warm .wrap > :first-child { order: 2; } }
+.band .big { font-size: clamp(36px, 5vw, 56px); line-height: 1.04; }
+.band .sig { font: italic 400 24px var(--font-display); color: var(--on-dark); margin: 16px 0 0; }
+.band .sig b { font-style: normal; font-weight: 600; }
+
+/* Coleções */
+.cols { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .cols { grid-template-columns: 1fr 1fr; gap: 20px; } }
+.col { position: relative; overflow: hidden; min-height: 240px; display: grid; align-items: end; padding: 26px; color: var(--on-dark); text-decoration: none; }
+@media (min-width: 760px) { .col { min-height: 300px; padding: 34px; } }
+.col img { position: absolute; right: 0; top: 50%; translate: 0 -50%; height: 112%; width: auto; max-width: 60%; object-fit: contain; filter: drop-shadow(0 24px 30px rgba(0,0,0,.5)); transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.col:hover img { transform: scale(1.05) rotate(-2deg); }
+.col::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.35), transparent 60%); }
+.col div { position: relative; display: grid; gap: 10px; justify-items: start; }
+.col h3 { font-size: clamp(34px, 4vw, 46px); text-transform: uppercase; letter-spacing: .04em; }
+
+/* Novidades */
+.follow { text-align: center; padding-block: 72px; }
+.follow h2 { font: 400 24px/1.2 var(--font-body); color: var(--navy); text-transform: uppercase; letter-spacing: .06em; }
+.follow p { color: var(--muted); margin: 10px auto 24px; max-width: 52ch; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+/* Rodapé */
+footer { background: var(--foot); color: var(--muted); font-size: 13.5px; }
+.foot { display: grid; gap: 34px; padding-block: 56px 30px; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .foot { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .foot { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 48px; } }
+.foot h4 { margin: 0 0 14px; font: 700 13px var(--font-body); color: var(--navy); text-transform: uppercase; letter-spacing: .06em; }
+.foot p { margin: 0 0 10px; }
+.foot b { color: var(--navy); font-weight: 700; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+.foot ul a { text-decoration: none; }
+.foot ul a:hover { color: var(--navy); }
+.round { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #CFCDC9; display: inline-grid; place-items: center; color: var(--navy); }
+.round svg { width: 16px; height: 16px; }
+.copy { border-top: 1px solid #DEDCD8; padding-block: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; }
+
+/* Faixa de título interna */
+.page-top { position: relative; overflow: hidden; color: var(--on-dark); background: radial-gradient(80% 140% at 70% 50%, #253250, var(--night) 70%); }
+.page-top .wrap { position: relative; z-index: 1; min-height: 190px; display: grid; align-content: center; justify-items: center; text-align: center; gap: 10px; padding-block: 36px; }
+.page-top h1 { font-size: clamp(36px, 6vw, 58px); text-transform: uppercase; letter-spacing: .06em; }
+.page-top img { position: absolute; right: 6%; top: 50%; translate: 0 -50%; height: 160%; width: auto; max-width: none; opacity: .28; z-index: 0; }
+@media (max-width: 700px) { .page-top img { right: -22%; opacity: .2; } }
+.crumbs { font-size: 12.5px; color: var(--on-dark-muted); display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { color: #fff; }
+
+/* Coleção: filtros */
+.filters { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; justify-content: space-between; padding-block: 34px 22px; }
+.tabs { display: flex; gap: 22px; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: none; background: none; border: 0; border-bottom: 1px solid transparent; padding: 6px 0; cursor: pointer; text-transform: uppercase; letter-spacing: .16em; font-size: 11.5px; color: var(--muted); }
+.tab:hover { color: var(--ink); }
+.tab[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.sub-tabs { padding-bottom: 22px; border-bottom: 1px solid var(--line); margin-bottom: 30px; }
+.sub-tabs .tab { font-size: 10.5px; }
+.find { position: relative; width: min(100%, 300px); }
+.find input { width: 100%; height: 42px; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 0 30px 0 0; font: 300 15px var(--font-body); color: var(--ink); border-radius: 0; }
+.find input::placeholder { color: var(--muted); }
+.find svg { position: absolute; right: 2px; top: 11px; width: 18px; height: 18px; }
+.count { font-size: 12.5px; color: var(--muted); margin-bottom: 18px; }
+.empty { text-align: center; color: var(--muted); padding: 30px 0 10px; }
+
+/* Produto */
+.pd { display: grid; gap: 34px; padding-block: 48px 64px; }
+@media (min-width: 900px) { .pd { grid-template-columns: 1.1fr 1fr; gap: 60px; } }
+.pd-ph { background: var(--tile); aspect-ratio: 4 / 5; max-width: 100%; }
+.pd-ph img { width: 100%; height: 100%; object-fit: contain; padding: 7%; }
+.pd-info { display: grid; gap: 18px; align-content: start; min-width: 0; }
+.pd-info .brand { color: var(--muted); }
+.pd-info h2 { font: 400 clamp(24px, 3vw, 30px)/1.2 var(--font-body); text-transform: uppercase; letter-spacing: .04em; }
+.pd-info .price { color: var(--gold); font-size: 19px; font-weight: 400; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.pd-info .txt { color: var(--muted); margin: 0; }
+.qty { display: inline-flex; align-items: center; border: 1px solid var(--line); height: 46px; background: #fff; }
+.qty button { width: 40px; height: 100%; background: none; border: 0; cursor: pointer; font-size: 16px; color: var(--muted); }
+.qty button:hover { color: var(--ink); }
+.qty span { min-width: 28px; text-align: center; font-variant-numeric: tabular-nums; }
+.pd-info .row .btn-soft { flex: 1; min-width: 190px; }
+.meta { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding: 14px 0; border-block: 1px solid var(--line); }
+.meta b { color: var(--ink); font-weight: 700; }
+.pd-tabs { border-top: 1px solid var(--line); padding-block: 40px 40px; }
+.pd-tabs .tabs { justify-content: center; margin-bottom: 26px; gap: 30px; }
+.pd-tabs .tab { font: 400 17px var(--font-body); letter-spacing: 0; text-transform: none; }
+.panel { max-width: 760px; margin: 0 auto; color: var(--muted); }
+dl.specs { margin: 0; display: grid; }
+dl.specs div { display: grid; grid-template-columns: 130px 1fr; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+dl.specs dt { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; padding-top: 3px; }
+dl.specs dd { margin: 0; color: var(--ink); }
+.rel-head { display: flex; align-items: baseline; justify-content: center; position: relative; margin-bottom: 38px; }
+.rel-head h2 { font: 400 clamp(21px, 2.6vw, 27px) var(--font-body); text-transform: uppercase; letter-spacing: .04em; }
+.rel-head a { position: absolute; right: 0; }
+@media (max-width: 700px) { .rel-head { flex-direction: column; align-items: center; gap: 10px; } .rel-head a { position: static; } }
+
+/* Seleção */
+.sel { display: grid; gap: 34px; padding-block: 56px 72px; }
+@media (min-width: 960px) { .sel { grid-template-columns: 1fr 360px; align-items: start; gap: 48px; } }
+.sel-table { border: 1px solid var(--line); min-width: 0; }
+.sel-row { display: grid; grid-template-columns: 76px 1fr auto; gap: 16px; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.sel-row:last-child { border-bottom: 0; }
+.sel-row.head { font-size: 14px; font-weight: 400; padding-block: 14px; }
+.sel-row .th { width: 76px; aspect-ratio: 1; background: var(--tile); }
+.sel-row .th img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+.sel-row .nm { min-width: 0; }
+.sel-row .nm a { text-decoration: none; font-size: 15px; }
+.sel-row .nm small { display: block; color: var(--muted); font-size: 12.5px; }
+.sel-row .ctl { display: flex; align-items: center; gap: 14px; }
+.x { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--muted); background: none; cursor: pointer; color: var(--muted); font-size: 15px; line-height: 1; }
+.x:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 560px) { .sel-row { grid-template-columns: 64px 1fr; } .sel-row .th { width: 64px; } .sel-row .ctl { grid-column: 2; } .sel-row.head span:last-child { display: none; } }
+.sum { background: #F6F5F3; }
+.sum h3 { font: 400 20px var(--font-body); background: #ECEBE8; padding: 18px 26px; }
+.sum .in { padding: 22px 26px 28px; display: grid; gap: 16px; }
+.sum .ln { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.sum .ln b { font-weight: 400; font-size: 18px; font-variant-numeric: tabular-nums; }
+.sum p { margin: 0; color: var(--muted); font-size: 13px; }
+.sel-empty { text-align: center; padding: 70px 0 90px; display: grid; gap: 16px; justify-items: center; }
+.sel-empty h2 { font-size: 34px; }
+.sel-empty p { color: var(--muted); margin: 0; max-width: 46ch; }
+
+/* Aviso */
+.toast { position: fixed; z-index: 50; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); translate: -50% 0; background: var(--ink); color: #fff;
+  padding: 12px 18px; font-size: 13.5px; display: flex; gap: 14px; align-items: center; width: max-content; max-width: calc(100vw - 32px); }
+.toast a { color: var(--gold); text-transform: uppercase; letter-spacing: .14em; font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+
+.view { animation: fade .35s ease both; }
+@keyframes fade { from { opacity: .4; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .view { animation: none; }
+  .prod .ph img, .col img, .band .art img, .hero-watch img { transition: none; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <mask id="mono-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+      <rect width="100" height="100" fill="#fff"/><rect x="42.5" y="0" width="15" height="100" fill="#000"/>
+    </mask>
+    <symbol id="mono" viewBox="0 0 100 100">
+      <path fill="currentColor" fill-rule="evenodd" mask="url(#mono-cut)" d="M2,50 a48,48 0 1,0 96,0 a48,48 0 1,0 -96,0 Z M21,50 a29,42 0 1,0 58,0 a29,42 0 1,0 -58,0 Z"/>
+      <rect x="46.2" y="21" width="7.6" height="58" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m20 20-4.2-4.2" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6Z M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <button class="icon-btn burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+    <a class="logo" href="#inicio" aria-label="Brovier, início"><svg aria-hidden="true"><use href="#mono"/></svg><b>BROVIER</b></a>
+    <nav class="menu" id="menu" aria-label="Menu principal">
+      <a href="#inicio" data-nav="inicio">Início</a>
+      <a href="#colecao" data-nav="colecao">Coleção</a>
+      <a href="#a-loja" data-nav="a-loja">A loja</a>
+      <a href="#contato" data-nav="contato">Contato</a>
+    </nav>
+    <div class="icons">
+      <a class="icon-btn hide-sm" href="#colecao" id="searchBtn" aria-label="Buscar relógios"><svg><use href="#i-search"/></svg></a>
+      <a class="icon-btn" href="#selecao" aria-label="Minha seleção"><svg><use href="#i-bag"/></svg><span class="badge" id="badge" hidden>0</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer id="contato">
+  <div class="wrap foot">
+    <div>
+      <h4>Brovier</h4>
+      <p>Relojoaria de Recife criada em 2025 para quem trata o tempo como luxo. Peças novas e de alta linha das grandes casas, escolhidas uma a uma e entregues com atendimento pessoal.</p>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <p><b>WhatsApp:</b> <span style="user-select:all">+55 (67) 9 9192-1164</span></p>
+      <p><b>Instagram:</b> @usebrovier</p>
+      <p><b>Onde estamos:</b> Recife, Pernambuco</p>
+      <div class="row" style="gap:8px">
+        <a class="round js-whats" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-whats"/></svg></a>
+        <a class="round js-insta" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-insta"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Como comprar</h4>
+      <p>1. Escolha as peças e adicione à sua seleção.</p>
+      <p>2. Envie a seleção pelo WhatsApp.</p>
+      <p>3. Confirmamos valores, pagamento e entrega.</p>
+    </div>
+    <div>
+      <h4>Coleções</h4>
+      <ul id="footCols"></ul>
+    </div>
+  </div>
+  <div class="wrap copy">
+    <span>© <span id="ano">2026</span> Brovier Relógios. Todos os direitos reservados.</span>
+    <span>Tempo é luxo. Viva o extraordinário.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+/*
+  CATÁLOGO BROVIER
+  ================
+  Para adicionar um relógio, copie um bloco { ... } abaixo, cole no fim da lista
+  e troque os dados. Campos:
+
+    codigo    Código único que aparece na ficha e vai na mensagem do WhatsApp.
+    marca     Precisa ser escrita igual a um nome da lista MARCAS (logo abaixo).
+    colecao   Família do modelo (Daytona, Datejust, Nautilus...). Vira um filtro e um bloco na página inicial.
+    modelo    Nome do modelo.
+    detalhe   Uma linha curta que diferencia a peça (cor, material, versão).
+    caixa, mostrador, pulseira   Opcionais. Deixe "" se não quiser mostrar.
+    preco     Número (ex.: 1890) ou null para mostrar "Sob consulta".
+    foto      Caminho da foto dentro da pasta img/. Ideal: PNG ou WEBP com fundo transparente, em pé (4:5).
+    destaque  true para aparecer no topo do catálogo.
+    disponivel  false mostra a peça como "Sob encomenda".
+
+  Para criar uma marca nova, acrescente o nome em MARCAS. A ordem da lista é a
+  ordem dos filtros no site. Marcas sem nenhum relógio não aparecem nos filtros.
+*/
+
+window.MARCAS = [
+  "Rolex",
+  "Patek Philippe",
+  "Audemars Piguet",
+  "Vacheron Constantin",
+  "Cartier",
+  "Omega",
+  "Hublot",
+  "Tag Heuer",
+  "Tissot",
+  "MoonSwatch"
+];
+
+window.PRODUTOS = [
+  // ROLEX
+  { codigo: "BRV-001", marca: "Rolex", modelo: "Cosmograph Daytona", colecao: "Daytona", detalhe: "Ouro amarelo, luneta com diamantes baguete", caixa: "Ouro amarelo com diamantes", mostrador: "Champanhe com índices de diamante", pulseira: "Oyster em ouro amarelo", preco: null, foto: "img/produtos/rolex-daytona-ouro-amarelo-diamantes.webp", destaque: true, disponivel: true },
+  { codigo: "BRV-002", marca: "Rolex", modelo: "Cosmograph Daytona", colecao: "Daytona", detalhe: "Ouro amarelo, mostrador turquesa", caixa: "Ouro amarelo, luneta Cerachrom preta", mostrador: "Turquesa com subdiais pretos", pulseira: "Oysterflex", preco: null, foto: "img/produtos/rolex-daytona-ouro-amarelo-turquesa.webp", destaque: true, disponivel: true },
+  { codigo: "BRV-003", marca: "Rolex", modelo: "Day-Date 40", colecao: "Day-Date", detalhe: "Ouro amarelo, mostrador verde", caixa: "Ouro amarelo, luneta com diamantes baguete", mostrador: "Verde com algarismos romanos", pulseira: "President em ouro amarelo", preco: null, foto: "img/produtos/rolex-day-date-40-ouro-verde.webp", destaque: true, disponivel: true },
+  { codigo: "BRV-004", marca: "Rolex", modelo: "Day-Date 40", colecao: "Day-Date", detalhe: "Ouro branco, mostrador preto", caixa: "Ouro branco, luneta com diamantes baguete", mostrador: "Preto com índices de diamante", pulseira: "President", preco: null, foto: "img/produtos/rolex-day-date-40-preto-diamantes.webp", destaque: false, disponivel: true },
+  { codigo: "BRV-005", marca: "Rolex", modelo: "Datejust 41", colecao: "Datejust", detalhe: "Rolesor amarelo, mostrador verde", caixa: "Aço e ouro amarelo, luneta canelada", mostrador: "Verde com algarismos romanos", pulseira: "Jubilee bicolor", preco: null, foto: "img/produtos/rolex-datejust-41-rolesor-verde.webp", destaque: false, disponivel: true },
+  { codigo: "BRV-006", marca: "Rolex", modelo: "Datejust 41", colecao: "Datejust", detalhe: "Mostrador azul, pulseira Oyster", caixa: "Aço e ouro branco, luneta canelada", mostrador: "Azul", pulseira: "Oyster", preco: null, foto: "img/produtos/rolex-datejust-41-azul.webp", destaque: false, disponivel: true },
+  { codigo: "BRV-007", marca: "Rolex", modelo: "Datejust 41", colecao: "Datejust", detalhe: "Mostrador prata, pulseira Jubilee", caixa: "Aço e ouro branco, luneta canelada", mostrador: "Prata", pulseira: "Jubilee", preco: null, foto: "img/produtos/rolex-datejust-41-prata.webp", destaque: false, disponivel: true },
+  { codigo: "BRV-008", marca: "Rolex", modelo: "Datejust 36", colecao: "Datejust", detalhe: "Mostrador verde menta", caixa: "Aço e ouro branco, luneta canelada", mostrador: "Verde menta", pulseira: "Jubilee", preco: null, foto: "img/produtos/rolex-datejust-36-verde-menta.webp", destaque: false, disponivel: true },
+
+  // PATEK PHILIPPE
+  { codigo: "BRV-009", marca: "Patek Philippe", modelo: "Nautilus 5711", colecao: "Nautilus", detalhe: "Mostrador azul", caixa: "Aço", mostrador: "Azul degradê com relevo horizontal", pulseira: "Integrada em aço", preco: null, foto: "img/produtos/patek-nautilus-5711-azul.webp", destaque: true, disponivel: true },
+  { codigo: "BRV-010", marca: "Patek Philippe", modelo: "Nautilus 5711", colecao: "Nautilus", detalhe: "Mostrador verde oliva", caixa: "Aço", mostrador: "Verde oliva com relevo horizontal", pulseira: "Integrada em aço", preco: null, foto: "img/produtos/patek-nautilus-5711-verde.webp", destaque: false, disponivel: true },
+  { codigo: "BRV-011", marca: "Patek Philippe", modelo: "Nautilus 5712", colecao: "Nautilus", detalhe: "Fases da lua e reserva de marcha", caixa: "Aço", mostrador: "Azul com fases da lua", pulseira: "Integrada em aço", preco: null, foto: "img/produtos/patek-nautilus-5712-azul.webp", destaque: false, disponivel: true },
+  { codigo: "BRV-012", marca: "Patek Philippe", modelo: "Nautilus 5980 Cronógrafo", colecao: "Nautilus", detalhe: "Ouro rosé, couro marrom", caixa: "Ouro rosé", mostrador: "Marrom com cronógrafo", pulseira: "Couro marrom", preco: null, foto: "img/produtos/patek-nautilus-5980-ouro-rose.webp", destaque: false, disponivel: true }
+];
+
+/*
+  COLEÇÕES: texto que aparece na página de cada relógio e nos blocos da página inicial.
+  "imagem" é a foto usada no bloco da coleção. "fundo" é a cor do bloco.
+*/
+window.COLECOES = {
+  "Daytona": {
+    descricao: "O cronógrafo criado para as pistas de corrida. Taquímetro na luneta, três contadores no mostrador e uma presença que não passa despercebida.",
+    imagem: "img/produtos/rolex-daytona-ouro-amarelo-turquesa.webp", fundo: "#1E3328"
+  },
+  "Datejust": {
+    descricao: "O clássico de todos os dias. Data com lupa Cyclops, luneta canelada e a pulseira Jubilee ou Oyster que combina do terno ao fim de semana.",
+    imagem: "img/produtos/rolex-datejust-41-azul.webp", fundo: "#18243F"
+  },
+  "Day-Date": {
+    descricao: "Dia da semana por extenso e data no mostrador, metais nobres e a pulseira President. Um relógio de cerimônia.",
+    imagem: "img/produtos/rolex-day-date-40-ouro-verde.webp", fundo: "#2A2118"
+  },
+  "Nautilus": {
+    descricao: "A caixa de inspiração náutica, o mostrador com relevo horizontal e a pulseira integrada que fizeram do Nautilus um ícone do esporte fino.",
+    imagem: "img/produtos/patek-nautilus-5711-azul.webp", fundo: "#20252E"
+  }
+};
+
+</script>
+<script>
+/* ===== Dados da loja: troque aqui se mudar o número ou as redes ===== */
+const LOJA = {
+  whatsapp: "5567991921164",            // só números, com 55 e DDD
+  instagram: "https://www.instagram.com/usebrovier/"
+};
+
+const MARCAS = window.MARCAS || [];
+const COLECOES = window.COLECOES || {};
+const PRODUTOS = (window.PRODUTOS || []).slice().sort((a, b) =>
+  (b.destaque === true) - (a.destaque === true) || MARCAS.indexOf(a.marca) - MARCAS.indexOf(b.marca));
+const porCodigo = Object.fromEntries(PRODUTOS.map((p) => [p.codigo.toLowerCase(), p]));
+const marcasUsadas = MARCAS.filter((m) => PRODUTOS.some((p) => p.marca === m));
+const colecoesUsadas = [...new Set(PRODUTOS.map((p) => p.colecao).filter(Boolean))];
+
+const esc = (s) => (s ?? "").toString().replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const norm = (s) => (s || "").toString().normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const whatsLink = (msg) => "https://wa.me/" + LOJA.whatsapp + (msg ? "?text=" + encodeURIComponent(msg) : "");
+const preco = (p) => p.disponivel === false ? "Sob encomenda"
+  : (typeof p.preco === "number" ? p.preco.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : "Sob consulta");
+const rota = (p) => "#" + p.codigo.toLowerCase();
+const nomeCurto = (p) => `${p.marca} ${p.modelo}`;
+
+function ligarLinks(root) {
+  root.querySelectorAll(".js-whats").forEach((a) => a.href = whatsLink(a.dataset.msg || "Olá, Brovier! Vim pelo site."));
+  root.querySelectorAll(".js-insta").forEach((a) => a.href = LOJA.instagram);
+}
+ligarLinks(document);
+document.getElementById("ano").textContent = new Date().getFullYear();
+document.getElementById("footCols").innerHTML =
+  colecoesUsadas.map((c) => `<li><a href="#colecao" data-col="${esc(c)}">${esc(c)}</a></li>`).join("") +
+  marcasUsadas.map((m) => `<li><a href="#colecao" data-marca="${esc(m)}">${esc(m)}</a></li>`).join("");
+
+/* ===== Seleção (lista de interesse enviada pelo WhatsApp) ===== */
+let selecao = {};
+try { selecao = JSON.parse(localStorage.getItem("brovier-selecao") || "{}") || {}; } catch (e) { selecao = {}; }
+Object.keys(selecao).forEach((k) => { if (!porCodigo[k]) delete selecao[k]; });
+function salvar() {
+  try { localStorage.setItem("brovier-selecao", JSON.stringify(selecao)); } catch (e) {}
+  const n = Object.values(selecao).reduce((a, b) => a + b, 0);
+  const b = document.getElementById("badge"); b.textContent = n; b.hidden = n === 0;
+}
+let tt;
+function avisar(html, acao = "") {
+  const t = document.getElementById("toast");
+  t.innerHTML = `<span>${html}</span>${acao}`; t.hidden = false;
+  clearTimeout(tt); tt = setTimeout(() => t.hidden = true, 3400);
+}
+function adicionar(cod, qtd = 1) {
+  const k = cod.toLowerCase();
+  selecao[k] = Math.min(9, (selecao[k] || 0) + qtd); salvar();
+  avisar(`${esc(nomeCurto(porCodigo[k]))} está na sua seleção.`, '<a href="#selecao">Ver seleção</a>');
+}
+function msgSelecao() {
+  const linhas = Object.entries(selecao).map(([k, q]) => { const p = porCodigo[k]; return `• ${q}x ${nomeCurto(p)} (${p.detalhe}), código ${p.codigo}`; });
+  return "Olá, Brovier! Montei esta seleção no site:\n" + linhas.join("\n") + "\nPode me passar valores e disponibilidade?";
+}
+
+/* ===== Peças de layout ===== */
+const card = (p) => `
+  <article class="prod">
+    <a class="ph" href="${rota(p)}" aria-label="${esc(nomeCurto(p) + ", " + p.detalhe)}">
+      <img src="${esc(p.foto)}" alt="${esc(nomeCurto(p) + ", " + p.detalhe)}" loading="lazy" width="800" height="1000">
+    </a>
+    <a href="${rota(p)}">
+      <div class="nm">${esc(p.modelo)}</div>
+      <div class="vr">${esc(p.detalhe)}</div>
+      <div class="pr">${preco(p)}</div>
+    </a>
+  </article>`;
+
+const pageTop = (titulo, migalhas, img) => `
+  <section class="page-top">
+    ${img ? `<img src="${esc(img)}" alt="" aria-hidden="true">` : ""}
+    <div class="wrap">
+      <h1>${esc(titulo)}</h1>
+      <nav class="crumbs" aria-label="Você está em">${migalhas}</nav>
+    </div>
+  </section>`;
+
+/* ===== Página inicial ===== */
+const heroPecas = PRODUTOS.filter((p) => p.destaque).slice(0, 4);
+let heroIdx = 0, heroTimer;
+function viewInicio() {
+  const destaques = PRODUTOS.filter((p) => p.destaque).slice(0, 3);
+  const novos = PRODUTOS.filter((p) => !destaques.includes(p)).slice(0, 4);
+  const h = heroPecas[0] || PRODUTOS[0];
+  const banda1 = PRODUTOS.find((p) => p.colecao === "Day-Date") || PRODUTOS[0];
+  const banda2 = PRODUTOS.find((p) => /5980/.test(p.modelo)) || PRODUTOS[PRODUTOS.length - 1];
+  return `
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <a class="hero-watch" id="heroLink" href="${rota(h)}" aria-label="Ver ${esc(nomeCurto(h))}"><img id="heroImg" src="${esc(h.foto)}" alt="${esc(nomeCurto(h))}" fetchpriority="high"></a>
+      <span class="caps">Brovier · Relógios premium · Recife</span>
+      <h1>Tempo é luxo</h1>
+      <p>Viva o extraordinário.</p>
+      <a class="link-line" href="#colecao">Ver coleção</a>
+      <div class="hero-nav" role="group" aria-label="Escolher relógio do banner">
+        ${heroPecas.map((p, i) => `<button class="hero-dot" type="button" data-i="${i}" aria-pressed="${i === 0}" aria-label="${esc(nomeCurto(p))}"></button>`).join("")}
+      </div>
+    </div>
+  </section>
+
+  <section class="shelf">
+    <div class="wrap">
+      <div class="sec-head"><span class="caps">Em destaque</span><h2>Peças da semana</h2></div>
+      <div class="grid trio">${destaques.map(card).join("")}</div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div>
+        <h2>Marque o tempo<br>com elegância.</h2>
+        <p>Na Brovier, cada relógio é escolhido para acompanhar você nos momentos que importam. Peças novas das grandes casas, com atendimento de perto do começo ao fim.</p>
+        <a class="btn btn-gold" href="#colecao">Ver coleção <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <a class="art" href="${rota(banda1)}" aria-label="Ver ${esc(nomeCurto(banda1))}"><img src="${esc(banda1.foto)}" alt="${esc(nomeCurto(banda1))}" loading="lazy"></a>
+    </div>
+  </section>
+
+  <section class="shelf">
+    <div class="wrap">
+      <div class="sec-head"><span class="caps">Acervo</span><h2>Recém-chegados</h2></div>
+      <div class="grid four">${novos.map(card).join("")}</div>
+    </div>
+  </section>
+
+  <section class="shelf" style="padding-top:0">
+    <div class="wrap">
+      <div class="cols">
+        ${colecoesUsadas.map((c) => {
+          const info = COLECOES[c] || {};
+          const img = info.imagem || (PRODUTOS.find((p) => p.colecao === c) || {}).foto;
+          const n = PRODUTOS.filter((p) => p.colecao === c).length;
+          return `<a class="col" href="#colecao" data-col="${esc(c)}" style="background:${esc(info.fundo || "#18243F")}">
+            <img src="${esc(img)}" alt="" loading="lazy">
+            <div><h3>${esc(c)}</h3><span class="link-line">Ver ${n} ${n === 1 ? "peça" : "peças"}</span></div>
+          </a>`;
+        }).join("")}
+      </div>
+      <div class="center"><a class="link-line" href="#colecao">Ver toda a coleção</a></div>
+    </div>
+  </section>
+
+  <section class="band warm" id="a-loja">
+    <div class="wrap">
+      <div>
+        <h2 class="big">Exclusividade<br>Excelência<br>Alta linha</h2>
+        <div class="sig">Isso é <b>Brovier</b>.</div>
+        <p>Relojoaria de Recife, desde 2025. Trabalhamos só com produtos 100% novos e conferimos cada detalhe antes da entrega. Fotos e vídeos reais da peça são enviados no atendimento.</p>
+        <a class="btn btn-gold js-insta" href="#" target="_blank" rel="noopener">Veja nosso Instagram</a>
+      </div>
+      <a class="art" href="${rota(banda2)}" aria-label="Ver ${esc(nomeCurto(banda2))}"><img src="${esc(banda2.foto)}" alt="${esc(nomeCurto(banda2))}" loading="lazy"></a>
+    </div>
+  </section>
+
+  <section class="follow">
+    <div class="wrap">
+      <h2>Fique por dentro!</h2>
+      <p>As peças novas chegam primeiro no nosso Instagram e no WhatsApp. Chame a gente para receber as novidades.</p>
+      <div class="row" style="justify-content:center">
+        <a class="btn btn-navy js-whats" data-msg="Olá, Brovier! Quero receber as novidades." href="#" target="_blank" rel="noopener"><svg><use href="#i-whats"/></svg>Receber novidades</a>
+        <a class="btn btn-out js-insta" href="#" target="_blank" rel="noopener"><svg><use href="#i-insta"/></svg>@usebrovier</a>
+      </div>
+    </div>
+  </section>`;
+}
+function montarInicio(root) {
+  const dots = root.querySelectorAll(".hero-dot");
+  const img = root.querySelector("#heroImg"), link = root.querySelector("#heroLink");
+  function ir(i) {
+    heroIdx = i; const p = heroPecas[i];
+    img.style.opacity = 0;
+    setTimeout(() => { img.src = p.foto; img.alt = nomeCurto(p); link.href = rota(p); link.setAttribute("aria-label", "Ver " + nomeCurto(p)); img.style.opacity = 1; }, 220);
+    dots.forEach((d, j) => d.setAttribute("aria-pressed", j === i));
+  }
+  const calmo = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function reiniciar() { clearInterval(heroTimer); if (!calmo && heroPecas.length > 1) heroTimer = setInterval(() => ir((heroIdx + 1) % heroPecas.length), 5000); }
+  dots.forEach((d) => d.addEventListener("click", () => { ir(+d.dataset.i); reiniciar(); }));
+  heroIdx = 0; reiniciar();
+}
+
+/* ===== Coleção ===== */
+const filtro = { marca: "Todas", colecao: "Todas", busca: "" };
+function viewColecao() {
+  return `${pageTop("Coleção", `<a href="#inicio">Início</a><span>/</span><span>Coleção</span>`, (COLECOES.Nautilus || {}).imagem)}
+  <section class="wrap">
+    <div class="filters">
+      <div class="tabs" id="tabsCol" role="group" aria-label="Filtrar por coleção">
+        ${["Todas", ...colecoesUsadas].map((c) => `<button class="tab" type="button" data-f="col" data-v="${esc(c)}" aria-pressed="${filtro.colecao === c}">${esc(c)}</button>`).join("")}
+      </div>
+      <label class="find"><input id="busca" type="search" placeholder="Buscar modelo, cor ou código" aria-label="Buscar na coleção" value="${esc(filtro.busca)}" autocomplete="off"><svg aria-hidden="true"><use href="#i-search"/></svg></label>
+    </div>
+    <div class="tabs sub-tabs" id="tabsMarca" role="group" aria-label="Filtrar por marca">
+      ${["Todas", ...marcasUsadas].map((m) => `<button class="tab" type="button" data-f="marca" data-v="${esc(m)}" aria-pressed="${filtro.marca === m}">${m === "Todas" ? "Todas as marcas" : esc(m)}</button>`).join("")}
+    </div>
+    <div class="count" id="count"></div>
+    <div class="grid four" id="grade"></div>
+    <p class="empty" id="vazio" hidden>Nenhum relógio com esse filtro. <a class="js-whats" data-msg="Olá, Brovier! Estou procurando um modelo que não achei no site:" href="#" target="_blank" rel="noopener">Peça pelo WhatsApp</a> que buscamos para você.</p>
+  </section>
+  <div style="height:72px"></div>`;
+}
+function montarColecao(root) {
+  const grade = root.querySelector("#grade");
+  function desenhar() {
+    const b = norm(filtro.busca);
+    const lista = PRODUTOS.filter((p) => (filtro.marca === "Todas" || p.marca === filtro.marca)
+      && (filtro.colecao === "Todas" || p.colecao === filtro.colecao)
+      && (!b || norm([p.codigo, p.marca, p.modelo, p.colecao, p.detalhe, p.caixa, p.mostrador, p.pulseira].join(" ")).includes(b)));
+    grade.innerHTML = lista.map(card).join("");
+    root.querySelector("#vazio").hidden = lista.length > 0;
+    root.querySelector("#count").textContent = `${lista.length} ${lista.length === 1 ? "relógio" : "relógios"}`;
+    root.querySelectorAll('[data-f="col"]').forEach((t) => t.setAttribute("aria-pressed", t.dataset.v === filtro.colecao));
+    root.querySelectorAll('[data-f="marca"]').forEach((t) => t.setAttribute("aria-pressed", t.dataset.v === filtro.marca));
+  }
+  root.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-f]"); if (!t) return;
+    if (t.dataset.f === "col") filtro.colecao = t.dataset.v; else filtro.marca = t.dataset.v;
+    desenhar();
+  });
+  root.querySelector("#busca").addEventListener("input", (e) => { filtro.busca = e.target.value; desenhar(); });
+  desenhar();
+}
+
+/* ===== Produto ===== */
+function viewProduto(p) {
+  const info = COLECOES[p.colecao] || {};
+  const rel = PRODUTOS.filter((x) => x !== p && x.colecao === p.colecao)
+    .concat(PRODUTOS.filter((x) => x !== p && x.colecao !== p.colecao && x.marca === p.marca))
+    .concat(PRODUTOS.filter((x) => x !== p && x.marca !== p.marca)).slice(0, 4);
+  const specs = [["Marca", p.marca], ["Modelo", p.modelo], ["Versão", p.detalhe], ["Caixa", p.caixa], ["Mostrador", p.mostrador], ["Pulseira", p.pulseira], ["Código", p.codigo]].filter((l) => l[1]);
+  return `${pageTop(p.modelo, `<a href="#inicio">Início</a><span>/</span><a href="#colecao" data-col="${esc(p.colecao)}">${esc(p.colecao || "Coleção")}</a><span>/</span><span>${esc(p.codigo)}</span>`, p.foto)}
+  <section class="wrap pd">
+    <div class="pd-ph"><img src="${esc(p.foto)}" alt="${esc(nomeCurto(p) + ", " + p.detalhe)}"></div>
+    <div class="pd-info">
+      <span class="caps brand">${esc(p.marca)}</span>
+      <h2>${esc(p.modelo)}</h2>
+      <div class="price">${preco(p)}</div>
+      <p class="txt">${esc(p.detalhe)}. ${esc(info.descricao || "")}</p>
+      <div class="row">
+        <div class="qty" role="group" aria-label="Quantidade"><button type="button" id="menos" aria-label="Diminuir">−</button><span id="q">1</span><button type="button" id="mais" aria-label="Aumentar">+</button></div>
+        <button class="btn btn-soft" type="button" id="addSel">Adicionar à seleção</button>
+      </div>
+      <a class="btn btn-navy btn-block" target="_blank" rel="noopener" href="${whatsLink(`Olá, Brovier! Tenho interesse no ${nomeCurto(p)} (${p.detalhe}), código ${p.codigo}. Pode me passar valor e disponibilidade?`)}"><svg><use href="#i-whats"/></svg>Tenho interesse</a>
+      <div class="meta">Coleção: <b>${esc(p.colecao || "-")}</b> &nbsp;·&nbsp; Código: <b>${esc(p.codigo)}</b></div>
+      <p class="txt" style="font-size:13px">Imagem ilustrativa do modelo. Fotos e vídeos reais da peça são enviados no atendimento.</p>
+    </div>
+  </section>
+  <section class="pd-tabs">
+    <div class="wrap">
+      <div class="tabs" role="group" aria-label="Informações do produto">
+        <button class="tab" type="button" data-t="desc" aria-pressed="true">Descrição</button>
+        <button class="tab" type="button" data-t="spec" aria-pressed="false">Ficha técnica</button>
+      </div>
+      <div class="panel" data-p="desc"><p>${esc(info.descricao || p.detalhe)}</p><p>Esta peça é nova e de alta linha. Valores, formas de pagamento e prazo de entrega são confirmados pelo WhatsApp, com fotos e vídeos do relógio antes da compra.</p></div>
+      <div class="panel" data-p="spec" hidden><dl class="specs">${specs.map((l) => `<div><dt>${l[0]}</dt><dd>${esc(l[1])}</dd></div>`).join("")}</dl></div>
+    </div>
+  </section>
+  ${rel.length ? `<section class="shelf" style="padding-top:24px">
+    <div class="wrap">
+      <div class="rel-head"><h2>Você também pode gostar</h2><a class="link-line" href="#colecao">Ver todos</a></div>
+      <div class="grid four">${rel.map(card).join("")}</div>
+    </div>
+  </section>` : ""}`;
+}
+function montarProduto(root, p) {
+  let q = 1; const qs = root.querySelector("#q");
+  root.querySelector("#menos").onclick = () => { q = Math.max(1, q - 1); qs.textContent = q; };
+  root.querySelector("#mais").onclick = () => { q = Math.min(9, q + 1); qs.textContent = q; };
+  root.querySelector("#addSel").onclick = () => adicionar(p.codigo, q);
+  root.querySelectorAll(".pd-tabs .tab").forEach((t) => t.addEventListener("click", () => {
+    root.querySelectorAll(".pd-tabs .tab").forEach((x) => x.setAttribute("aria-pressed", x === t));
+    root.querySelectorAll(".pd-tabs .panel").forEach((pn) => pn.hidden = pn.dataset.p !== t.dataset.t);
+  }));
+}
+
+/* ===== Seleção ===== */
+function viewSelecao() {
+  const itens = Object.entries(selecao);
+  const top = pageTop("Minha seleção", `<a href="#inicio">Início</a><span>/</span><span>Minha seleção</span>`, (COLECOES.Datejust || {}).imagem);
+  if (!itens.length) return top + `<section class="wrap sel-empty">
+      <h2>Sua seleção está vazia</h2>
+      <p>Abra um relógio e toque em "Adicionar à seleção". Depois é só enviar a lista pelo WhatsApp.</p>
+      <a class="btn btn-navy" href="#colecao">Ver coleção</a>
+    </section>`;
+  const total = itens.reduce((a, [, q]) => a + q, 0);
+  return top + `<section class="wrap sel">
+    <div class="sel-table">
+      <div class="sel-row head"><span>Produto</span><span></span><span>Quantidade</span></div>
+      ${itens.map(([k, q]) => { const p = porCodigo[k]; return `
+        <div class="sel-row">
+          <a class="th" href="${rota(p)}"><img src="${esc(p.foto)}" alt="${esc(nomeCurto(p))}"></a>
+          <div class="nm"><a href="${rota(p)}">${esc(nomeCurto(p))}</a><small>${esc(p.detalhe)} · ${esc(p.codigo)} · ${preco(p)}</small></div>
+          <div class="ctl">
+            <div class="qty"><button type="button" data-k="${k}" data-d="-1" aria-label="Diminuir">−</button><span>${q}</span><button type="button" data-k="${k}" data-d="1" aria-label="Aumentar">+</button></div>
+            <button class="x" type="button" data-rm="${k}" aria-label="Remover ${esc(nomeCurto(p))}">×</button>
+          </div>
+        </div>`; }).join("")}
+    </div>
+    <aside class="sum">
+      <h3>Resumo</h3>
+      <div class="in">
+        <div class="ln"><span>Peças</span><b>${total}</b></div>
+        <div class="ln"><span>Valores</span><b style="font-size:15px">Sob consulta</b></div>
+        <p>Enviamos a sua lista pelo WhatsApp e respondemos com valores, disponibilidade, pagamento e entrega.</p>
+        <a class="btn btn-gold btn-block" target="_blank" rel="noopener" href="${whatsLink(msgSelecao())}"><svg><use href="#i-whats"/></svg>Enviar pelo WhatsApp</a>
+        <a class="link-line" href="#colecao" style="justify-self:center">Continuar escolhendo</a>
+      </div>
+    </aside>
+  </section>`;
+}
+function montarSelecao(root) {
+  root.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-k],[data-rm]"); if (!b) return;
+    if (b.dataset.rm) delete selecao[b.dataset.rm];
+    else { const k = b.dataset.k; selecao[k] = Math.max(0, Math.min(9, (selecao[k] || 0) + +b.dataset.d)); if (!selecao[k]) delete selecao[k]; }
+    salvar(); render(true);
+  });
+}
+
+/* ===== Navegação ===== */
+let ultimaRota = null;
+function render(manterRolagem) {
+  const h = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+  clearInterval(heroTimer);
+  // troca o <main> inteiro para descartar os ouvintes da página anterior
+  const antigo = document.getElementById("app");
+  const root = antigo.cloneNode(false); antigo.replaceWith(root);
+  const p = porCodigo[h];
+  let nome;
+  if (p) { root.innerHTML = `<div class="view">${viewProduto(p)}</div>`; montarProduto(root, p); nome = "produto"; }
+  else if (h === "colecao") { root.innerHTML = `<div class="view">${viewColecao()}</div>`; montarColecao(root); nome = "colecao"; }
+  else if (h === "selecao") { root.innerHTML = `<div class="view">${viewSelecao()}</div>`; montarSelecao(root); nome = "selecao"; }
+  else { root.innerHTML = viewInicio(); montarInicio(root); nome = "inicio"; }
+  ligarLinks(root);
+  document.querySelectorAll("[data-nav]").forEach((l) => l.classList.toggle("on", l.dataset.nav === (nome === "inicio" ? (h || "inicio") : nome)));
+  document.getElementById("menu").classList.remove("open");
+  document.getElementById("burger").setAttribute("aria-expanded", "false");
+  const alvo = (nome === "inicio" && h && h !== "inicio") ? document.getElementById(h) : null;
+  if (alvo) alvo.scrollIntoView();
+  else if (!manterRolagem && ultimaRota !== null) window.scrollTo({ top: 0, behavior: "instant" });
+  ultimaRota = h;
+  document.title = p ? `${nomeCurto(p)} · Brovier` : nome === "colecao" ? "Coleção · Brovier" : nome === "selecao" ? "Minha seleção · Brovier" : "Brovier Relógios";
+}
+// Links que levam à coleção já filtrada (blocos de coleção, rodapé, migalhas)
+document.addEventListener("click", (e) => {
+  const l = e.target.closest("a[data-col],a[data-marca]"); if (!l) return;
+  filtro.busca = "";
+  if (l.dataset.col) { filtro.colecao = l.dataset.col; filtro.marca = "Todas"; }
+  if (l.dataset.marca) { filtro.marca = l.dataset.marca; filtro.colecao = "Todas"; }
+  if (location.hash === "#colecao") { e.preventDefault(); render(); window.scrollTo({ top: 0, behavior: "instant" }); }
+});
+// Menu "Coleção" e lupa abrem a coleção sem filtro
+document.addEventListener("click", (e) => {
+  const l = e.target.closest('.menu a[href="#colecao"], #searchBtn, .hero a[href="#colecao"], .band a[href="#colecao"], .center a[href="#colecao"]'); if (!l) return;
+  filtro.colecao = "Todas"; filtro.marca = "Todas";
+  if (l.id === "searchBtn") setTimeout(() => { const b = document.getElementById("busca"); if (b) b.focus(); }, 80);
+  if (location.hash === "#colecao") { e.preventDefault(); render(); }
+});
+// "Contato" fica no rodapé, igual em todas as páginas
+document.addEventListener("click", (e) => {
+  const l = e.target.closest('a[href="#contato"]'); if (!l) return;
+  e.preventDefault(); document.getElementById("contato").scrollIntoView();
+  document.getElementById("menu").classList.remove("open");
+});
+document.getElementById("burger").addEventListener("click", (e) => {
+  const on = document.getElementById("menu").classList.toggle("open");
+  e.currentTarget.setAttribute("aria-expanded", on);
+});
+window.addEventListener("hashchange", () => render());
+salvar();
+render();
+</script>
+
+</body></html>

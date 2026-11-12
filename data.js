@@ -41,6 +41,27 @@ window.SITE = {
   // apps e sistemas da Blocko: cada um abre app.html?a=<id>, com as telas em img/apps/<id>/
   // m-*.webp = telas do celular, d-*.webp = telas do sistema web; carousel = posts de lançamento
   apps: {
+    brovier: {
+      name: 'Brovier', eyebrow: 'Case · Site', category: 'Webdesign', webFirst: true,
+      who: 'Tempo é luxo.',
+      lede: 'Site para a <strong>Brovier</strong>, relojoaria de Recife que trabalha com relógios premium de grandes casas como Rolex e Patek Philippe. Meu trabalho aqui foi o <strong>webdesign e o desenvolvimento do site</strong>, a partir da identidade visual que a marca já tinha.<br><br>A ideia foi montar uma <strong>vitrine de boutique</strong>: cabeçalho azul-marinho, banners escuros de borda a borda que deixam o relógio brilhar, fotos em blocos claros e uma serifa elegante nos títulos. O cliente navega pela <strong>coleção com filtros</strong> por coleção e marca, busca por modelo, cor ou código, abre a <strong>ficha de cada peça</strong> e monta a sua <strong>seleção</strong>, que vai direto para o <strong>WhatsApp</strong> da loja com os modelos e códigos já escritos. Sem preço na tela: tudo é sob consulta, como pede o segmento.<br><br><em>A identidade visual da Brovier (logo, cores e tipografia da marca) não é de minha autoria. Meu crédito neste projeto é só o site.</em>',
+      facts: [['Cliente', 'Brovier Relógios · Recife/PE'], ['Meu papel', 'Webdesign e desenvolvimento do site'], ['Identidade visual', 'Da própria marca, não feita por mim'], ['Entregas', 'Página inicial, coleção com filtros e busca, página de produto com ficha técnica, seleção enviada pelo WhatsApp, versão para celular'], ['Ano', '2026']],
+      bg: '#18243F', accent: '#C9A27A', status: '#ffffff',
+      actions: [['Ver o site no ar', 'sites/brovier/index.html', 'external']],
+      webLabel: 'Site', webTitle: 'O site no <em>computador.</em>', phoneTitle: 'O site no <em>celular.</em>',
+      web: [
+        ['inicio', 'Início', 'Banner com as peças da semana, destaques, coleções em blocos coloridos e a chamada para o Instagram.'],
+        ['colecao', 'Coleção', 'Filtros por coleção e por marca, busca por modelo, cor ou código e a contagem de peças.'],
+        ['produto', 'Produto', 'Foto grande, ficha técnica, botão para adicionar à seleção e contato direto pelo WhatsApp.'],
+        ['selecao', 'Minha seleção', 'As peças escolhidas viram uma mensagem pronta para o WhatsApp da loja.']
+      ],
+      phone: [
+        ['inicio', 'Início', 'Menu recolhido e banners que ocupam a tela toda.'],
+        ['colecao', 'Coleção', 'Filtros em linha que deslizam para o lado e grade em duas colunas.'],
+        ['produto', 'Produto', 'Foto, ficha e botões ao alcance do polegar.'],
+        ['selecao', 'Minha seleção', 'Resumo da seleção e envio para o WhatsApp.']
+      ]
+    },
     petid: {
       name: 'Pet ID', eyebrow: 'Case · App e painel web',
       who: 'Tudo do seu pet, num só lugar.',
@@ -289,6 +310,12 @@ window.SITE = {
     }
   },
   projects: [
+    {
+      id: 'brovier', added: '2026-11-12', photo: 'apps/brovier/icon', photoLogo: true, page: 'app.html?a=brovier',
+      name: 'Brovier', role: 'Site de relojoaria premium', category: 'Webdesign', featured: false,
+      summary: 'Webdesign e desenvolvimento do site da Brovier, relojoaria premium de Recife: vitrine de boutique, coleção com filtros, página de cada peça e seleção enviada pelo WhatsApp. A identidade visual é da própria marca, não minha.',
+      tags: ['Webdesign', 'Front-end', 'Site'], slides: ['apps/brovier/cover']
+    },
     {
       id: 'toca', added: '2026-11-10', photo: 'apps/toca/icon', photoLogo: true, page: 'app.html?a=toca',
       name: 'Toca do Respiro', role: 'App de respiração guiada', category: 'Apps e sistemas', featured: false,

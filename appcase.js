@@ -30,7 +30,13 @@
     if (A.actionsNote) box.insertAdjacentHTML('beforeend', `<p class="ap-note">${esc(A.actionsNote)}</p>`);
   }
 
+  /* optional: back link to another category, site cases show the web section first */
+  if (A.category) document.querySelector('.back').href = 'projetos.html#' + encodeURIComponent(A.category);
+  if (A.webFirst) $('celular').before($('web'));
+  if (A.phoneTitle) $('celular').querySelector('h2').innerHTML = A.phoneTitle;
+
   const parts = [];
+  const phoneSec = () => {
   /* ---------- phone screens ---------- */
   if (A.phone && A.phone.length) {
     $('celular').hidden = false; parts.push(['celular', 'Celular']);
@@ -69,6 +75,8 @@
     });
   }
 
+  };
+  const webSec = () => {
   /* ---------- web screens ---------- */
   if (A.web && A.web.length) {
     $('web').hidden = false; parts.push(['web', A.webLabel || 'Sistema web']);
@@ -100,6 +108,8 @@
     addEventListener('pointerup', () => { d = null; screen.classList.remove('grab'); });
     show(0);
   }
+  };
+  if (A.webFirst) { webSec(); phoneSec(); } else { phoneSec(); webSec(); }
 
   /* ---------- brand ---------- */
   if (A.brand) { $('marca').hidden = false; parts.push(['marca', 'Marca']); $('apBrand').src = dir + A.brand + '.webp'; $('apBrand').alt = `Identidade visual ${A.name}`; }
