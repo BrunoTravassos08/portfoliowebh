@@ -444,6 +444,11 @@ a.card { text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .new-badge i::after { animation: none; } }
 .card .pic .new-badge { position: absolute; top: 12px; left: 12px; margin: 0; z-index: 3; background: #f3f3f3; color: #1d1d1d; font-size: 11px; padding: 5px 10px 5px 8px; }
 
+/* Aviso de vídeo novo no topo da página inicial */
+.hero-new { justify-self: start; margin: 0; text-decoration: none; transition: transform .4s var(--ease), opacity .3s; }
+.hero-new:hover { transform: translateY(2px); opacity: .85; }
+.hero-new svg { margin-left: 2px; }
+
 /* Início · Vídeos novos (edits do DeLuccky): P&B parado, cor + prévia muda no hover, clique toca com som */
 .vid-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 24px); }
 .vid-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 6px; background: #111; }
