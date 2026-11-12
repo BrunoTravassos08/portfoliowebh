@@ -449,6 +449,11 @@ a.card { text-decoration: none; }
 .hero-new:hover { transform: translateY(2px); opacity: .85; }
 .hero-new svg { margin-left: 2px; }
 
+/* Vídeos novos colado nos projetos: sem o vão duplo entre duas seções escuras, só uma linha separando */
+.vids { padding-bottom: clamp(48px, 5vw, 72px); }
+.vids + section { padding-top: clamp(48px, 5vw, 72px); }
+.vids + section::before { content: ""; display: block; border-top: 1px solid var(--line); margin-bottom: clamp(48px, 5vw, 72px); }
+
 /* Início · Vídeos novos (edits do DeLuccky): P&B parado, cor + prévia muda no hover, clique toca com som */
 .vid-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 24px); }
 .vid-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 6px; background: #111; }
