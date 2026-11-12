@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=20261111a">
+<link rel="stylesheet" href="style.css?v=20261112a">
 <canvas id="stage" aria-hidden="true"></canvas>
 <div class="cursor" aria-hidden="true"><span>arraste</span></div>
 <header class="top wrap">
@@ -53,6 +53,66 @@
     <div class="more">
       <p><span class="count" id="total"></span> projetos no portfólio completo</p>
       <a class="btn solid magnet" href="projetos.html">Ver todos os projetos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10"/></svg></a>
+    </div>
+  </section>
+
+  <section class="wrap vids" id="videos" data-tone="dark" data-scene="work" aria-labelledby="vidh">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Vídeos novos · DeLuccky</p>
+        <h2 id="vidh">Edits <em>recém-saídas</em></h2>
+      </div>
+      <p class="hint"><span class="on-fine">Passe o mouse para uma prévia, clique para assistir com som</span><span class="on-touch">Toque para assistir com som</span></p>
+    </div>
+    <ul class="vid-list">
+      <li class="vid">
+        <div class="vid-media">
+          <img src="img/deluccky/kill-varada.webp" alt="" loading="lazy" width="960" height="540">
+          <video data-src="img/deluccky/kill-varada.mp4" poster="img/deluccky/kill-varada.webp" muted playsinline preload="none" width="1280" height="720" aria-label="Edit 2 Kill de varada"></video>
+          <span class="new-badge"><i></i>Novo</span>
+          <button type="button" class="vid-play" aria-label="Assistir 2 Kill de varada com som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button>
+          <time>0:22</time>
+        </div>
+        <h3>2 Kill de varada</h3>
+        <p>Edit de AWP · Nuke · <a href="deluccky.html?edit=kill-varada#edits">ver no case</a></p>
+      </li>
+      <li class="vid">
+        <div class="vid-media">
+          <img src="img/deluccky/defuse-fail.webp" alt="" loading="lazy" width="960" height="540">
+          <video data-src="img/deluccky/defuse-fail.mp4" poster="img/deluccky/defuse-fail.webp" muted playsinline preload="none" width="1280" height="720" aria-label="Edit Defuse fail"></video>
+          <span class="new-badge"><i></i>Novo</span>
+          <button type="button" class="vid-play" aria-label="Assistir Defuse fail com som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button>
+          <time>1:04</time>
+        </div>
+        <h3>Defuse fail</h3>
+        <p>Edit de CS2 · Dust II · <a href="deluccky.html?edit=defuse-fail#edits">ver no case</a></p>
+      </li>
+      <li class="vid">
+        <div class="vid-media">
+          <img src="img/deluccky/rocambolezinho.webp" alt="" loading="lazy" width="960" height="540">
+          <video data-src="img/deluccky/rocambolezinho.mp4" poster="img/deluccky/rocambolezinho.webp" muted playsinline preload="none" width="1280" height="720" aria-label="Edit Meu rocambolezinho"></video>
+          <span class="new-badge"><i></i>Novo</span>
+          <button type="button" class="vid-play" aria-label="Assistir Meu rocambolezinho com som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button>
+          <time>0:38</time>
+        </div>
+        <h3>Meu rocambolezinho</h3>
+        <p>Edit de CS2 · Mirage · <a href="deluccky.html?edit=rocambolezinho#edits">ver no case</a></p>
+      </li>
+      <li class="vid">
+        <div class="vid-media">
+          <img src="img/deluccky/nike-007.webp" alt="" loading="lazy" width="960" height="540">
+          <video data-src="img/deluccky/nike-007.mp4" poster="img/deluccky/nike-007.webp" muted playsinline preload="none" width="1280" height="720" aria-label="Edit Nike 007 xitado"></video>
+          <span class="new-badge"><i></i>Novo</span>
+          <button type="button" class="vid-play" aria-label="Assistir Nike 007 xitado com som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></button>
+          <time>1:00</time>
+        </div>
+        <h3>Nike 007 xitado</h3>
+        <p>Edit de AWP · Mirage · <a href="deluccky.html?edit=nike-007#edits">ver no case</a></p>
+      </li>
+    </ul>
+    <div class="more">
+      <p>Mais 8 edits, identidade visual e link na bio no case completo</p>
+      <a class="btn solid magnet" href="deluccky.html#edits">Ver o case DeLuccky <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10"/></svg></a>
     </div>
   </section>
 
@@ -156,4 +216,4 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 <script src="data.js?v=20261112a" defer></script>
-<script src="app.js?v=20261111a" defer></script>
+<script src="app.js?v=20261112a" defer></script>

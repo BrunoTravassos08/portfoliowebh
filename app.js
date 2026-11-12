@@ -59,6 +59,35 @@
   });
 
   /* ---------- featured cases with carousels (home) ---------- */
+  /* Início · Vídeos novos: prévia muda no hover (mouse), clique toca com som; só um vídeo por vez */
+  const vids = [...document.querySelectorAll('.vid')];
+  if (vids.length) {
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const arm = v => { if (!v.src) v.src = v.dataset.src; };
+    const stop = (el, keep) => { if (el === keep) return; const v = el.querySelector('video'); v.pause(); el.classList.remove('preview', 'playing'); v.controls = false; v.muted = true; };
+    vids.forEach(el => {
+      const v = el.querySelector('video');
+      el.querySelector('.vid-play').addEventListener('click', () => {
+        vids.forEach(o => stop(o, el));
+        document.querySelectorAll('video').forEach(o => { if (o !== v && !o.paused && !o.muted) o.pause(); });
+        arm(v);
+        el.classList.remove('preview'); el.classList.add('playing');
+        v.controls = true; v.muted = false; v.loop = false; v.currentTime = 0;
+        v.play().catch(() => {});
+        v.focus({ preventScroll: true });
+      });
+      v.addEventListener('ended', () => stop(el));
+      if (fine && !reduce) {
+        el.addEventListener('mouseenter', () => { if (el.classList.contains('playing')) return; arm(v); v.loop = true; v.play().then(() => { if (!el.classList.contains('playing')) el.classList.add('preview'); }).catch(() => {}); });
+        el.addEventListener('mouseleave', () => { if (el.classList.contains('playing')) return; v.pause(); el.classList.remove('preview'); });
+      }
+    });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) { const el = e.target; if (el.classList.contains('playing')) { el.querySelector('video').pause(); } } }), { threshold: 0 });
+      vids.forEach(el => io.observe(el));
+    }
+  }
+
   const featured = document.getElementById('featured');
   if (featured) {
     // carrossel da home: `home` no data.js, senão os slides (3+), senão capa + marca + telas do app

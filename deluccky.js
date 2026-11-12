@@ -4,6 +4,10 @@
 
   /* ---------- edits player ---------- */
   const EDITS = [
+    { id: 'kill-varada', name: '2 Kill de varada', note: 'Edit de AWP · Nuke', time: '0:22', isNew: true },
+    { id: 'defuse-fail', name: 'Defuse fail', note: 'Edit de CS2 · Dust II', time: '1:04', isNew: true },
+    { id: 'rocambolezinho', name: 'Meu rocambolezinho', note: 'Edit de CS2 · Mirage', time: '0:38', isNew: true },
+    { id: 'nike-007', name: 'Nike 007 xitado', note: 'Edit de AWP · Mirage', time: '1:00', isNew: true },
     { id: 'rapture', name: 'Ruptura de AWP', note: 'Edit de AWP', time: '0:35' },
     { id: 'ancora', name: 'Âncora', note: 'Bomb B · Cache', time: '0:37' },
     { id: 'acido', name: 'Ácido', note: 'Edit de CS2', time: '0:28' },
@@ -17,7 +21,7 @@
   const list = document.getElementById('plList');
   if (video && list) {
     list.innerHTML = EDITS.map((e, i) => `<li><button type="button" data-i="${i}" aria-current="${i === 0}">
-      <span class="th"><img src="img/deluccky/${e.id}.webp" alt="" loading="lazy" width="320" height="180"><time>${e.time}</time></span>
+      <span class="th"><img src="img/deluccky/${e.id}.webp" alt="" loading="lazy" width="320" height="180">${e.isNew ? '<i class="dl-new">Novo</i>' : ''}<time>${e.time}</time></span>
       <span><b>${e.name}</b><small>${e.note}</small></span></button></li>`).join('');
     const btns = [...list.querySelectorAll('button')];
     const load = (i, play) => {
@@ -26,9 +30,15 @@
       video.src = `img/deluccky/${e.id}.mp4`;
       video.setAttribute('aria-label', `Edit ${e.name}`);
       btns.forEach((b, j) => b.setAttribute('aria-current', i === j));
+      const b = btns[i].parentElement;
+      if (list.scrollHeight > list.clientHeight + 2 && (b.offsetTop < list.scrollTop || b.offsetTop + b.offsetHeight > list.scrollTop + list.clientHeight))
+        list.scrollTo({ top: b.offsetTop - 4, behavior: 'smooth' });
       if (play) video.play().catch(() => {});
     };
-    load(0, false);
+    // deluccky.html?edit=<id>#edits abre direto naquela edit (links da página inicial)
+    const want = new URLSearchParams(location.search).get('edit');
+    const start = Math.max(0, EDITS.findIndex(e => e.id === want));
+    load(start, false);
     list.addEventListener('click', ev => {
       const b = ev.target.closest('button');
       if (b) load(+b.dataset.i, true);

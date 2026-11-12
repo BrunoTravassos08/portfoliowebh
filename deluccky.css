@@ -27,7 +27,12 @@
   border: 3px solid var(--dl-contorno); box-shadow: 8px 8px 0 var(--dl-verde);
 }
 .dl-screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; display: block; }
-.dl-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: ed; }
+.dl-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: ed; align-content: start; position: relative; }
+/* desktop: a lista tem a altura do player e rola por dentro (12 edits) */
+@media (min-width: 861px) {
+  .dl-player { align-items: stretch; }
+  .dl-list { height: 0; min-height: 100%; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: var(--line) transparent; overscroll-behavior: contain; }
+}
 .dl-list button {
   all: unset; box-sizing: border-box; cursor: pointer; width: 100%;
   display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; align-items: center;
@@ -39,6 +44,7 @@
 .dl-list .th { position: relative; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; background: #000; }
 .dl-list .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .dl-list .th time { position: absolute; right: 4px; bottom: 4px; font-size: 11px; padding: 1px 6px; border-radius: 6px; background: rgba(0,0,0,.75); color: #fff; font-variant-numeric: tabular-nums; }
+.dl-list .th .dl-new { position: absolute; left: 4px; top: 4px; font-style: normal; font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 6px; background: var(--dl-verde); color: #fff; }
 .dl-list b { display: block; font-family: var(--dl-display); font-weight: 400; font-size: 20px; line-height: 1.1; letter-spacing: .01em; }
 .dl-list small { display: block; color: var(--mute); font-size: 13px; font-weight: 300; margin-top: 3px; }
 .dl-list button[aria-current="true"] b { color: var(--dl-verde); }
@@ -80,6 +86,7 @@
   .dl-player { grid-template-columns: 1fr; }
   .dl-screen { box-shadow: 5px 5px 0 var(--dl-verde); }
   .dl-list button { grid-template-columns: 96px minmax(0, 1fr); }
+  .dl-list { max-height: 560px; overflow-y: auto; overscroll-behavior: contain; }
   .dl-deck .stage { border-radius: 12px; box-shadow: 5px 5px 0 var(--dl-contorno); }
   .dl-deck .thumbs button { width: 80px; }
   .dl-deck .full { display: none !important; }

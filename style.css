@@ -443,3 +443,31 @@ a.card { text-decoration: none; }
 @keyframes newPing { from { transform: scale(1); opacity: .9; } to { transform: scale(2.8); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .new-badge i::after { animation: none; } }
 .card .pic .new-badge { position: absolute; top: 12px; left: 12px; margin: 0; z-index: 3; background: #f3f3f3; color: #1d1d1d; font-size: 11px; padding: 5px 10px 5px 8px; }
+
+/* Início · Vídeos novos (edits do DeLuccky): P&B parado, cor + prévia muda no hover, clique toca com som */
+.vid-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 24px); }
+.vid-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 6px; background: #111; }
+.vid-media > img, .vid-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.08); transition: filter .9s var(--ease), transform 1.2s var(--ease), opacity .5s var(--ease); }
+.vid-media video { opacity: 0; background: #000; }
+.vid.preview .vid-media video, .vid.playing .vid-media video { opacity: 1; }
+.vid:hover .vid-media > img, .vid:hover .vid-media video, .vid.playing .vid-media video { filter: grayscale(0) contrast(1); }
+.vid:hover .vid-media > img { transform: scale(1.04); }
+.vid.playing .vid-media video { object-fit: contain; z-index: 2; }
+.vid-media .new-badge { position: absolute; top: 10px; left: 10px; margin: 0; z-index: 1; background: #f3f3f3; color: #1d1d1d; font-size: 11px; padding: 5px 10px 5px 8px; }
+.vid-media time { position: absolute; right: 10px; bottom: 10px; z-index: 1; background: rgba(20,20,20,.72); color: #f3f3f3; font-size: 12px; padding: 3px 9px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.vid-play { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; width: 100%; border: 0; padding: 0; background: transparent; color: #1d1d1d; cursor: pointer; }
+.vid-play svg { width: 58px; height: 58px; padding: 16px 14px 16px 18px; box-sizing: border-box; border-radius: 50%; background: #f3f3f3; transition: transform .5s var(--ease), background-color .3s; }
+.vid:hover .vid-play svg { transform: scale(1.12); }
+.vid-play:focus-visible { outline: 2px solid #f3f3f3; outline-offset: -4px; border-radius: 6px; }
+.vid.playing .new-badge, .vid.playing time, .vid.playing .vid-play { display: none; }
+.vid h3 { margin: 16px 0 4px; font-size: clamp(18px, 1.4vw, 22px); letter-spacing: -.03em; font-weight: 500; line-height: 1.1; }
+.vid p { margin: 0; font-size: 14px; font-weight: 300; color: var(--mute); }
+.vid p a { color: var(--fg); text-underline-offset: 3px; }
+.vids .on-touch { display: none; }
+@media (hover: none), (pointer: coarse) { .vids .on-fine { display: none; } .vids .on-touch { display: inline; } }
+@media (max-width: 1100px) { .vid-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .vid-list { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); scrollbar-width: none; }
+  .vid-list::-webkit-scrollbar { display: none; }
+  .vid { scroll-snap-align: start; }
+}
