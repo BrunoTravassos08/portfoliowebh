@@ -80,7 +80,9 @@
           <h2 id="vt-h-${c.id}">${esc(c.name)}</h2>
         </div>
         <p class="vt-desc">${esc(c.desc)} <a href="${c.link}">${esc(c.linkText)} →</a></p>
+        <button type="button" class="vt-toggle" aria-expanded="true" aria-controls="vt-body-${c.id}"><span class="vt-tg-label">Recolher</span><span class="vt-tg-ic" aria-hidden="true"></span></button>
       </header>
+      <div class="vt-body" id="vt-body-${c.id}"><div class="vt-body-in">
       <ul class="vt-grid">${c.items.map((v, i) => {
         const it = ALL.find(a => a.key === `${c.id}/${v.id}`);
         return `<li class="vt-card" data-key="${it.key}" style="--ar:${tall ? arVal(it.ratio === '9:16' ? '4:5' : it.ratio) : '16 / 9'}">
@@ -97,8 +99,30 @@
           </button>
         </li>`;
       }).join('')}</ul>
+      </div></div>
     </section>`;
   }).join('');
+
+  /* ---------- prateleiras retráteis (clique no título ou no botão) ---------- */
+  const setOpen = (sh, open) => {
+    sh.classList.toggle('closed', !open);
+    const b = sh.querySelector('.vt-toggle');
+    b.setAttribute('aria-expanded', open);
+    b.querySelector('.vt-tg-label').textContent = open ? 'Recolher' : `Abrir · ${sh.querySelectorAll('.vt-card').length}`;
+    sh.querySelector('.vt-body').inert = !open;
+  };
+  shelves.querySelectorAll('.vt-shelf').forEach(sh => {
+    sh.querySelector('.vt-shelf-head').addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      setOpen(sh, sh.classList.contains('closed'));
+    });
+  });
+  document.getElementById('vtToggleAll').addEventListener('click', e => {
+    const all = [...shelves.querySelectorAll('.vt-shelf:not([hidden])')];
+    const open = all.every(sh => sh.classList.contains('closed'));
+    all.forEach(sh => setOpen(sh, open));
+    e.currentTarget.textContent = open ? 'Recolher todas' : 'Abrir todas';
+  });
 
   /* ---------- theater ---------- */
   const th = document.getElementById('vtTheater');
@@ -185,7 +209,7 @@
     const b = e.target.closest('button'); if (!b) return;
     const f = b.dataset.f;
     filters.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
-    document.querySelectorAll('.vt-shelf').forEach(s => { s.hidden = f !== 'all' && s.dataset.cat !== f; });
+    document.querySelectorAll('.vt-shelf').forEach(s => { s.hidden = f !== 'all' && s.dataset.cat !== f; if (f !== 'all' && !s.hidden) setOpen(s, true); });
     list = f === 'all' ? ALL : ALL.filter(v => v.cat.id === f);
     if (!list.includes(cur)) load(list[0], false); else renderInfo();
     shelves.classList.remove('in'); void shelves.offsetWidth; shelves.classList.add('in');
