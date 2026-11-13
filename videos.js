@@ -4,6 +4,14 @@
 (() => {
   const LIB = [
     {
+      id: 'animacao', name: 'Animação narrada', client: 'Motion graphics',
+      desc: 'Histórias curtas contadas com pictogramas em preto e branco: motion graphics 2D com narração, efeitos sonoros e legenda, no formato vertical dos Reels e do TikTok.',
+      link: 'sobre.html#contato', linkText: 'Quero um vídeo assim',
+      items: [
+        { id: 'corrida-dos-ratos', name: 'Corrida dos Ratos', note: 'Animação 2D narrada · Reels 9:16', time: '1:21', src: 'videos/corrida-dos-ratos.mp4', poster: 'videos/corrida-dos-ratos.webp', ratio: '9:16', isNew: true }
+      ]
+    },
+    {
       id: 'edits', name: 'Edits de CS2', client: 'DeLuccky',
       desc: 'Gameplay de Counter-Strike 2 virando edit: cortes no ritmo da música, zoom, velocidade e efeitos, para o canal do DeLuccky.',
       link: 'deluccky.html#edits', linkText: 'Ver o case DeLuccky',
