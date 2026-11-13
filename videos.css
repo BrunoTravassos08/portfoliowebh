@@ -154,12 +154,9 @@
   .vt-ctrl { margin-top: 20px; }
   .vt-next { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
   .vt-next .eyebrow { flex: none; margin-bottom: 10px; }
-  .vt-next ol { flex: 1 1 auto; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
-  .vt-next ol.fit li { flex: 1 0 auto; display: flex; }
-  .vt-next ol.fit button { align-items: center; }
-  .vt-next li.cut { display: none !important; }
-  .vt-arrow { width: 40px; height: 40px; }
-  .vt-ctrl { gap: 10px; }
+  .vt-next ol { flex: 1 1 auto; min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+  .vt-next li:last-child { border-bottom: 0; }
+  .vt-next ol { border-bottom: 1px solid var(--line); }
   .vt-next button { padding: 10px 0; grid-template-columns: 88px minmax(0, 1fr); }
 }
 @media (max-width: 1100px) { .vt-next li:nth-child(n+4) { display: none; } }
