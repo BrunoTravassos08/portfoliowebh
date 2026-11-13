@@ -72,7 +72,7 @@
   shelves.innerHTML = LIB.map((c, ci) => {
     const t = c.items.reduce((a, v) => a + secs(v.time), 0);
     const tall = c.items.every(v => (v.ratio || '16:9') !== '16:9');
-    return `<section class="vt-shelf${tall ? ' tall' : ''}" id="${c.id}" data-cat="${c.id}" aria-labelledby="vt-h-${c.id}">
+    return `<section class="vt-shelf closed${tall ? ' tall' : ''}" id="${c.id}" data-cat="${c.id}" aria-labelledby="vt-h-${c.id}">
       <header class="vt-shelf-head">
         <span class="vt-num" aria-hidden="true">${pad(ci + 1)}</span>
         <div>
@@ -80,7 +80,7 @@
           <h2 id="vt-h-${c.id}">${esc(c.name)}</h2>
         </div>
         <p class="vt-desc">${esc(c.desc)} <a href="${c.link}">${esc(c.linkText)} →</a></p>
-        <button type="button" class="vt-toggle" aria-expanded="true" aria-controls="vt-body-${c.id}"><span class="vt-tg-label">Recolher</span><span class="vt-tg-ic" aria-hidden="true"></span></button>
+        <button type="button" class="vt-toggle" aria-expanded="false" aria-controls="vt-body-${c.id}"><span class="vt-tg-label">Abrir · ${c.items.length}</span><span class="vt-tg-ic" aria-hidden="true"></span></button>
       </header>
       <div class="vt-body" id="vt-body-${c.id}"><div class="vt-body-in">
       <ul class="vt-grid">${c.items.map((v, i) => {
@@ -110,8 +110,11 @@
     b.setAttribute('aria-expanded', open);
     b.querySelector('.vt-tg-label').textContent = open ? 'Recolher' : `Abrir · ${sh.querySelectorAll('.vt-card').length}`;
     sh.querySelector('.vt-body').inert = !open;
+    const btn = document.getElementById('vtToggleAll');
+    if (btn) btn.textContent = [...shelves.querySelectorAll('.vt-shelf:not([hidden])')].some(x => x.classList.contains('closed')) ? 'Abrir todas' : 'Recolher todas';
   };
   shelves.querySelectorAll('.vt-shelf').forEach(sh => {
+    sh.querySelector('.vt-body').inert = true; // começa fechada; o visitante escolhe abrir
     sh.querySelector('.vt-shelf-head').addEventListener('click', e => {
       if (e.target.closest('a')) return;
       setOpen(sh, sh.classList.contains('closed'));
@@ -119,9 +122,8 @@
   });
   document.getElementById('vtToggleAll').addEventListener('click', e => {
     const all = [...shelves.querySelectorAll('.vt-shelf:not([hidden])')];
-    const open = all.every(sh => sh.classList.contains('closed'));
+    const open = all.some(sh => sh.classList.contains('closed'));
     all.forEach(sh => setOpen(sh, open));
-    e.currentTarget.textContent = open ? 'Recolher todas' : 'Abrir todas';
   });
 
   /* ---------- theater ---------- */
