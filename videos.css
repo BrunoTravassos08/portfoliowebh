@@ -54,7 +54,7 @@
 .vt-lib { padding-top: clamp(20px, 2.4vw, 32px); padding-bottom: clamp(56px, 6vw, 96px); }
 .vt-bar { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 62px); z-index: 3; display: flex; align-items: center; gap: 12px; padding: 14px 0; margin: 0 0 clamp(12px, 1.6vw, 20px); background: var(--bg); transition: background-color .8s var(--ease); }
 .vt-filters { margin: 0; flex: 1 1 auto; min-width: 0; }
-.vt-all { flex: none; position: relative; z-index: 1; background: var(--bg); padding-left: 12px !important; box-shadow: -16px 0 12px var(--bg); font: inherit; font-size: 13px; color: var(--mute); background: none; border: 0; padding: 8px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.vt-all { flex: none; position: relative; z-index: 1; padding-left: 12px !important; font: inherit; font-size: 13px; color: var(--mute); background: none; border: 0; padding: 8px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
 .vt-all:hover { color: var(--fg); }
 .vt-shelves { display: grid; gap: clamp(20px, 2vw, 28px); }
 .vt-shelves.in .vt-shelf:not([hidden]) { animation: vtIn .7s var(--ease) both; }
@@ -144,3 +144,20 @@
   .vt-screen { border-radius: 6px; }
   .vt-corner { display: none; }
 }
+
+/* desktop: a coluna ao lado do player tem exatamente a altura dele; "A seguir" rola por dentro e termina alinhado à base do vídeo */
+@media (min-width: 1101px) {
+  .vt-stage { align-items: stretch; }
+  .vt-side { display: flex; flex-direction: column; gap: 22px; height: 0; min-height: 100%; }
+  .vt-info { flex: none; }
+  .vt-info .eyebrow { margin-top: -2px; }
+  .vt-ctrl { margin-top: 20px; }
+  .vt-next { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+  .vt-next .eyebrow { flex: none; margin-bottom: 10px; }
+  .vt-next ol { flex: 1 1 auto; min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+  .vt-next li:last-child { border-bottom: 0; }
+  .vt-next ol { border-bottom: 1px solid var(--line); }
+  .vt-next button { padding: 10px 0; grid-template-columns: 88px minmax(0, 1fr); }
+}
+@media (max-width: 1100px) { .vt-next li:nth-child(n+4) { display: none; } }
+@media (max-width: 860px) { .vt-all { background: var(--bg); box-shadow: -16px 0 12px var(--bg); } }

@@ -158,7 +158,7 @@
         <button type="button" class="vt-arrow" data-step="1" aria-label="Próximo vídeo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
         ${v.case ? `<a class="vt-case" href="${v.case}">ver no case →</a>` : ''}
       </div>`;
-    const ups = [1, 2, 3].map(k => nextOf(v, k)).filter((u, k, a) => u !== v && a.indexOf(u) === k);
+    const ups = [1, 2, 3, 4, 5, 6].map(k => nextOf(v, k)).filter((u, k, a) => u !== v && a.indexOf(u) === k);
     nextList.innerHTML = ups.length ? `<p class="eyebrow">A seguir</p><ol>${ups.map(u => `<li><button type="button" data-key="${u.key}">
       <span class="vt-thumb" style="--ar:${arVal(u.ratio)}"><img src="img/${u.poster}" alt="" loading="lazy" width="160" height="90"></span>
       <span><strong>${esc(u.name)}</strong><small>${esc(u.cat.name)} · ${u.time}</small></span></button></li>`).join('')}</ol>` : '';
