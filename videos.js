@@ -163,6 +163,16 @@
       <span class="vt-thumb" style="--ar:${arVal(u.ratio)}"><img src="img/${u.poster}" alt="" loading="lazy" width="160" height="90"></span>
       <span><strong>${esc(u.name)}</strong><small>${esc(u.cat.name)} · ${u.time}</small></span></button></li>`).join('')}</ol>` : '';
   };
+  // desktop: mostra só os próximos que cabem inteiros na altura do player (sem cortar nem rolar)
+  const fitNext = () => {
+    const ol = nextList.querySelector('ol'); if (!ol) return;
+    const lis = [...ol.children]; ol.classList.remove('fit'); lis.forEach(li => li.classList.remove('cut'));
+    if (getComputedStyle(ol).overflow !== 'hidden') return;
+    const bottom = ol.getBoundingClientRect().bottom + 1;
+    lis.forEach((li, k) => { if (k > 0 && li.getBoundingClientRect().bottom > bottom) li.classList.add('cut'); });
+    ol.classList.add('fit'); // os que ficaram dividem a altura, a última linha fecha na base do vídeo
+  };
+  addEventListener('resize', fitNext);
   const mark = () => document.querySelectorAll('.vt-card').forEach(c => c.classList.toggle('current', c.dataset.key === cur.key));
 
   const load = (v, play) => {
@@ -184,7 +194,7 @@
     } else {
       th.classList.remove('playing'); video.controls = false;
     }
-    renderInfo(); mark();
+    renderInfo(); mark(); fitNext();
     try { history.replaceState(null, '', `?v=${encodeURIComponent(v.key)}${location.hash}`); } catch (e) {}
   };
   const go = (v, scroll) => {
@@ -222,7 +232,7 @@
     filters.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
     document.querySelectorAll('.vt-shelf').forEach(s => { s.hidden = f !== 'all' && s.dataset.cat !== f; if (f !== 'all' && !s.hidden) setOpen(s, true); });
     list = f === 'all' ? ALL : ALL.filter(v => v.cat.id === f);
-    if (!list.includes(cur)) load(list[0], false); else renderInfo();
+    if (!list.includes(cur)) load(list[0], false); else { renderInfo(); fitNext(); }
     shelves.classList.remove('in'); void shelves.offsetWidth; shelves.classList.add('in');
   });
 
