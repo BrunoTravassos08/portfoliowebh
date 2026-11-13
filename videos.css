@@ -33,7 +33,7 @@
 @keyframes vtPulse { 50% { opacity: .2; } }
 .vt-info h2 { margin: 0; font-size: clamp(30px, 3.4vw, 52px); font-weight: 600; letter-spacing: -.05em; line-height: .95; text-wrap: balance; }
 .vt-note { margin: 14px 0 0; color: var(--mute); font-weight: 300; font-size: 15px; }
-.vt-ctrl { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.vt-ctrl { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
 .vt-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--fg); display: grid; place-items: center; cursor: pointer; transition: background-color .3s, color .3s, border-color .3s; }
 .vt-arrow svg { width: 18px; height: 18px; }
 .vt-arrow:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
@@ -151,7 +151,7 @@
   .vt-side { display: flex; flex-direction: column; gap: 22px; height: 0; min-height: 100%; }
   .vt-info { flex: none; }
   .vt-info .eyebrow { margin-top: -2px; }
-  .vt-ctrl { margin-top: 20px; }
+  .vt-ctrl { flex: none; }
   .vt-next { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
   .vt-next .eyebrow { flex: none; margin-bottom: 10px; }
   .vt-next ol { flex: 1 1 auto; min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }

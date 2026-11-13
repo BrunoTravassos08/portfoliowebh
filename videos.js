@@ -142,6 +142,7 @@
   const bg = th.querySelector('.vt-bg');
   const big = th.querySelector('.vt-big');
   const info = document.getElementById('vtInfo');
+  const ctrl = document.getElementById('vtCtrl'); // setas embaixo da lista A seguir
   const nextList = document.getElementById('vtNext');
   let list = ALL, cur = ALL[0], started = false;
 
@@ -151,13 +152,12 @@
     info.innerHTML = `
       <p class="eyebrow"><span class="vt-dot"></span>${started ? 'Tocando agora' : 'Em cartaz'} · ${esc(v.cat.name)}</p>
       <h2>${esc(v.name)}</h2>
-      <p class="vt-note">${esc(v.cat.client)} · ${esc(v.note)} · ${v.time}${v.silent ? ' · sem áudio' : ''}</p>
-      <div class="vt-ctrl">
+      <p class="vt-note">${esc(v.cat.client)} · ${esc(v.note)} · ${v.time}${v.silent ? ' · sem áudio' : ''}</p>`;
+    ctrl.innerHTML = `
         <button type="button" class="vt-arrow" data-step="-1" aria-label="Vídeo anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
         <span class="vt-count"><b>${pad(i + 1)}</b> / ${pad(list.length)}</span>
         <button type="button" class="vt-arrow" data-step="1" aria-label="Próximo vídeo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
-        ${v.case ? `<a class="vt-case" href="${v.case}">ver no case →</a>` : ''}
-      </div>`;
+        ${v.case ? `<a class="vt-case" href="${v.case}">ver no case →</a>` : ''}`;
     const ups = [1, 2, 3, 4, 5, 6].map(k => nextOf(v, k)).filter((u, k, a) => u !== v && a.indexOf(u) === k);
     nextList.innerHTML = ups.length ? `<p class="eyebrow">A seguir</p><ol>${ups.map(u => `<li><button type="button" data-key="${u.key}">
       <span class="vt-thumb" style="--ar:${arVal(u.ratio)}"><img src="img/${u.poster}" alt="" loading="lazy" width="160" height="90"></span>
@@ -197,7 +197,7 @@
 
   big.addEventListener('click', () => go(cur));
   video.addEventListener('ended', () => go(nextOf(cur)));
-  info.addEventListener('click', e => { const b = e.target.closest('[data-step]'); if (b) go(nextOf(cur, +b.dataset.step)); });
+  ctrl.addEventListener('click', e => { const b = e.target.closest('[data-step]'); if (b) go(nextOf(cur, +b.dataset.step)); });
   nextList.addEventListener('click', e => { const b = e.target.closest('[data-key]'); if (b) go(ALL.find(a => a.key === b.dataset.key)); });
   th.addEventListener('keydown', e => {
     if (e.target.closest('video') && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) return; // seek nativo
