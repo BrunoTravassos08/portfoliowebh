@@ -8,6 +8,7 @@
       desc: 'Histórias curtas contadas com pictogramas em preto e branco: motion graphics 2D com narração, efeitos sonoros e legenda, no formato vertical dos Reels e do TikTok.',
       link: 'sobre.html#contato', linkText: 'Quero um vídeo assim',
       items: [
+        { id: 'so-mais-cinco-minutos', name: 'Só mais cinco minutos', note: 'Animação 2D narrada · Reels 9:16', time: '1:29', src: 'videos/so-mais-cinco-minutos.mp4', poster: 'videos/so-mais-cinco-minutos.webp', ratio: '9:16', isNew: true },
         { id: 'corrida-dos-ratos', name: 'Corrida dos Ratos', note: 'Animação 2D narrada · Reels 9:16', time: '1:21', src: 'videos/corrida-dos-ratos.mp4', poster: 'videos/corrida-dos-ratos.webp', ratio: '9:16', isNew: true }
       ]
     },
