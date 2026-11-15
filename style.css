@@ -476,3 +476,7 @@ a.card { text-decoration: none; }
   .vid-list::-webkit-scrollbar { display: none; }
   .vid { scroll-snap-align: start; }
 }
+/* Início · vídeos novos verticais (4:5, 9:16): pôster desfocado atrás, vídeo inteiro no meio */
+.vid-tall .vid-media::before { content: ""; position: absolute; inset: -30px; background: var(--poster) center / cover no-repeat; filter: grayscale(1) blur(22px) brightness(.45); }
+.vid-tall .vid-media > img, .vid-tall .vid-media video { object-fit: contain; }
+.vid-tall .vid-media video { background: transparent; }
