@@ -51,3 +51,15 @@
 
 .ap-actions { justify-content: flex-start; align-items: center; margin-top: 40px; }
 .ap-actions .ap-note { flex-basis: 100%; margin: 4px 0 0; font-size: 14px; opacity: .65; }
+
+/* integrated tech logos under the facts (data.js apps.<id>.stack) */
+.ap-stack { list-style: none; margin: 2px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; }
+.ap-stack li { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 6px 10px; border: 1px solid var(--line); border-radius: 10px; text-align: center; transition: border-color .3s, transform .3s; }
+.ap-stack li:hover { border-color: currentColor; transform: translateY(-2px); }
+.ap-stack .tool-ic { width: 30px; }
+.ap-stack small { font-size: 11px; line-height: 1.2; color: var(--mute); }
+@media (max-width: 700px) {
+  .facts-list .ap-stack-row { grid-template-columns: 1fr; gap: 12px; }
+  .ap-stack { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); }
+  .ap-stack li { padding: 12px 4px 8px; }
+}

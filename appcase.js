@@ -18,6 +18,8 @@
   $('apWho').textContent = A.who;
   $('apLede').innerHTML = A.lede;
   $('apFacts').innerHTML = A.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+  /* optional: stack: [[name, 'img/tools/x.webp']] shows integrated tech logos as one more fact row */
+  if (A.stack && A.stack.length) $('apFacts').insertAdjacentHTML('beforeend', `<div class="ap-stack-row"><dt>${esc(A.stackLabel || 'Integrações')}</dt><dd><ul class="ap-stack">${A.stack.map(([n, ic]) => `<li title="${esc(n)}"><span class="tool-ic" style="--ic:url(${esc(ic)})" aria-hidden="true"></span><small>${esc(n)}</small></li>`).join('')}</ul></dd></div>`);
 
   /* optional buttons under the intro: actions: [[label, href, 'download'|'external']] */
   const dl = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14"/></svg>';
