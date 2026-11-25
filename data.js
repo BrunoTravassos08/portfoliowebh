@@ -168,6 +168,33 @@ window.SITE = {
       ],
       carousel: 'blocko-barberflow'
     },
+    atlas: {
+      name: 'Atlas', eyebrow: 'Case · App mobile com IA',
+      who: 'Uma central de inteligência que fala com você.',
+      lede: 'O Atlas é um <strong>assistente de IA por voz</strong> com cara de painel de filme: um núcleo animado que escuta, pensa e responde em voz alta, enquanto o painel ao lado mostra a resposta em <strong>cartões animados</strong>. Na configuração a pessoa escolhe o nome do agente, a IA que vai usar (<strong>ChatGPT, Gemini ou Claude</strong>, com a própria chave), os assuntos que quer acompanhar e a rotina do dia.<br><br>Todo dia ele abre com um <strong>briefing</strong>: clima, compromissos e as notícias dos assuntos escolhidos, lidos cartão por cartão. Pelo comando de voz (dá para chamar só dizendo "Atlas") ele anota na agenda, mostra placar de jogo com as cores dos times, monta gráficos, traduz, faz pesquisa aprofundada, cria plano de estudo, edita PDF (girar, excluir, reordenar e padronizar páginas), confere o Instagram e controla a música do celular. Também mostra <strong>quanto já foi gasto com a IA</strong> no mês, para não ter surpresa. Feito para Android, funciona deitado, em pé e no tablet.',
+      facts: [['Cliente', 'Projeto próprio'], ['Plataformas', 'App Android, tablet e web'], ['Entregas', 'Conceito e interface HUD, núcleo animado, configuração inicial em 4 passos, conexão com ChatGPT, Gemini ou Claude, comando de voz com palavra de ativação, briefing diário, cartões animados (placar, gráfico, clima, agenda, tradução), ferramentas de PDF, controle de gasto com a IA'], ['Ano', '2026']],
+      bg: '#040914', accent: '#43d9ff', status: '#040914', addr: 'Atlas · tela larga',
+      webLabel: 'Tela larga', webTitle: 'No tablet e na <em>tela larga.</em>',
+      phone: [
+        ['inicio', 'Você e a IA', 'O nome da pessoa, o nome do agente e a IA que ele vai usar: ChatGPT, Gemini ou Claude.'],
+        ['interesses', 'Interesses', 'Os assuntos que o Atlas pesquisa todo dia, a cidade e o time.'],
+        ['ativar', 'Ativar', 'Agente criado: um toque e o briefing do dia começa.'],
+        ['agenda', 'Agenda', 'O núcleo fala e o painel mostra os compromissos do dia.'],
+        ['placar', 'Placar', 'Resultado do jogo com escudos nas cores dos times, gols e estatísticas.'],
+        ['grafico', 'Gráfico', 'Três ou mais números viram gráfico animado de barras, linha ou pizza.'],
+        ['apresentacao', 'Apresentação', 'Respostas longas passam em cartões, como num telejornal.'],
+        ['traducao', 'Tradução', 'A tradução aparece no painel e é lida em voz alta no outro idioma.']
+      ],
+      web: [
+        ['agenda', 'Agenda', 'Na tela larga o núcleo fica à esquerda e o painel à direita.'],
+        ['placar', 'Placar', 'O placar entra animado ao lado do núcleo.'],
+        ['grafico', 'Gráfico', 'A temperatura da semana em gráfico de linha.'],
+        ['apresentacao', 'Apresentação', 'O resumo do dia, cartão por cartão.'],
+        ['traducao', 'Tradução', 'Português para inglês, com nota de tom.'],
+        ['inicio', 'Você e a IA', 'Configuração inicial sobre o núcleo apagado.'],
+        ['interesses', 'Interesses', 'Assuntos, cidade e pessoas para acompanhar.']
+      ]
+    },
     toca: {
       name: 'Toca do Respiro', eyebrow: 'Case · App mobile',
       who: 'Respire com o coelhinho.',
@@ -310,6 +337,12 @@ window.SITE = {
     }
   },
   projects: [
+    {
+      id: 'atlas', added: '2026-11-25', photo: 'apps/atlas/icon', photoLogo: true, page: 'app.html?a=atlas',
+      name: 'Atlas', role: 'Assistente de IA por voz', category: 'Apps e sistemas', featured: false,
+      summary: 'App Android de assistente de IA com interface HUD: fala e escuta, faz o briefing do dia e responde em cartões animados com agenda, placares, gráficos e traduções. Funciona com ChatGPT, Gemini ou Claude.',
+      tags: ['App mobile', 'UI design', 'IA'], slides: ['apps/atlas/cover']
+    },
     {
       id: 'brovier', added: '2026-11-12', photo: 'apps/brovier/icon', photoLogo: true, page: 'app.html?a=brovier',
       name: 'Brovier', role: 'Site de relojoaria premium', category: 'Webdesign', featured: false,
