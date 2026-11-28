@@ -18,6 +18,7 @@
       desc: 'Histórias curtas contadas com pictogramas em preto e branco: motion graphics 2D com narração, efeitos sonoros e legenda, no formato vertical dos Reels e do TikTok.',
       link: 'sobre.html#contato', linkText: 'Quero um vídeo assim',
       items: [
+        { id: 'uma-mesa-de-cada-vez', added: '2026-11-28T04:33', name: 'Uma mesa de cada vez', note: 'Animação 2D narrada · Reels 9:16', time: '1:36', src: 'videos/uma-mesa-de-cada-vez.mp4', poster: 'videos/uma-mesa-de-cada-vez.webp', ratio: '9:16' },
         { id: 'so-mais-cinco-minutos', added: '2026-11-13T03:20', name: 'Só mais cinco minutos', note: 'Animação 2D narrada · Reels 9:16', time: '1:29', src: 'videos/so-mais-cinco-minutos.mp4', poster: 'videos/so-mais-cinco-minutos.webp', ratio: '9:16' },
         { id: 'corrida-dos-ratos', added: '2026-11-13T03:19', name: 'Corrida dos Ratos', note: 'Animação 2D narrada · Reels 9:16', time: '1:21', src: 'videos/corrida-dos-ratos.mp4', poster: 'videos/corrida-dos-ratos.webp', ratio: '9:16' }
       ]
