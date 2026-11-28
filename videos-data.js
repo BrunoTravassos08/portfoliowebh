@@ -6,6 +6,14 @@
 (() => {
   const LIB = [
     {
+      id: 'comerciais', name: 'Comerciais', client: 'Motion graphics',
+      desc: 'Comerciais curtos em motion graphics: produto em cena, tipografia 3D, luz e ritmo de trailer, fechando com a chamada para ação.',
+      link: 'sobre.html#contato', linkText: 'Quero um comercial assim',
+      items: [
+        { id: 'nissan-370z', added: '2026-11-28T05:50', name: 'Nissan 370Z · Nismo', note: 'Anúncio conceito · motion 16:9', time: '0:28', src: 'videos/nissan-370z.mp4', poster: 'videos/nissan-370z.webp' }
+      ]
+    },
+    {
       id: 'vsl', name: 'VSL', client: 'Vídeos de venda',
       desc: 'Vídeos curtos de venda para anúncios e Reels: produto, benefícios e chamada para ação em poucos segundos, com ritmo, tipografia e trilha pensados para converter.',
       link: 'sobre.html#contato', linkText: 'Quero uma VSL assim',
