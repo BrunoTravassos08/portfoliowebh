@@ -4,10 +4,13 @@
 
   /* ---------- edits player ---------- */
   const EDITS = [
-    { id: 'kill-varada', name: '2 Kill de varada', note: 'Edit de AWP · Nuke', time: '0:22', isNew: true },
-    { id: 'defuse-fail', name: 'Defuse fail', note: 'Edit de CS2 · Dust II', time: '1:04', isNew: true },
-    { id: 'rocambolezinho', name: 'Meu rocambolezinho', note: 'Edit de CS2 · Mirage', time: '0:38', isNew: true },
-    { id: 'nike-007', name: 'Nike 007 xitado', note: 'Edit de AWP · Mirage', time: '1:00', isNew: true },
+    { id: 'o-suspeito', name: 'O suspeito', note: 'Edit de AWP com memes', time: '1:15', isNew: true },
+    { id: 'retake-b', name: 'Retake no B', note: 'Edit de CS2 · AWP e AK', time: '0:58', isNew: true },
+    { id: 'portas-meio', name: 'Portas do meio', note: 'Edit de AWP · Dust II', time: '0:46', isNew: true },
+    { id: 'kill-varada', name: '2 Kill de varada', note: 'Edit de AWP · Nuke', time: '0:22' },
+    { id: 'defuse-fail', name: 'Defuse fail', note: 'Edit de CS2 · Dust II', time: '1:04' },
+    { id: 'rocambolezinho', name: 'Meu rocambolezinho', note: 'Edit de CS2 · Mirage', time: '0:38' },
+    { id: 'nike-007', name: 'Nike 007 xitado', note: 'Edit de AWP · Mirage', time: '1:00' },
     { id: 'rapture', name: 'Ruptura de AWP', note: 'Edit de AWP', time: '0:35' },
     { id: 'ancora', name: 'Âncora', note: 'Bomb B · Cache', time: '0:37' },
     { id: 'acido', name: 'Ácido', note: 'Edit de CS2', time: '0:28' },

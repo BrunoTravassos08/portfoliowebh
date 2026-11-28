@@ -19,6 +19,9 @@
       desc: 'Gameplay de Counter-Strike 2 virando edit: cortes no ritmo da música, zoom, velocidade e efeitos, para o canal do DeLuccky.',
       link: 'deluccky.html#edits', linkText: 'Ver o case DeLuccky',
       items: [
+        { id: 'o-suspeito', added: '2026-11-28T00:03', name: 'O suspeito', note: 'Edit de AWP com memes', time: '1:15' },
+        { id: 'retake-b', added: '2026-11-28T00:02', name: 'Retake no B', note: 'Edit de CS2 · AWP e AK', time: '0:58' },
+        { id: 'portas-meio', added: '2026-11-28T00:01', name: 'Portas do meio', note: 'Edit de AWP · Dust II', time: '0:46' },
         { id: 'kill-varada', added: '2026-11-12', name: '2 Kill de varada', note: 'Edit de AWP · Nuke', time: '0:22', case: 'deluccky.html?edit=kill-varada#edits' },
         { id: 'defuse-fail', added: '2026-11-12', name: 'Defuse fail', note: 'Edit de CS2 · Dust II', time: '1:04', case: 'deluccky.html?edit=defuse-fail#edits' },
         { id: 'rocambolezinho', added: '2026-11-12', name: 'Meu rocambolezinho', note: 'Edit de CS2 · Mirage', time: '0:38', case: 'deluccky.html?edit=rocambolezinho#edits' },
