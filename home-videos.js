@@ -22,5 +22,5 @@
       </li>`;
   }).join('');
   const more = document.getElementById('vidMore');
-  if (more) more.textContent = `Mais ${ALL.length - top.length} vídeos na videoteca, entre ${window.BT_VIDEOS.LIB.map(c => c.name.charAt(0).toLowerCase() + c.name.slice(1)).join(', ').replace(/, ([^,]*)$/, ' e $1')}`;
+  if (more) more.textContent = `Mais ${ALL.length - top.length} vídeos na videoteca, entre ${window.BT_VIDEOS.LIB.map(c => /^[A-Z0-9]+$/.test(c.name) ? c.name : c.name.charAt(0).toLowerCase() + c.name.slice(1)).join(', ').replace(/, ([^,]*)$/, ' e $1')}`;
 })();

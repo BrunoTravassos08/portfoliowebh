@@ -6,6 +6,14 @@
 (() => {
   const LIB = [
     {
+      id: 'vsl', name: 'VSL', client: 'Vídeos de venda',
+      desc: 'Vídeos curtos de venda para anúncios e Reels: produto, benefícios e chamada para ação em poucos segundos, com ritmo, tipografia e trilha pensados para converter.',
+      link: 'sobre.html#contato', linkText: 'Quero uma VSL assim',
+      items: [
+        { id: 'aurelle-vsl', added: '2026-11-28T03:55', name: 'Aurelle · Sérum facial', note: 'VSL de 30 s · Reels 9:16', time: '0:30', src: 'videos/aurelle-vsl.mp4', poster: 'videos/aurelle-vsl.webp', ratio: '9:16' }
+      ]
+    },
+    {
       id: 'animacao', name: 'Animação narrada', client: 'Motion graphics',
       desc: 'Histórias curtas contadas com pictogramas em preto e branco: motion graphics 2D com narração, efeitos sonoros e legenda, no formato vertical dos Reels e do TikTok.',
       link: 'sobre.html#contato', linkText: 'Quero um vídeo assim',
